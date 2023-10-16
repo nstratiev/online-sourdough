@@ -7,11 +7,20 @@
 
 body {
   height: 100vh;
+}
+
+main {
   display: flex;
 
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.warning {
+  color: red;
+  margin: 10px;
+  text-align: center;
 }
 
 /* Common classes */
