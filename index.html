@@ -3,9 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My First Webpage</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <h1>Online Sourdough Calculator</h1>
+    <!-- 1.3 Хлебна формула -->
+    <article class="card">
+      <div class="card-title">(1.3) Хлебна формула</div>
+
+      <div class="card-body">
+        <!-- 1.3.1 -->
+        <div class="card-row">
+          <div class="cell-full italic bold dashed-t dashed-r dashed-l">
+            Квас
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="cell-1 internal-c1 dashed-l">Прфб., (%):</div>
+          <div class="cell-2 internal-c2 dashed-r">
+            <input
+              type="number"
+              placeholder="... 8.0% ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="cell-1 bottom-c1 dashed-l dashed-b">
+            h<span class="superscript-text">кв</span>, (%):
+          </div>
+          <div class="cell-2 bottom-c2 dashed-r dashed-b">
+            <input
+              type="number"
+              placeholder="... 85% ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+
+        <!-- Empty row -->
+        <div class="card-row-empty"></div>
+
+        <!-- 1.3.2 -->
+        <div class="card-row">
+          <div class="cell-1 single-c1 bold">Вода, (%):</div>
+          <div class="cell-2 single-c2">
+            <input
+              type="number"
+              placeholder="... 68% ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+
+        <!-- Empty row -->
+        <div class="card-row-empty"></div>
+
+        <div class="card-row">
+          <div class="cell-1 single-c1 bold">Сол, (%):</div>
+          <div class="cell-2 single-c2">
+            <input
+              type="number"
+              placeholder="... 2.0% ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">(2.3) Количество тесто</div>
+
+      <div class="card-body">
+        <div class="card-row">
+          <div class="cell-1 single-c1">Хлябове, (брой):</div>
+          <div class="cell-2 single-c2">
+            <input
+              type="number"
+              placeholder="... 3 ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+
+        <div class="math-row">
+          <div class="math-sign">x</div>
+        </div>
+
+        <div class="card-row">
+          <div class="cell-1 single-c1">
+            Тегло на отделен<br />
+            хляб, (g):
+          </div>
+          <div class="cell-2 single-c2">
+            <input
+              type="number"
+              placeholder="... 850 ..."
+              name=""
+              id=""
+              class="percentage-cell"
+            />
+          </div>
+        </div>
+
+        <div class="math-row">
+          <div class="math-sign bold equal-sign">=</div>
+        </div>
+
+        <div class="card-row">
+          <div class="cell-1 single-c1">Количество<br />тесто, (g):</div>
+          <div class="cell-2 single-c2 result"><span>2550</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">(3.3) Изчислена формула</div>
+
+      <div class="card-body">
+        <div class="card-row">
+          <div class="cell-1 single-c1">Брашно, (g):</div>
+          <div class="cell-2 single-c2 result"><span>1380</span></div>
+        </div>
+
+        <!-- Empty Row -->
+        <div class="card-row-empty"></div>
+
+        <div class="card-row">
+          <div class="cell-1 top-c1 dashed-l dashed-t">Квас, (g):</div>
+          <div class="cell-2 top-c2 result dashed-t dashed-r">222</div>
+        </div>
+
+        <div class="card-row">
+          <div
+            class="cell-1 internal-c1 italic small-font align-r border-none-r border-none-b dashed-l"
+          >
+            брашно (квас), (g):&nbsp;
+          </div>
+          <div
+            class="cell-2 internal-c2 italic small-font align-l border-none-l border-none-b dashed-r"
+          >
+            &nbsp;120
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div
+            class="cell-1 bottom-c1 italic small-font align-r border-none-r dashed-l dashed-b"
+          >
+            вода (квас), (g):&nbsp;
+          </div>
+          <div
+            class="cell-2 bottom-c2 italic small-font align-l border-none-l dashed-r dashed-b"
+          >
+            &nbsp;102
+          </div>
+        </div>
+
+        <!-- Empty Row -->
+        <div class="card-row-empty"></div>
+
+        <div class="card-row">
+          <div class="cell-1 single-c1">Вода, (g):</div>
+          <div class="cell-2 single-c2 result"><span>918</span></div>
+        </div>
+
+        <!-- Empty Row -->
+        <div class="card-row-empty"></div>
+
+        <div class="card-row">
+          <div class="cell-1 single-c1">Сол, (g):</div>
+          <div class="cell-2 single-c2 result"><span>30</span></div>
+        </div>
+      </div>
+    </article>
   </body>
 </html>
