@@ -1,0 +1,100 @@
+/* #-QUERIES */
+@media (max-width: 350px) {
+  .grid--2-cols {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+
+  .c2-single,
+  .c2-top,
+  .c2-internal,
+  .c2-bottom {
+    border-left: 1px solid black;
+  }
+
+  .c2-single,
+  .c2-internal,
+  .c2-bottom {
+    border-top: none;
+  }
+
+  /* #-QUERIES >>> Dashed borders */
+  .c1-bd-dsh-internal {
+    border-right: 2px dashed black;
+  }
+
+  .c2-bd-dsh-internal {
+    border-left: 2px dashed black;
+  }
+
+  .c1-bd-dsh-bottom {
+    border-right: 2px dashed black;
+    border-bottom: 1px solid black;
+  }
+
+  .c2-bd-dsh-bottom {
+    border-left: 2px dashed black;
+  }
+
+  /* #-QUERIES >>> Sourdough ingredients */
+  .c1-bd-dsh-top {
+    border-right: 2px dashed black;
+  }
+
+  .c2-bd-dsh-top {
+    border-left: 2px dashed black;
+  }
+
+  .c2-sd-bd-dsh-internal {
+    border-left: 2px dashed black;
+  }
+
+  .c2-sd-bd-dsh-bottom {
+    border-left: 2px dashed black;
+  }
+
+  .c1-overall-top {
+    border-top: 2px dotted black;
+    border-left: 2px dotted black;
+  }
+
+  /* #-QUERIES >>> Sourdough Overall Ingredients */
+  .c1-overall-top {
+    border-bottom: none;
+    border-right: 2px dotted black;
+  }
+
+  .c1-overall-bottom {
+    border-bottom: none;
+    border-right: 2px dotted black;
+  }
+
+  .c2-overall-top {
+    border-top: none;
+    border-left: 2px dotted black;
+  }
+
+  .c2-overall-bottom {
+    border-left: 2px dotted black;
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .btns-container {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
+  }
+}
