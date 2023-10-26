@@ -1,1 +1,0 @@
-# Online Sourdough Calculator

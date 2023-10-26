@@ -219,6 +219,7 @@ hr {
   color: white;
   font-weight: bold;
   padding: 4px 8px 4px 8px;
+  cursor: pointer;
 }
 
 .btn--submit {
