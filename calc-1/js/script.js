@@ -16,6 +16,10 @@ const loafsCountInput = document.getElementById('loafs-count');
 const loafWeightInput = document.getElementById('loaf-weight');
 
 // RESULT elements
+const resultContainersMain = document.getElementsByClassName('result');
+const resultContainersSecondary =
+  document.getElementsByClassName('result-secondary');
+
 const doughWeightElement = document.getElementById('dough-weight-result');
 const flourWeightElement = document.getElementById('flour-weight-result');
 const leavenWeightElement = document.getElementById('leaven-weight-result');
@@ -34,42 +38,37 @@ const btnSave_1 = document.getElementById('btn-save-col1');
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function () {
   getLocaleStorage();
-  if (!hasEmptyInputField()) {
+  if (!hasEmptyInputFieldValidation()) {
     mainCalculation();
   }
 });
 
 formMain.addEventListener('keypress', function (e) {
-  if (
-    e.keyCode === 13 &&
-    e.target.id !== 'btn-reset-col1' &&
-    e.target.id !== 'btn-save-col1'
-  ) {
+  if (e.keyCode === 13) {
     e.preventDefault();
-    mainCalculation();
   }
 });
 
-btnSubmit_1.addEventListener('click', function (e) {
-  e.preventDefault();
-  mainCalculation();
-});
-
-btnSave_1.addEventListener('click', setLocaleStorage);
-
-// Main Function
-function hasEmptyInputField() {
-  for (const elem of numberFields) {
-    const val = elem.value;
-
-    if (val === '') {
-      return true;
-    }
-  }
-
-  return false;
+for (const field of numberFields) {
+  field.addEventListener('focusout', (e) => {
+    const min = e.target.min;
+    const max = e.target.max;
+    valueRangeAlert_2(e.target, min, max);
+  });
 }
 
+// Buttons listeners
+document.querySelector('#btns-container').addEventListener('click', (e) => {
+  btnsGroupListener(e);
+});
+
+document.querySelector('#btns-container').addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    btnsGroupListener(e);
+  }
+});
+
+// Main Function
 function mainCalculation() {
   let loafsCount = loafsCountInput.value;
   let loafWeight = loafWeightInput.value;
@@ -79,10 +78,12 @@ function mainCalculation() {
   let leavenHydratationPercent = leavenHydratationPercentInput.value;
 
   // Validation
-  if (hasEmptyInputField()) {
-    alert('Необходимо е всички полета да бъдат попълнени!');
-    // alert('All fields required!');
-    return;
+  if (!emptyFieldsValidation()) {
+    return false;
+  }
+
+  if (!valuesRangeValidation()) {
+    return false;
   }
 
   // Inputs as percent
@@ -121,29 +122,10 @@ function mainCalculation() {
   waterTotalElement.textContent = totalWater.toFixed(0);
 
   setLocaleStorage();
+  return true;
 }
 
 // FUNCTIONS
-function getLocaleStorage() {
-  for (const key in localStorage) {
-    const val = localStorage.getItem(key);
-
-    console.log(`${key} >>> ${val}`);
-
-    if (typeof val === 'string') {
-      const elem = document.querySelector(`#${key}`);
-      if (elem !== null) {
-        elem.value = val;
-      }
-    }
-  }
-}
-
-function setLocaleStorage() {
-  for (const numrField of numberFields) {
-    localStorage.setItem(numrField.name, numrField.value);
-  }
-}
 
 function getTotalDoughWeight(loafsCount, loafWeight) {
   return loafsCount * loafWeight;
@@ -189,11 +171,152 @@ function getIngredientsForKneading(
   return obj;
 }
 
-/* function setInputsOnchangeListeners() {
-  for (const el of numberFields) {
-    el.addEventListener('change', function (e) {
-      localStorage.setItem(e.target.name, e.target.value);
-    });
+// Locale Storage
+function getLocaleStorage() {
+  for (const key in localStorage) {
+    const val = localStorage.getItem(key);
+
+    // console.log(`${key} >>> ${val}`);
+
+    if (typeof val === 'string') {
+      const elem = document.querySelector(`#${key}`);
+      if (elem !== null) {
+        elem.value = val;
+      }
+    }
   }
 }
- */
+
+function setLocaleStorage() {
+  for (const numrField of numberFields) {
+    localStorage.setItem(numrField.name, numrField.value);
+  }
+}
+
+// RESET
+function resetInputFields() {
+  for (const field of numberFields) {
+    field.value = '';
+  }
+}
+
+// Listener functions
+function btnsGroupListener(e) {
+  const target = e.target;
+  if (target.className.includes('btn--submit')) {
+    // console.log('submit');
+    e.preventDefault();
+
+    if (mainCalculation()) {
+      tempAlert('ok', 500);
+    }
+  } else if (target.className.includes('btn--reset')) {
+    // console.log('reset');
+    e.preventDefault();
+    resetInputFields();
+    tempAlert('ok', 500);
+  } else if (target.className.includes('btn--save')) {
+    // console.log('save');
+    setLocaleStorage();
+    tempAlert('ok', 500);
+  }
+}
+
+// Alerts
+function tempAlert(msg, duration) {
+  var el = document.createElement('div');
+  el.setAttribute('class', 'temp-alert');
+  el.innerHTML = msg;
+  setTimeout(function () {
+    el.parentNode.removeChild(el);
+  }, duration);
+  document.body.appendChild(el);
+}
+
+function valueRangeAlert(field, min, max) {
+  inputValue = Number(field.value);
+  min = Number(min);
+  max = Number(max);
+
+  if (max === 0) {
+    max = Number.MAX_SAFE_INTEGER;
+  }
+
+  if (inputValue < min || inputValue > max) {
+    setTimeout(() => {
+      field.focus();
+      field.style.border = '2px solid red';
+      alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
+    }, 0);
+
+    return false;
+  } else {
+    field.style.border = 'none';
+    return true;
+  }
+}
+
+function valueRangeAlert_2(field, min, max) {
+  inputValue = Number(field.value);
+  min = Number(min);
+  max = Number(max);
+
+  if (max === 0) {
+    max = Number.MAX_SAFE_INTEGER;
+  }
+
+  if (field.value === '') {
+    field.style.border = '2px solid green';
+  } else if (inputValue < min || inputValue > max) {
+    // alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
+    field.style.border = '2px solid red';
+  } else {
+    field.style.border = 'none';
+  }
+}
+
+// Validation functions
+function hasEmptyInputFieldValidation() {
+  for (const field of numberFields) {
+    const val = field.value;
+
+    if (val === '') {
+      setTimeout(() => {
+        field.focus();
+        field.style.border = '2px solid green';
+      }, 0);
+
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function emptyFieldsValidation() {
+  if (hasEmptyInputFieldValidation()) {
+    alert('Необходимо е всички полета да бъдат попълнени!');
+    // alert('All fields required!');
+    return false;
+  }
+
+  return true;
+}
+
+function valuesRangeValidation() {
+  let isValid = true;
+
+  for (const field of numberFields) {
+    const min = field.min;
+    const max = field.max;
+
+    if (valueRangeAlert(field, min, max)) {
+      continue;
+    } else {
+      isValid = false;
+      break;
+    }
+  }
+
+  return isValid;
+}
