@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/borders.css" />
     <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" href="css/comments.css" />
   </head>
   <body>
     <header>
@@ -30,8 +31,17 @@
                   >
                     Квас
                   </div>
-                  <div class="cell-1 c1-internal c1-bd-dsh-internal">
+                  <div class="cell-1 c1-internal c1-bd-dsh-internal comment">
                     Прфб., (%):
+                    <aside class="comment-box">
+                      Предварително ферментирало брашно, (%);<br />
+                      <span style="color: blue"
+                        >(Google -> pre-fermented flour)</span
+                      ><br />
+                      Брашното, което се съдържа в кваса<br />
+                      (изразено като процент от общото/цялото количество брашно
+                      в тестото);
+                    </aside>
                   </div>
                   <div class="cell-2 c2-internal c2-bd-dsh-internal">
                     <input
@@ -47,8 +57,9 @@
                       autofocus
                     />
                   </div>
-                  <div class="cell-1 c1-bottom c1-bd-dsh-bottom">
+                  <div class="cell-1 c1-bottom c1-bd-dsh-bottom comment">
                     h<span class="superscript">кв</span>, (%):
+                    <aside class="comment-box">Хидратация на кваса, (%);</aside>
                   </div>
                   <div class="cell-2 c2-bottom c2-bd-dsh-bottom">
                     <input
@@ -66,7 +77,10 @@
 
                   <div class="cell-full-empty"></div>
 
-                  <div class="cell-1 bold italic">Вода, (%):</div>
+                  <div class="cell-1 bold italic comment">
+                    Вода, (%):
+                    <aside class="comment-box">Хидратация на тестото;</aside>
+                  </div>
                   <div class="cell-2 c2-single">
                     <input
                       type="number"
@@ -83,7 +97,12 @@
 
                   <div class="cell-full-empty"></div>
 
-                  <div class="cell-1 bold italic">Сол, (%):</div>
+                  <div class="cell-1 bold italic comment">
+                    Сол, (%):
+                    <aside class="comment-box">
+                      Обикновено е препоръчително солта да не надвишава 2%;
+                    </aside>
+                  </div>
                   <div class="cell-2 c2-single">
                     <input
                       type="number"
@@ -124,7 +143,12 @@
 
                   <div class="cell-full-math multiply-sign">x</div>
 
-                  <div class="cell-1">Тегло на отделен хляб, (g):</div>
+                  <div class="cell-1 comment">
+                    Тегло на отделен хляб, (g):
+                    <aside class="comment-box">
+                      Тегло на тестото (на отделния хляб) преди печене;
+                    </aside>
+                  </div>
                   <div class="cell-2 c2-single">
                     <input
                       type="number"
@@ -165,11 +189,25 @@
                   <div class="cell-2 c2-single c2-bd-dsh-top result">
                     <span id="leaven-weight-result">####</span>
                   </div>
-                  <div class="sd cell-single-bd-dsh-internal result-secondary">
+                  <div
+                    class="sd cell-single-bd-dsh-internal result-secondary comment"
+                  >
                     брашно (квас), (g): <span id="flour-leaven">###</span>
+                    <aside class="comment-box">
+                      бр (кв), (g)
+                      <span style="color: green">се определя чрез</span> Прфб.
+                      (%);
+                    </aside>
                   </div>
-                  <div class="sd cell-single-bd-dsh-bottom result-secondary">
+                  <div
+                    class="sd cell-single-bd-dsh-bottom result-secondary comment"
+                  >
                     вода (квас), (g): <span id="water-leaven">###</span>
+                    <aside class="comment-box">
+                      в (кв), (g)
+                      <span style="color: green">се определя чрез</span> hкв
+                      (%);
+                    </aside>
                   </div>
 
                   <div class="cell-full-empty"></div>
@@ -194,11 +232,22 @@
             <article class="card overall">
               <div class="card-body">
                 <div class="grid--2-cols">
-                  <div class="cell-1 c1-overall-top">Брашно - общо, (g):</div>
+                  <div class="cell-1 c1-overall-top comment">
+                    Брашно - общо, (g):
+                    <aside class="comment-box">
+                      Общо брашно => Всичкото брашно, което се съдържа в
+                      тестото;
+                    </aside>
+                  </div>
                   <div class="cell-2 c2-overall-top result-secondary">
                     <span id="flour-total">###</span>
                   </div>
-                  <div class="cell-1 c1-overall-bottom">Вода - обща, (g):</div>
+                  <div class="cell-1 c1-overall-bottom comment">
+                    Вода - обща, (g):
+                    <aside class="comment-box">
+                      Обща вода => Всичката вода, която се съдържа в тестото;
+                    </aside>
+                  </div>
                   <div class="cell-2 c2-overall-bottom result-secondary">
                     <span id="water-total">###</span>
                   </div>
