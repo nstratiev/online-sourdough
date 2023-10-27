@@ -16,9 +16,17 @@ const loafsCountInput = document.getElementById('loafs-count');
 const loafWeightInput = document.getElementById('loaf-weight');
 
 // RESULT elements
+// const resultContainers = document.querySelectorAll('.result');
+// console.log(resultContainers);
+// const secondaryResultContainers = document.querySelectorAll(
+//   'span.result-secondary'
+// );
+// console.log(secondaryResultContainers);
+
 const resultContainersMain = document.getElementsByClassName('result');
-const resultContainersSecondary =
-  document.getElementsByClassName('result-secondary');
+const resultContainersSecondary = document.querySelectorAll(
+  'span.result-secondary'
+);
 
 const doughWeightElement = document.getElementById('dough-weight-result');
 const flourWeightElement = document.getElementById('flour-weight-result');
@@ -200,9 +208,24 @@ function setLocaleStorage() {
 }
 
 // RESET
+// console.log(resultContainersMain);
+// console.log(resultContainersSecondary);
+
 function resetInputFields() {
   for (const field of numberFields) {
     field.value = '';
+  }
+}
+
+function resetResultValuesMain() {
+  for (const result of resultContainersMain) {
+    result.textContent = '####';
+  }
+}
+
+function resetResultValuesSecondary() {
+  for (const result of resultContainersSecondary) {
+    result.textContent = '###';
   }
 }
 
@@ -220,6 +243,8 @@ function btnsGroupListener(e) {
     // console.log('reset');
     e.preventDefault();
     resetInputFields();
+    resetResultValuesMain();
+    resetResultValuesSecondary();
     tempAlert('ok', 500);
   } else if (target.className.includes('btn--save')) {
     // console.log('save');
@@ -329,7 +354,10 @@ function valuesRangeValidation() {
 
 // Screen scroll functions
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (
+    document.body.scrollTop > 120 ||
+    document.documentElement.scrollTop > 120
+  ) {
     btnToTop.style.display = 'block';
   } else {
     btnToTop.style.display = 'none';

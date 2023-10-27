@@ -1,32 +1,32 @@
 #btn-to-top {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(128, 128, 128, 0.8);
+  border-radius: 50%;
+
   display: none;
   position: fixed;
-  bottom: 4px;
-  right: 4px;
+  bottom: 20px;
+  right: 20px;
   z-index: 99;
-  font-size: 22px;
-  border: none;
-  outline: none;
-  background-color: rgba(127, 127, 127, 0.8);
-  color: white;
   cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 50%;
+}
+
+.up-arrow {
+  width: 14px;
+  height: 14px;
+  border-top: 5px solid white;
+  border-left: 5px solid white;
+  margin: auto;
+  transform: rotate(45deg);
+  translate: 0 0.8em;
 }
 
 #btn-to-top:hover {
-  border: 2px solid rgb(127, 127, 127);
+  border: 2px solid rgb(128, 128, 128);
   background-color: rgba(255, 255, 255, 0.8);
-  color: rgb(127, 127, 127);
 }
 
-div.up-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-span.up-arrow {
-  /* position: relative; */
-  transform: translate(0, -0.1em);
+#btn-to-top:hover .up-arrow {
+  border-color: rgb(128, 128, 128);
 }

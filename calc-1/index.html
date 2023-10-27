@@ -18,12 +18,9 @@
 
     <main>
       <div class="calc-col">
-        <!-- <button onclick="topFunction()" class="btn-to-top" id="btn-to-top" title="Go to top"> -->
-        <button class="btn-to-top" id="btn-to-top">
-          <div class="up-arrow">
-            <span class="up-arrow">&#129093;</span>
-          </div>
-        </button>
+        <div class="btn-to-top" id="btn-to-top">
+          <div class="up-arrow"></div>
+        </div>
 
         <section class="calc-main">
           <form id="form-1" autocomplete="off">
@@ -200,7 +197,8 @@
                   <div
                     class="sd cell-single-bd-dsh-internal result-secondary comment"
                   >
-                    брашно (квас), (g): <span id="flour-leaven">###</span>
+                    брашно (квас), (g):
+                    <span id="flour-leaven" class="result-secondary">###</span>
                     <aside class="comment-box">
                       бр (кв), (g)
                       <span style="color: green">се определя чрез</span> Прфб.
@@ -210,7 +208,8 @@
                   <div
                     class="sd cell-single-bd-dsh-bottom result-secondary comment"
                   >
-                    вода (квас), (g): <span id="water-leaven">###</span>
+                    вода (квас), (g):
+                    <span id="water-leaven" class="result-secondary">###</span>
                     <aside class="comment-box">
                       в (кв), (g)
                       <span style="color: green">се определя чрез</span> hкв
@@ -248,7 +247,7 @@
                     </aside>
                   </div>
                   <div class="cell-2 c2-overall-top result-secondary">
-                    <span id="flour-total">###</span>
+                    <span id="flour-total" class="result-secondary">###</span>
                   </div>
                   <div class="cell-1 c1-overall-bottom comment">
                     Вода - обща, (g):
@@ -257,7 +256,7 @@
                     </aside>
                   </div>
                   <div class="cell-2 c2-overall-bottom result-secondary">
-                    <span id="water-total">###</span>
+                    <span id="water-total" class="result-secondary">###</span>
                   </div>
                 </div>
               </div>
