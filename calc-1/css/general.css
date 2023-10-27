@@ -226,12 +226,33 @@ hr {
   background-color: rgb(192, 0, 0);
 }
 
+.btn--submit:hover,
+.btn--submit:active {
+  border: 1px solid rgb(192, 0, 0);
+  color: rgb(192, 0, 0);
+  background-color: white;
+}
+
 .btn--reset {
   background-color: rgb(0, 128, 0);
 }
 
+.btn--reset:hover,
+.btn--reset:active {
+  border: 1px solid rgb(0, 128, 0);
+  color: rgb(0, 128, 0);
+  background-color: white;
+}
+
 .btn--save {
   background-color: rgb(0, 0, 192);
+}
+
+.btn--save:hover,
+.btn--save:active {
+  border: 1px solid rgb(0, 0, 192);
+  color: rgb(0, 0, 192);
+  background-color: white;
 }
 
 /* #-Alert - Onclick */
