@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  /* padding: 20px; */
-}
-
 .warning {
   color: red;
   margin: 10px;
@@ -34,9 +30,10 @@ main {
 footer {
   /* border: 1px solid purple; */
   height: 40px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
 
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -199,8 +196,9 @@ hr {
 }
 
 .multiply-sign {
-  position: relative;
-  top: -0.1em;
+  font-size: 110%;
+  /* position: relative;
+  top: -0.1em; */
 }
 
 /* #-BUTTON */

@@ -6,8 +6,9 @@
     <title>Калкулатор (ХЛЯБ)</title>
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/borders.css" />
-    <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" href="css/small-elements.css" />
     <link rel="stylesheet" href="css/comments.css" />
+    <link rel="stylesheet" href="css/queries.css" />
   </head>
   <body>
     <header>
@@ -17,6 +18,13 @@
 
     <main>
       <div class="calc-col">
+        <!-- <button onclick="topFunction()" class="btn-to-top" id="btn-to-top" title="Go to top"> -->
+        <button class="btn-to-top" id="btn-to-top">
+          <div class="up-arrow">
+            <span class="up-arrow">&#129093;</span>
+          </div>
+        </button>
+
         <section class="calc-main">
           <form id="form-1" autocomplete="off">
             <!-- ############# -->
@@ -52,7 +60,7 @@
                       min="0"
                       max="100"
                       step="0.1"
-                      placeholder="пр. 8.0"
+                      placeholder="пр. ... 8.0"
                       required
                       autofocus
                     />
@@ -70,7 +78,7 @@
                       min="50"
                       max="125"
                       step="1"
-                      placeholder="пр. 85"
+                      placeholder="пр. ... 85"
                       required
                     />
                   </div>
@@ -90,7 +98,7 @@
                       min="0"
                       max="125"
                       step="1"
-                      placeholder="пр. 68"
+                      placeholder="пр. ... 68"
                       required
                     />
                   </div>
@@ -112,7 +120,7 @@
                       min="0"
                       max="7"
                       step="0.1"
-                      placeholder="пр. 2.0"
+                      placeholder="пр. ... 2.0"
                       required
                     />
                   </div>
@@ -136,12 +144,12 @@
                       id="loafs-count"
                       min="1"
                       step="1"
-                      placeholder="пр. 3"
+                      placeholder="пр. ... 3"
                       required
                     />
                   </div>
 
-                  <div class="cell-full-math multiply-sign">x</div>
+                  <div class="cell-full-math multiply-sign">&times;</div>
 
                   <div class="cell-1 comment">
                     Тегло на отделен хляб, (g):
@@ -157,12 +165,12 @@
                       id="loaf-weight"
                       min="0"
                       step="1"
-                      placeholder="пр. 850"
+                      placeholder="пр. ... 850"
                       required
                     />
                   </div>
 
-                  <div class="cell-full-math equal-sign">=</div>
+                  <div class="cell-full-math equal-sign">&equals;</div>
 
                   <div class="cell-1">Количество тесто, (g):</div>
                   <div class="cell-2 c2-single result">
@@ -300,10 +308,6 @@
 
     <footer>
       <a href="../">Online Sourdough Calculator</a>
-
-      <!-- <a href="https://nstratiev.github.io/online-sourdough-calculator/"
-        >Online Sourdough Calculator</a
-      > -->
     </footer>
 
     <script src="js/script.js"></script>

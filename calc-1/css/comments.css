@@ -1,5 +1,6 @@
 .comment {
   position: relative;
+  cursor: pointer;
 }
 
 .comment::after {
@@ -30,4 +31,5 @@
 
 .comment:hover .comment-box {
   visibility: visible;
+  z-index: 99;
 }

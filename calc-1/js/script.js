@@ -34,6 +34,9 @@ const waterTotalElement = document.getElementById('water-total');
 const btnSubmit_1 = document.getElementById('btn-submit-col1');
 const btnReset_1 = document.getElementById('btn-reset-col1');
 const btnSave_1 = document.getElementById('btn-save-col1');
+const btnToTop = document.getElementById('btn-to-top');
+
+// console.log(btnToTop);
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function () {
@@ -42,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
     mainCalculation();
   }
 });
+
+window.addEventListener('scroll', scrollFunction);
+btnToTop.addEventListener('click', topFunction);
 
 formMain.addEventListener('keypress', function (e) {
   if (e.keyCode === 13) {
@@ -319,4 +325,18 @@ function valuesRangeValidation() {
   }
 
   return isValid;
+}
+
+// Screen scroll functions
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    btnToTop.style.display = 'block';
+  } else {
+    btnToTop.style.display = 'none';
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
