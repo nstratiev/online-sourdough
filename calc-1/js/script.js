@@ -16,13 +16,6 @@ const loafsCountInput = document.getElementById('loafs-count');
 const loafWeightInput = document.getElementById('loaf-weight');
 
 // RESULT elements
-// const resultContainers = document.querySelectorAll('.result');
-// console.log(resultContainers);
-// const secondaryResultContainers = document.querySelectorAll(
-//   'span.result-secondary'
-// );
-// console.log(secondaryResultContainers);
-
 const resultContainersMain = document.getElementsByClassName('result');
 const resultContainersSecondary = document.querySelectorAll(
   'span.result-secondary'
@@ -44,9 +37,8 @@ const btnReset_1 = document.getElementById('btn-reset-col1');
 const btnSave_1 = document.getElementById('btn-save-col1');
 const btnToTop = document.getElementById('btn-to-top');
 
-// console.log(btnToTop);
-
-// Event Listeners
+// EVENT LISTENERS
+// -- Onload listener
 document.addEventListener('DOMContentLoaded', function () {
   getLocaleStorage();
   if (!hasEmptyInputFieldValidation()) {
@@ -54,24 +46,44 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-window.addEventListener('scroll', scrollFunction);
-btnToTop.addEventListener('click', topFunction);
+// -- Top navigation listeners
+const navItem = document.querySelectorAll('.top-nav-item');
+for (const item of navItem) {
+  item.addEventListener('click', (e) => {
+    if (e.target.className.includes('menu')) {
+      console.log('menu');
+      window.location.href = '../';
+    } else if (e.target.className.includes('legend')) {
+      console.log('legend');
+    } else if (e.target.className.includes('info')) {
+      console.log('info');
+    }
+  });
+}
 
+// console.log(navItem);
+
+// -- Button-to-top listeners
+window.addEventListener('scroll', onScreenScroll);
+btnToTop.addEventListener('click', goToScreenTop);
+
+// -- Form-main listener
 formMain.addEventListener('keypress', function (e) {
   if (e.keyCode === 13) {
     e.preventDefault();
   }
 });
 
+// -- Focusout input listeners
 for (const field of numberFields) {
   field.addEventListener('focusout', (e) => {
     const min = e.target.min;
     const max = e.target.max;
-    valueRangeAlert_2(e.target, min, max);
+    onFocusOutAlert(e.target, min, max);
   });
 }
 
-// Buttons listeners
+// Button listeners
 document.querySelector('#btns-container').addEventListener('click', (e) => {
   btnsGroupListener(e);
 });
@@ -82,8 +94,10 @@ document.querySelector('#btns-container').addEventListener('keypress', (e) => {
   }
 });
 
-// Main Function
+// FUNCTIONS
+// -- MAIN function
 function mainCalculation() {
+  // Initial input text values
   let loafsCount = loafsCountInput.value;
   let loafWeight = loafWeightInput.value;
   let waterPercent = waterPercentInput.value;
@@ -91,7 +105,7 @@ function mainCalculation() {
   let prefermentFlourPercent = prefermentFlourPercentInput.value;
   let leavenHydratationPercent = leavenHydratationPercentInput.value;
 
-  // Validation
+  // Validations
   if (!emptyFieldsValidation()) {
     return false;
   }
@@ -100,7 +114,7 @@ function mainCalculation() {
     return false;
   }
 
-  // Inputs as percent
+  // Input values as number
   loafsCount = Number(loafsCount);
   loafWeight = Number(loafWeight);
   waterPercent = Number(waterPercent) / 100;
@@ -108,6 +122,7 @@ function mainCalculation() {
   prefermentFlourPercent = Number(prefermentFlourPercent) / 100;
   leavenHydratationPercent = Number(leavenHydratationPercent) / 100;
 
+  // Calculate bread parameters
   const totalDoughWeight = getTotalDoughWeight(loafsCount, loafWeight);
   const totalFlour = getTotalFlour(totalDoughWeight, waterPercent, saltPercent);
   const totalWater = getTotalWater(totalFlour, waterPercent);
@@ -125,6 +140,7 @@ function mainCalculation() {
     leavenObj.leavenWater
   );
 
+  // Set visible result values
   doughWeightElement.textContent = totalDoughWeight.toFixed(0);
   flourWeightElement.textContent = ingredientsObj.flour.toFixed(0);
   leavenWeightElement.textContent = leavenObj.leavenTotal.toFixed(0);
@@ -139,8 +155,7 @@ function mainCalculation() {
   return true;
 }
 
-// FUNCTIONS
-
+// -- FUNCTIONS II
 function getTotalDoughWeight(loafsCount, loafWeight) {
   return loafsCount * loafWeight;
 }
@@ -185,7 +200,7 @@ function getIngredientsForKneading(
   return obj;
 }
 
-// Locale Storage
+// --- Locale Storage functions
 function getLocaleStorage() {
   for (const key in localStorage) {
     const val = localStorage.getItem(key);
@@ -207,10 +222,7 @@ function setLocaleStorage() {
   }
 }
 
-// RESET
-// console.log(resultContainersMain);
-// console.log(resultContainersSecondary);
-
+// --- RESET functions
 function resetInputFields() {
   for (const field of numberFields) {
     field.value = '';
@@ -229,7 +241,7 @@ function resetResultValuesSecondary() {
   }
 }
 
-// Listener functions
+// --- Listener functions
 function btnsGroupListener(e) {
   const target = e.target;
   if (target.className.includes('btn--submit')) {
@@ -237,7 +249,7 @@ function btnsGroupListener(e) {
     e.preventDefault();
 
     if (mainCalculation()) {
-      tempAlert('ok', 500);
+      temporaryOnClickAlert('ok', 500, 'rgb(192, 0, 0)');
     }
   } else if (target.className.includes('btn--reset')) {
     // console.log('reset');
@@ -245,18 +257,19 @@ function btnsGroupListener(e) {
     resetInputFields();
     resetResultValuesMain();
     resetResultValuesSecondary();
-    tempAlert('ok', 500);
+    temporaryOnClickAlert('ok', 500, 'rgb(0, 128, 0)');
   } else if (target.className.includes('btn--save')) {
     // console.log('save');
     setLocaleStorage();
-    tempAlert('ok', 500);
+    temporaryOnClickAlert('ok', 500, 'rgb(0, 0, 192)');
   }
 }
 
-// Alerts
-function tempAlert(msg, duration) {
+// --- Alert functions
+function temporaryOnClickAlert(msg, duration, bgColor) {
   var el = document.createElement('div');
   el.setAttribute('class', 'temp-alert');
+  el.style.backgroundColor = bgColor;
   el.innerHTML = msg;
   setTimeout(function () {
     el.parentNode.removeChild(el);
@@ -287,7 +300,7 @@ function valueRangeAlert(field, min, max) {
   }
 }
 
-function valueRangeAlert_2(field, min, max) {
+function onFocusOutAlert(field, min, max) {
   inputValue = Number(field.value);
   min = Number(min);
   max = Number(max);
@@ -306,7 +319,7 @@ function valueRangeAlert_2(field, min, max) {
   }
 }
 
-// Validation functions
+// --- Validation functions
 function hasEmptyInputFieldValidation() {
   for (const field of numberFields) {
     const val = field.value;
@@ -352,8 +365,8 @@ function valuesRangeValidation() {
   return isValid;
 }
 
-// Screen scroll functions
-function scrollFunction() {
+// --- Screen scroll functions
+function onScreenScroll() {
   if (
     document.body.scrollTop > 120 ||
     document.documentElement.scrollTop > 120
@@ -364,7 +377,7 @@ function scrollFunction() {
   }
 }
 
-function topFunction() {
+function goToScreenTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
