@@ -75,7 +75,7 @@ main {
 }
 
 .page-column {
-  border-right: 1px solid var(--grey-bg);
+  border-right: 2px solid var(--grey-bg);
   /* border: 2px solid red; */
   padding: 20px;
   display: flex;

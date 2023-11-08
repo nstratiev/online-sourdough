@@ -23,12 +23,13 @@
   bottom: 50%;
   right: 50%;
   transform: translate(50%, 50%);
-  background-color: green;
+  /* background-color: white; */
   color: white;
   font-size: 26px;
   font-weight: bold;
   padding: 15px;
-  outline: 2px solid red;
+  border: 4px solid white;
+  outline: 2px solid green;
   border-radius: 50%;
 }
 
@@ -59,7 +60,8 @@
   border-radius: 6px;
   padding: 10px;
   background-color: lightgoldenrodyellow;
-  font-size: 13px;
+  color: black;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: normal;
 }
