@@ -1,319 +1,184 @@
+/* ######################################## */
+/* ##### Global Reset [START] ##### */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.warning {
-  color: red;
-  margin: 10px;
+:root {
+  --yellow-input-bg-color: rgb(255, 255, 153);
+  --orange-input-bg-color: rgb(255, 204, 102);
+  --orange-menu-color: rgb(226, 107, 10);
+  --blue-title-bg-color: rgb(220, 230, 241);
+  --blue-cell-bg-color: rgb(197, 217, 241);
+  --blue-text-color: rgb(79, 129, 189);
+  --blue-font-color: rgb(54, 96, 146);
+  --blue-text-leaven-color: rgb(31, 73, 125);
+  --blue-arrow-bg-color: rgb(31, 73, 125);
+  --green-light-bg-color: rgb(235, 241, 222);
+  --green-input-bg-color: rgb(216, 228, 188);
+  --green-text-leaven-color: rgb(118, 147, 60);
+  --green-medium-text-color: rgb(118, 147, 97);
+  --green-arrow-color: rgb(79, 98, 40);
+  --green-dark-text-color: rgb(78, 98, 83);
+  --purple-text-color: rgb(112, 88, 209);
+  --purple-menu-color: rgb(112, 48, 160);
+  --red-dark-text-color: rgb(150, 54, 52);
+  --red-menu-color: rgb(192, 0, 0);
+  --grey-bg: rgb(248, 248, 248);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: underline;
+}
+/* ##### Global Reset [END] ##### */
+
+/* ######################################## */
+/* ##### Common elements [START] ##### */
+h1 {
+  padding: 4px;
 }
 
-.top-nav {
-  /* border: 2px solid red; */
-  list-style-type: none;
-  display: flex;
-}
-
-.top-nav-item {
-  border: 2px solid black;
-  border-radius: 4px;
-  /* border-bottom: 2px solid sblack; */
-  /* background-color: rgb(27, 42, 113); */
-  margin-right: 3px;
-  padding: 5px 10px;
-  font-size: 22px;
-  font-weight: bold;
-  flex: 1 1 auto;
+button {
   cursor: pointer;
 }
 
-.top-nav-item:hover {
-  /* background-color: rgb(60, 74, 145); */
+button > * {
+  pointer-events: none;
+}
+span {
+  display: inline-block;
 }
 
-.top-nav-item:last-child {
-  /* border-right: none; */
-  margin-right: 0;
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+/* ##### Common elements [END] ##### */
 
-.top-nav a:link,
-.top-nav a:visited,
-.top-nav a:hover,
-.top-nav a:active {
-  /* color: white; */
-  text-decoration: none;
-}
-
-a.menu {
-  color: rgb(192, 0, 0);
-}
-
-a.legend {
-  color: rgb(226, 107, 10);
-}
-
-a.info {
-  color: rgb(112, 48, 160);
-}
-
+/* ######################################## */
+/* ##### Main page elements [START] ##### */
 header {
-  /* border: 1px solid blue; */
-  text-align: center;
-
+  background-color: var(--grey-bg);
   /* margin-bottom: 20px; */
 }
 
 main {
-  /* border: 3px solid green; */
   /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
+.page-column {
+  border-right: 1px solid var(--grey-bg);
+  /* border: 2px solid red; */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* align-items: center; */
+}
+
+.page-column:last-child {
+  border-right: none;
+}
+
 footer {
   /* border: 1px solid purple; */
-  height: 40px;
-  /* padding-left: 20px; */
-
+  background-color: var(--grey-bg);
+  /* margin-top: 20px; */
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 footer > a {
-  color: rgb(54, 96, 146);
+  color: var(--blue-font-color);
   font-size: 18px;
   font-weight: bold;
 }
+/* ##### Main page elements [END] ##### */
 
-span {
-  display: inline-block;
-}
-
-hr {
-  margin-top: 20px;
-}
-
-.calc-col {
-  /* border: 2px solid red; */
-  padding: 20px;
+/* ######################################## */
+/* ##### Top Navigation [START] ##### */
+ul.top-nav {
+  /* border: 2px solid orange; */
+  list-style-type: none;
   display: flex;
-  justify-content: center;
-}
-
-/* .calc-main {
-} */
-
-/* #-GRID */
-.grid--2-cols {
-  /* border: 1px solid purple; */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* #-CARDS */
-.card {
-  border: 2px solid black;
-  max-width: 320px;
-  /* height: 500px; */
-  margin-bottom: 20px;
-}
-
-.card-header {
-  background-color: rgb(220, 230, 241);
-  /* text-align: center; */
-  text-decoration: underline;
-  font-weight: bold;
-  border-bottom: 1px solid black;
-}
-
-.card-body {
-  /* border: 2px solid green; */
-  padding: 16px;
-}
-
-/* .card-overall {
-} */
-
-/* #-Overall Card */
-.overall {
-  border: none;
-}
-
-.overall > div.card-body {
-  border: none;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.c1-overall-top,
-.c1-overall-bottom,
-.c2-overall-top,
-.c2-overall-bottom {
-  font-size: 14px;
-  font-style: italic;
-}
-
-/* #-CELLS */
-.card-header,
-.cell-full-text,
-.cell-full-empty,
-.cell-full-math,
-/* .sd, */
-.cell-1,
-.cell-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cell-1 {
-  padding: 2px 0 2px 0;
-}
-
-.cell-1,
-.cell-2,
-.cell-full-text {
-  border: 1px solid black;
-  /* padding: 4px; */
-  text-align: center;
-}
-
-.cell-full-text,
-.cell-full-math,
-.cell-full-empty,
-.sd {
-  grid-column: 1 / -1;
-  font-weight: bold;
-}
-
-.cell-full-empty,
-.cell-full-math {
-  height: 16px;
-}
-
-.sd {
-  font-style: italic;
-  font-weight: initial;
-  font-size: 14px;
-  text-align: center;
-  padding: 2px 0 2px 0;
-  background-color: none;
-}
-
-/* #-INPUTS */
-.percent {
-  background-color: rgb(255, 255, 153);
-  border: none;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-.result {
-  background-color: rgb(255, 204, 102);
-  font-weight: bold;
-}
-
-/* #-FONT STYLES */
-.bold {
-  font-weight: bold;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.superscript {
-  font-size: 80%;
-  position: relative;
-  top: -0.3em;
-}
-
-.equal-sign {
-  font-size: 120%;
-}
-
-.multiply-sign {
-  font-size: 110%;
-  /* position: relative;
-  top: -0.1em; */
-}
-
-/* #-BUTTON */
-.btns-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
-  /* display: flex;
   justify-content: space-evenly;
-  align-items: center; */
-  margin: 25px 0 25px 0;
+  align-items: center;
 }
 
-.btn {
-  border: 1px solid black;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  padding: 10px;
-  /* padding: 4px 8px 4px 8px; */
-  cursor: pointer;
-}
-
-.btn--submit {
-  background-color: rgb(192, 0, 0);
-}
-
-.btn--submit:hover {
-  border: 1px solid rgb(192, 0, 0);
-  color: rgb(192, 0, 0);
-  background-color: white;
-}
-
-.btn--reset {
-  background-color: rgb(0, 128, 0);
-}
-
-.btn--reset:hover {
-  border: 1px solid rgb(0, 128, 0);
-  color: rgb(0, 128, 0);
-  background-color: white;
-}
-
-.btn--save {
-  background-color: rgb(0, 0, 192);
-}
-
-.btn--save:hover {
-  border: 1px solid rgb(0, 0, 192);
-  color: rgb(0, 0, 192);
-  background-color: white;
-}
-
-/* #-Alert - Onclick */
-.temp-alert {
+.top-nav li {
+  /* border: 2px solid green; */
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
-  background-color: green;
-  color: white;
-  font-size: 22px;
-  padding: 15px;
-  /* border: 1px dashed black; */
-  outline: 2px solid red;
-  border-radius: 50%;
+  margin: 6px 4px 20px 4px;
 }
+
+.top-nav li:first-child {
+  margin-left: 8px;
+}
+
+.top-nav li:last-child {
+  margin-right: 8px;
+}
+
+a.top-nav-item:link,
+a.top-nav-item:visited {
+  border: 1px solid black;
+  border-radius: 4px;
+  /* padding: 14px 25px; */
+  padding: 5px;
+  min-width: 50px;
+  font-size: 22px;
+  font-weight: bold;
+
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+a.top-nav-item:hover,
+a.top-nav-item:active {
+  outline: 2px solid black;
+  border: 1px solid white;
+}
+
+.top-nav-text {
+  /* border: 1px solid purple; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 27px;
+  height: 27px;
+}
+
+a.menu {
+  color: var(--red-menu-color);
+}
+
+a.legend {
+  color: var(--orange-menu-color);
+}
+
+a.info {
+  color: var(--purple-menu-color);
+}
+/* ##### Top Navigation [END] ##### */
+
+/* ######################################## */
+/* ######################################## */
+/* ######################################## */

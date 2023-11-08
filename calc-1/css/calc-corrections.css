@@ -1,0 +1,81 @@
+.calc-corrections {
+  max-width: 320px;
+  width: 100%;
+}
+
+.cell-correction-1.blue.bold {
+  color: rgb(79, 129, 189);
+}
+
+.cell-correction-2.red.bold {
+  color: rgb(150, 54, 52);
+}
+
+.cell-correction-2.green.bold {
+  color: rgb(79, 98, 40);
+}
+
+.cell-correction-2.purple {
+  color: rgb(112, 88, 209);
+  font-size: 90%;
+}
+
+.correction-title {
+  /* border: 2px solid green; */
+  color: rgb(192, 0, 0);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+  padding: 4px;
+}
+
+.corrections-subcard-1,
+.corrections-subcard-2 {
+  /* border: 2px solid red; */
+  /* max-width: 320px; */
+  margin-bottom: 20px;
+}
+
+.corrections-subcard-1 {
+  border-right: 3px solid rgb(79, 129, 189);
+  border-bottom: 3px solid rgb(79, 129, 189);
+}
+
+.cell-correction-1 {
+  border-top: 2px dashed rgb(79, 129, 189);
+  border-left: 3px solid rgb(79, 129, 189);
+}
+
+.cell-correction-1._top {
+  border-top: 3px solid rgb(79, 129, 189);
+}
+
+.cell-correction-1,
+.cell-correction-2 {
+  /* border: 2px solid blue; */
+  padding: 2px 10px;
+  text-align: center;
+}
+
+.corrections-subcard-2 {
+  border-right: 3px solid rgb(150, 54, 52);
+  border-bottom: 3px solid rgb(150, 54, 52);
+}
+
+.cell-correction-2 {
+  border-top: 2px dashed rgb(150, 54, 52);
+  border-left: 3px solid rgb(150, 54, 52);
+}
+
+.cell-correction-2._top {
+  border-top: 3px solid rgb(150, 54, 52);
+}
+
+#correction-hydr-incr-input,
+#correction-hydr-decr-input {
+  background-color: rgb(255, 255, 153);
+  border: 1px solid black;
+  padding: 1px;
+  text-align: center;
+  max-width: 80px;
+}

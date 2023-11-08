@@ -1,0 +1,29 @@
+input {
+  border: none;
+  text-align: center;
+  padding: 2px;
+  width: 100%;
+  height: 100%;
+}
+
+input[type='number'] {
+  background-color: var(--yellow-input-bg-color);
+}
+
+input[type='text'] {
+  background-color: var(--green-input-bg-color);
+}
+
+/* #-INPUTS */
+.percent {
+  /* background-color: rgb(255, 255, 153);
+  border: none;
+  width: 100%;
+  height: 100%; */
+  /* text-align: center; */
+}
+
+.result-primary {
+  background-color: rgb(255, 204, 102);
+  font-weight: bold;
+}

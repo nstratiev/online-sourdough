@@ -1,0 +1,97 @@
+:root {
+  --yellow-input-bg-color: rgb(255, 255, 153);
+  --orange-input-bg-color: rgb(255, 204, 102);
+  --orange-menu-color: rgb(226, 107, 10);
+  --blue-title-bg-color: rgb(220, 230, 241);
+  --blue-cell-bg-color: rgb(197, 217, 241);
+  --blue-text-color: rgb(79, 129, 189);
+  --blue-font-color: rgb(54, 96, 146);
+  --blue-text-leaven-color: rgb(31, 73, 125);
+  --blue-arrow-bg-color: rgb(31, 73, 125);
+  --green-light-bg-color: rgb(235, 241, 222);
+  --green-input-bg-color: rgb(216, 228, 188);
+  --green-text-leaven-color: rgb(118, 147, 60);
+  --green-medium-text-color: rgb(118, 147, 97);
+  --green-arrow-color: rgb(79, 98, 40);
+  --green-dark-text-color: rgb(78, 98, 83);
+  --purple-text-color: rgb(112, 88, 209);
+  --purple-menu-color: rgb(112, 48, 160);
+  --red-dark-text-color: rgb(150, 54, 52);
+  --red-menu-color: rgb(192, 0, 0);
+  --grey-bg: rgb(248, 248, 248);
+}
+
+/* ##### ABCD ##### */
+/* ######################################## */
+/* ##### ABCD [START] ##### */
+/* ##### ABCD [END] ##### */
+
+/* <!-- ##################### -->
+<!-- ABCD --> */
+
+/* #-DASHED BORDERS */
+.corner-dashed {
+  border-top: 2px dashed black;
+  border-left: 2px dashed black;
+}
+
+.top-dashed {
+  border-top: 2px dashed black;
+}
+
+/* .right-dashed {
+  border-top: 2px dashed black;
+} */
+
+.left-dashed {
+  border-left: 2px dashed black;
+}
+
+/* #-DOTTED BORDERS */
+.corner-dotted {
+  border-top: 2px dotted black;
+  border-left: 2px dotted black;
+}
+
+.top-dotted {
+  border-top: 2px dotted black;
+}
+
+.left-dotted {
+  border-left: 2px dotted black;
+}
+
+/* Media queries */
+.top-dashed {
+  border-top: 1px solid black;
+}
+
+.left-dashed {
+  border-top: 2px dashed black;
+}
+
+.right-dashed {
+  border-top: 1px solid black;
+  border-left: 2px dashed black;
+}
+
+.top-dashed.result-primary {
+  border-left: 2px dashed black;
+}
+
+._sd.left-dashed._water {
+  border-top: none;
+}
+
+.top-dotted {
+  border-left: 2px dotted black;
+  border-top: 1px solid black;
+}
+
+.left-dotted {
+  border-top: 2px dotted black;
+}
+
+.right-dotted {
+  border-left: 2px dotted black;
+}

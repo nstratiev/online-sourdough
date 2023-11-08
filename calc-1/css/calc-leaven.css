@@ -1,0 +1,41 @@
+.calc-leaven-feed {
+  max-width: 320px;
+  width: 100%;
+}
+
+.card._leaven-feed {
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.card-header._leaven-feed {
+  border-bottom: 1px solid black;
+  color: rgb(192, 0, 0);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+  padding: 2px;
+}
+
+.card-body._leaven-feed {
+  padding: 16px;
+}
+
+.leaven-feed-method {
+  background-color: rgb(235, 241, 222);
+  grid-column: 1 / -1;
+}
+
+.grid-item._version._1,
+.grid-item._version._2 {
+  grid-column: 1 / -1;
+}
+
+.subcard-leaven-ver-2._explained,
+.subcard-leaven-ver-2._explained .grid-item {
+  border: none;
+}
+
+.subcard-leaven-ver-2._explained div {
+  font-size: 90%;
+}

@@ -1,0 +1,68 @@
+.calc-water {
+  max-width: 320px;
+}
+
+.water-addition-card {
+  /* border: 2px solid red; */
+  text-align: center;
+  max-width: 320px;
+}
+
+.water-addition-container {
+  /* border-right: 3px solid rgb(79, 129, 189);
+  border-bottom: 3px solid rgb(79, 129, 189); */
+}
+
+.water-addition-title {
+  color: rgb(192, 0, 0);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+  padding: 2px;
+}
+
+.water-addition-total-amount {
+  color: rgb(54, 96, 146);
+  grid-column: 1 / -1;
+}
+
+.water-addition-grid {
+  border-right: 2px solid rgb(79, 129, 189);
+  border-bottom: 2px solid rgb(79, 129, 189);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+
+.outer-left-top-border {
+  border-top: 2px solid rgb(79, 129, 189);
+  border-left: 2px solid rgb(79, 129, 189);
+}
+
+.outer-left-border {
+  border-top: 1px solid rgb(79, 129, 189);
+  border-left: 2px solid rgb(79, 129, 189);
+}
+
+.inner-left-border {
+  border-top: 1px solid rgb(79, 129, 189);
+  border-left: 1px solid rgb(79, 129, 189);
+}
+
+.no-top-border {
+  border-top: none;
+}
+
+#water-addition-input {
+  background-color: rgb(255, 255, 153);
+  border: none;
+  padding: 1px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.water-addition-grid div {
+  /* border: 1px solid green; */
+}
