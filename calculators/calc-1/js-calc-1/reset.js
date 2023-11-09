@@ -4,13 +4,15 @@ export function resetMainForm() {
   resetMainPrimaryResults();
   resetMainSecondaryResults();
 
-  const bool = confirm(
-    'Полетата на текущата форма ще бъдат изтрити ...\n============\nИзтриване на всички запаметени стойности, свързани с настоящата страница?'
-  );
-
-  if (bool === true) {
-    localStorage.clear();
-  }
+  setTimeout(() => {
+    resetConfirmDialog
+      .open()
+      .then((val) => {
+        localStorage.clear();
+        temporaryOnClickAlert('&check;', 500, 'rgb(192, 0, 0)');
+      })
+      .catch((val) => {});
+  }, 300);
 }
 
 export function resetMainInputs() {
@@ -35,6 +37,7 @@ export function resetMainSecondaryResults() {
 }
 
 // IMPORTS
+import { resetConfirmDialog, temporaryOnClickAlert } from './alerts.js';
 import {
   numberFieldsMain,
   doughWeightElement,

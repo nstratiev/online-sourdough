@@ -32,10 +32,10 @@ document.addEventListener('click', (e) => {
       calcMainSubmit();
     } else if (btnClassName === 'btn-reset') {
       resetMainForm();
-      temporaryOnClickAlert('&check;', 500, 'green');
+      temporaryOnClickAlert('&check;', 400, 'green');
     } else if (btnClassName === 'btn-save') {
       setLocaleStorageMain();
-      temporaryOnClickAlert('&check;', 500, 'green');
+      temporaryOnClickAlert('&check;', 400, 'green');
     }
   } else if (btnsGroupClassName.includes('_flours')) {
     // console.log('FLOURS');

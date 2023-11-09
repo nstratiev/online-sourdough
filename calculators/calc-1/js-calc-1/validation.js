@@ -69,11 +69,25 @@ export function valueRangeCheck(field, min, max) {
   }
 
   if (inputValue < min || inputValue > max) {
+    const alertOutOfRangeBox = new ConfirmModal({
+      titleText: '',
+      msgText: `Моля, въведете стойност в диапазона:`,
+      confirmText: 'OK',
+      cancelText: '',
+      msgText2: `[ ${min} - ${max} ]`,
+    });
+
     setTimeout(() => {
       field.focus();
       field.style.outline = '2px solid red';
-      alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
+
+      // alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
     }, 0);
+
+    alertOutOfRangeBox
+      .open()
+      .then((val) => {})
+      .catch((val) => {});
 
     return false;
   } else {
@@ -101,4 +115,5 @@ export function valuesRangeValidation() {
 }
 
 // IMPORTS
+import { ConfirmModal } from '../../common-js/modalClass.js';
 import { numberFieldsMain } from './elements.js';

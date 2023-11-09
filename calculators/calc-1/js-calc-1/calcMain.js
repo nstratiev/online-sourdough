@@ -11,7 +11,15 @@ export default function calcMainSubmit() {
       isFirstPageLoad = false;
     } else {
       setLocaleStorageMain();
-      alert('Необходимо е всички полета да бъдат попълнени!');
+
+      setTimeout(() => {
+        alertEmptyFieldBox
+          .open()
+          .then((val) => {})
+          .catch((val) => {});
+      }, 100);
+
+      // alert('Необходимо е всички полета да бъдат попълнени!');
       // alert('All fields required!');
     }
 
@@ -68,7 +76,7 @@ export default function calcMainSubmit() {
   if (isFirstPageLoad) {
     isFirstPageLoad = false;
   } else {
-    temporaryOnClickAlert('&check;', 500, 'green');
+    temporaryOnClickAlert('&check;', 400, 'green');
   }
 
   return true;
@@ -79,7 +87,7 @@ import { formdataToObject } from './helpers.js';
 import { formMain } from './elements.js';
 import { setLocaleStorageMain } from './storage.js';
 import { printMainPrimaryResults, printMainSecondaryResults } from './print.js';
-import { temporaryOnClickAlert } from './alerts.js';
+import { alertEmptyFieldBox, temporaryOnClickAlert } from './alerts.js';
 import {
   hasEmptyFieldsValidation,
   valuesRangeValidation,
