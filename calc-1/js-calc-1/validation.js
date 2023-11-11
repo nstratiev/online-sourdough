@@ -22,7 +22,7 @@
 
 //   return false;
 // }
-export function onFocusOutValidation(field, min, max) {
+export function onFocusOutValidation(field, min, max, isRequired) {
   const inputValue = Number(field.value);
   min = Number(min);
   max = Number(max);
@@ -32,7 +32,9 @@ export function onFocusOutValidation(field, min, max) {
   }
 
   if (field.value === '') {
-    field.style.outline = '2px solid green';
+    if (isRequired) {
+      field.style.outline = '2px solid green';
+    }
   } else if (inputValue < min || inputValue > max) {
     field.style.outline = '2px solid red';
   } else {

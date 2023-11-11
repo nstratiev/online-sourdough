@@ -89,8 +89,8 @@
 .up-arrow {
   width: 14px;
   height: 14px;
-  border-top: 5px solid white;
-  border-left: 5px solid white;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
   margin: auto;
   transform: rotate(45deg);
   translate: 0 0.8em;
@@ -105,4 +105,97 @@
 #btn-to-top:hover .up-arrow,
 #btn-to-top:active .up-arrow {
   border-color: rgb(128, 128, 128);
+}
+
+/* Global reset button */
+.btn-reset-global {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(128, 128, 128, 0.8);
+  /* background-color: rgba(0, 100, 0, 0.8); */
+  /* border: 2px solid green; */
+  border-radius: 50%;
+
+  /* display: none; */
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-reset-global div {
+  /* border: 2px solid red; */
+  padding: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* width: 85%;
+  height: auto; */
+}
+
+.btn-reset-global svg {
+  color: white;
+  width: 85%;
+  height: auto;
+
+  /* color: green; */
+  color: white;
+}
+
+.btn-reset-global path {
+  stroke-width: 24;
+}
+
+/* Global save button */
+.btn-save-global {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(128, 128, 128, 0.8);
+  /* background-color: rgba(0, 100, 0, 0.8); */
+  /* border: 2px solid green; */
+  border-radius: 50%;
+
+  /* display: none; */
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-save-global div {
+  /* border: 2px solid red; */
+  padding: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* width: 85%;
+  height: auto; */
+}
+
+.btn-save-global svg {
+  color: white;
+  width: 85%;
+  height: auto;
+
+  /* color: green; */
+  color: white;
+}
+
+.btn-save-global path {
+  /* fill: red; */
+  stroke-width: 24;
 }

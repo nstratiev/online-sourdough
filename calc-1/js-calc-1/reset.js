@@ -16,9 +16,10 @@ export function resetMainForm() {
 }
 
 export function resetMainInputs() {
-  numberFieldsMain.forEach((inp) => {
-    inp.value = '';
-  });
+  formMain.reset();
+  // numberFieldsMain.forEach((inp) => {
+  //   inp.value = '';
+  // });
 }
 
 export function resetMainPrimaryResults() {
@@ -49,4 +50,5 @@ import {
   waterLeavenElement,
   flourTotalElement,
   waterTotalElement,
+  formMain,
 } from './elements.js';

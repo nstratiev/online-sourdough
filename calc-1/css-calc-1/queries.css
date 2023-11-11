@@ -1,6 +1,14 @@
 /* Queries points >>> 1000px / 680px / 370px / 350px */
 
 /* #-QUERIES */
+@media (max-width: 1200px) {
+  #btn-to-top,
+  #btn-reset-global,
+  #btn-save-global {
+    right: 5px;
+  }
+}
+
 @media (max-width: 1000px) {
   main {
     grid-template-columns: repeat(2, 1fr);
@@ -35,10 +43,11 @@
     row-gap: 10px;
   } */
 
-  #btn-to-top {
-    bottom: 60px;
-    right: 10px;
-  }
+  /* #btn-to-top,
+  #btn-reset-global,
+  #btn-save-global {
+    right: 5px;
+  } */
 }
 
 @media (max-width: 350px) {

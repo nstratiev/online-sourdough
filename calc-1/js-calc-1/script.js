@@ -9,7 +9,17 @@ for (const field of numberFieldsMain) {
   field.addEventListener('focusout', (e) => {
     const min = e.target.min;
     const max = e.target.max;
-    onFocusOutValidation(e.target, min, max);
+    const isRequired = e.target.required;
+    onFocusOutValidation(e.target, min, max, isRequired);
+  });
+}
+
+for (const field of numberFieldsFlours) {
+  field.addEventListener('focusout', (e) => {
+    const min = e.target.min;
+    const max = e.target.max;
+    const isRequired = e.target.required;
+    onFocusOutValidation(e.target, min, max, isRequired);
   });
 }
 
@@ -17,7 +27,7 @@ for (const field of numberFieldsMain) {
 window.addEventListener('scroll', onScreenScroll);
 btnToTop.addEventListener('click', goToScreenTop);
 
-// -- Form listeners
+// -- Buttons listeners
 document.addEventListener('click', (e) => {
   if (e.target.tagName !== 'BUTTON') {
     return;
@@ -39,6 +49,15 @@ document.addEventListener('click', (e) => {
     }
   } else if (btnsGroupClassName.includes('_flours')) {
     // console.log('FLOURS');
+    if (btnClassName === 'btn-submit') {
+      calcFloursAndIngredientsSubmit(breadParamsObj.kneading.flour);
+    } else if (btnClassName === 'btn-reset') {
+      // resetMainForm();
+      // temporaryOnClickAlert('&check;', 400, 'green');
+    } else if (btnClassName === 'btn-save') {
+      // setLocaleStorageMain();
+      // temporaryOnClickAlert('&check;', 400, 'green');
+    }
   } else if (btnsGroupClassName.includes('_corrections')) {
     // console.log('CORRECTIONS');
   } else if (btnsGroupClassName.includes('_water')) {
@@ -49,9 +68,10 @@ document.addEventListener('click', (e) => {
 });
 
 // IMPORTS
-import calcMainSubmit from './calcMain.js';
+import { calcMainSubmit, breadParamsObj } from './calcMain.js';
+import calcFloursAndIngredientsSubmit from './calcFlours.js';
 import { resetMainForm } from './reset.js';
-import { btnToTop, numberFieldsMain } from './elements.js';
+import { btnToTop, numberFieldsMain, numberFieldsFlours } from './elements.js';
 
 import { onScreenScroll, goToScreenTop } from './scroll.js';
 import { onFocusOutValidation } from './validation.js';

@@ -1,7 +1,27 @@
 let isFirstPageLoad = true;
+export let breadParamsObj = {
+  formula: {},
+  doughWeight: null,
+  leaven: {},
+  kneading: {},
+  total: {},
+};
+
+// const breadParamsObj = {
+//   formula: {
+//     prefermFlourPercent,
+//     leavenHydr,
+//     waterPercent,
+//     saltPercent,
+//   },
+//   doughWeight,
+//   leaven: { flour, water },
+//   kneading: { flour, leaven, water, salt },
+//   total: { flour, water },
+// };
 
 // Main Calculation on submit
-export default function calcMainSubmit() {
+export function calcMainSubmit() {
   let formData = new FormData(formMain);
   const formDataObj = formdataToObject(formData);
 
@@ -23,10 +43,12 @@ export default function calcMainSubmit() {
       // alert('All fields required!');
     }
 
+    breadParamsObj = null;
     return false;
   }
 
   if (!valuesRangeValidation()) {
+    breadParamsObj = null;
     return false;
   }
 
@@ -38,7 +60,7 @@ export default function calcMainSubmit() {
   const loafsCount = formDataObj.loafsCount;
   const loafWeight = formDataObj.loafWeight;
 
-  // Clculated values
+  // Calculated values
   const totalDoughWeight = getTotalDoughWeight(loafsCount, loafWeight);
   const totalFlour = getTotalFlour(totalDoughWeight, waterPercent, saltPercent);
   const totalWater = getTotalWater(totalFlour, waterPercent);
@@ -70,6 +92,31 @@ export default function calcMainSubmit() {
     totalFlour,
     totalWater
   );
+
+  // Set breadParamsObj
+  breadParamsObj = {
+    formula: {},
+    doughWeight: null,
+    leaven: {},
+    kneading: {},
+    total: {},
+  };
+
+  breadParamsObj.formula.prefermFlourPercent = prefermFlourPercent;
+  breadParamsObj.formula.leavenHydr = leavenHydratationPercent;
+  breadParamsObj.formula.waterPercent = waterPercent;
+  breadParamsObj.formula.saltPercent = saltPercent;
+  breadParamsObj.doughWeight = totalDoughWeight;
+  breadParamsObj.leaven.flour = leavenObj.leavenFlour;
+  breadParamsObj.leaven.water = leavenObj.leavenWater;
+  breadParamsObj.kneading.flour = kneadingdObj.flour;
+  breadParamsObj.kneading.leaven = leavenObj.leavenTotal;
+  breadParamsObj.kneading.water = kneadingdObj.water;
+  breadParamsObj.kneading.salt = kneadingdObj.salt;
+  breadParamsObj.total.flour = totalFlour;
+  breadParamsObj.total.water = totalWater;
+
+  // console.log(breadParamsObj);
 
   setLocaleStorageMain();
 

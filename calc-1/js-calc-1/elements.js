@@ -1,8 +1,12 @@
 // Elements
 export const btnToTop = document.querySelector('#btn-to-top');
 export const formMain = document.querySelector('.calc-main');
+export const formFlours = document.querySelector('.calc-flours-ingredients');
 export const numberFieldsMain = document.querySelectorAll(
   'input[class="percent _main"]'
+);
+export const numberFieldsFlours = document.querySelectorAll(
+  'input[class="additional-flour-percent"]'
 );
 
 // RESULT elements
