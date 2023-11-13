@@ -2,6 +2,10 @@
 document.addEventListener('DOMContentLoaded', function () {
   getLocaleStorageMain();
   calcMainSubmit();
+  getLocaleStorageFlours();
+  getLocaleStorageIngredients();
+  calculateAdditionalFlours();
+  calculateAdditionalIngredients();
 });
 
 // -- Focusout input listeners
@@ -23,9 +27,24 @@ for (const field of numberFieldsFlours) {
   });
 }
 
+for (const field of numberFieldsIngredients) {
+  field.addEventListener('focusout', (e) => {
+    const min = e.target.min;
+    const max = e.target.max;
+    const isRequired = e.target.required;
+    onFocusOutValidation(e.target, min, max, isRequired);
+  });
+}
+
 // -- Button-to-top listeners
 window.addEventListener('scroll', onScreenScroll);
 btnToTop.addEventListener('click', goToScreenTop);
+// -- Buttons - global
+btnGlobalReset.addEventListener('click', resetGlobalLocalStorage);
+btnGlobalSave.addEventListener('click', () => {
+  setGlobalLocalStorage();
+  temporaryOnClickAlert('&check;', 400, 'green');
+});
 
 // -- Buttons listeners
 document.addEventListener('click', (e) => {
@@ -50,13 +69,13 @@ document.addEventListener('click', (e) => {
   } else if (btnsGroupClassName.includes('_flours')) {
     // console.log('FLOURS');
     if (btnClassName === 'btn-submit') {
-      calcFloursAndIngredientsSubmit(breadParamsObj.kneading.flour);
+      calcFloursAndIngredientsSubmit();
     } else if (btnClassName === 'btn-reset') {
-      // resetMainForm();
-      // temporaryOnClickAlert('&check;', 400, 'green');
+      resetFloursInputs();
+      temporaryOnClickAlert('&check;', 400, 'green');
     } else if (btnClassName === 'btn-save') {
-      // setLocaleStorageMain();
-      // temporaryOnClickAlert('&check;', 400, 'green');
+      setLocalStorageFloursAndIngredients();
+      temporaryOnClickAlert('&check;', 400, 'green');
     }
   } else if (btnsGroupClassName.includes('_corrections')) {
     // console.log('CORRECTIONS');
@@ -69,11 +88,33 @@ document.addEventListener('click', (e) => {
 
 // IMPORTS
 import { calcMainSubmit, breadParamsObj } from './calcMain.js';
-import calcFloursAndIngredientsSubmit from './calcFlours.js';
-import { resetMainForm } from './reset.js';
-import { btnToTop, numberFieldsMain, numberFieldsFlours } from './elements.js';
+import {
+  calcFloursAndIngredientsSubmit,
+  calculateAdditionalFlours,
+  calculateAdditionalIngredients,
+} from './calcFlours.js';
+import {
+  resetMainForm,
+  resetFloursInputs,
+  resetGlobalLocalStorage,
+} from './reset.js';
+import {
+  btnToTop,
+  btnGlobalReset,
+  btnGlobalSave,
+  numberFieldsMain,
+  numberFieldsFlours,
+  numberFieldsIngredients,
+} from './elements.js';
 
 import { onScreenScroll, goToScreenTop } from './scroll.js';
 import { onFocusOutValidation } from './validation.js';
-import { getLocaleStorageMain, setLocaleStorageMain } from './storage.js';
+import {
+  setGlobalLocalStorage,
+  getLocaleStorageMain,
+  setLocaleStorageMain,
+  getLocaleStorageFlours,
+  getLocaleStorageIngredients,
+  setLocalStorageFloursAndIngredients,
+} from './storage.js';
 import { temporaryOnClickAlert } from './alerts.js';

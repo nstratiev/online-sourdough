@@ -2,8 +2,12 @@ let isFirstPageLoad = true;
 // const formFloursObj = {'1': {flourType: 'Wholewheat', flourPercent: 25, flourWeight: 320}, '2': {}, ...};
 
 // Flours Calculation on submit
-export default function calcFloursAndIngredientsSubmit(flourForKneading) {
-  if (!calculateAdditionalFlours(flourForKneading)) {
+export function calcFloursAndIngredientsSubmit() {
+  if (!calcMainSubmit()) {
+    return;
+  }
+
+  if (!calculateAdditionalFlours() || !calculateAdditionalIngredients()) {
     return false;
   }
 
@@ -28,45 +32,99 @@ export default function calcFloursAndIngredientsSubmit(flourForKneading) {
   // return true;
 }
 
-function calculateAdditionalFlours(flourForKneading) {
-  // let flourForKneading = 1380;
+export function calculateAdditionalFlours() {
+  const flourForKneading = breadParamsObj.kneading.flour;
   let additionalFlours = 0;
   const formFloursObj = {};
+
+  // Validation
+  if (!valuesRangeValidation(numberFieldsFlours)) {
+    return false;
+  }
 
   for (let i = 1; i <= 8; i++) {
     const elementsGroup = formFlours.querySelectorAll(`[data-id="${i}"]`);
     const flourType = elementsGroup[0].value;
-    let flourPercent = elementsGroup[1].value;
-    let flourWeight = '##';
+    const flourPercentStr = elementsGroup[1].value;
+    let flourPercent = null;
+    let flourWeight = '';
 
-    if (flourPercent) {
-      // If Validation === False >>> return false;
-
-      flourPercent = Number(flourPercent) / 100;
+    if (flourPercentStr) {
+      flourPercent = Number(flourPercentStr) / 100;
       flourWeight = flourForKneading * flourPercent;
       additionalFlours += flourWeight;
     }
 
-    if (typeof flourWeight === 'string') {
-      elementsGroup[2].textContent = flourWeight;
-    } else {
+    if (flourWeight) {
       elementsGroup[2].textContent = flourWeight.toFixed(0);
+    } else {
+      elementsGroup[2].textContent = '';
     }
 
-    formFloursObj[i] = { flourType, flourPercent, flourWeight };
+    formFloursObj[i] = { flourType, flourPercent: flourPercentStr };
   }
+
+  localStorage.setItem('formFlours', JSON.stringify(formFloursObj));
 
   const whiteFlour = flourForKneading - additionalFlours;
 
-  console.log(`Additional flous: ${additionalFlours.toFixed(0)}`);
-  console.log(`White flour: ${whiteFlour.toFixed(0)}`);
-  console.log(`Total flour: ${additionalFlours + whiteFlour}`);
-  console.log(formFloursObj);
+  if (additionalFlours) {
+    whiteFlourResultElement.textContent = whiteFlour.toFixed(0);
+    totalCalculatedFlourResultElement.textContent = (
+      additionalFlours + whiteFlour
+    ).toFixed(0);
+  } else {
+    whiteFlourResultElement.textContent = '';
+    totalCalculatedFlourResultElement.textContent = '';
+  }
 
   return true;
 }
 
-function calculateAdditionalIngredients() {}
+export function calculateAdditionalIngredients() {
+  const doughWeight = breadParamsObj.doughWeight;
+  let additionalIngredients = 0;
+  const formIngredientsObj = {};
+
+  // Validation
+  if (!valuesRangeValidation(numberFieldsIngredients)) {
+    return false;
+  }
+
+  for (let i = 1; i <= 2; i++) {
+    const elementsGroup = formFlours.querySelectorAll(`[data-id="${i}b"]`);
+    const ingrType = elementsGroup[0].value;
+    const ingrPercentStr = elementsGroup[1].value;
+    let ingrPercent = null;
+    let ingrWeight = '';
+
+    if (ingrPercentStr) {
+      ingrPercent = Number(ingrPercentStr) / 100;
+      ingrWeight = doughWeight * ingrPercent;
+      additionalIngredients += ingrWeight;
+    }
+
+    if (ingrWeight) {
+      elementsGroup[2].textContent = ingrWeight.toFixed(0);
+    } else {
+      elementsGroup[2].textContent = '';
+    }
+
+    formIngredientsObj[i] = { ingrType, ingrPercent: ingrPercentStr };
+  }
+
+  localStorage.setItem('formIngredients', JSON.stringify(formIngredientsObj));
+
+  return true;
+}
 
 // IMPORTS
-import { formFlours } from './elements.js';
+import {
+  formFlours,
+  numberFieldsFlours,
+  numberFieldsIngredients,
+  whiteFlourResultElement,
+  totalCalculatedFlourResultElement,
+} from './elements.js';
+import { valuesRangeValidation } from './validation.js';
+import { breadParamsObj, calcMainSubmit } from './calcMain.js';

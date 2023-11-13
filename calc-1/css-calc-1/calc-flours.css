@@ -75,7 +75,7 @@
 }
 
 .additional-flour-total,
-#additional-flour-total-result {
+#totalFlour-flours-form-result {
   font-style: italic;
   font-size: 85%;
   display: flex;

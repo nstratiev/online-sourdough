@@ -1,5 +1,8 @@
 // Elements
 export const btnToTop = document.querySelector('#btn-to-top');
+export const btnGlobalReset = document.querySelector('#btn-reset-global ');
+export const btnGlobalSave = document.querySelector('#btn-save-global');
+
 export const formMain = document.querySelector('.calc-main');
 export const formFlours = document.querySelector('.calc-flours-ingredients');
 export const numberFieldsMain = document.querySelectorAll(
@@ -7,6 +10,9 @@ export const numberFieldsMain = document.querySelectorAll(
 );
 export const numberFieldsFlours = document.querySelectorAll(
   'input[class="additional-flour-percent"]'
+);
+export const numberFieldsIngredients = document.querySelectorAll(
+  'input[class="additional-ingr-percent"]'
 );
 
 // RESULT elements
@@ -27,3 +33,11 @@ export const waterWeightElement = document.querySelector(
 export const saltWeightElement = document.querySelector('#salt-weight-result');
 export const flourTotalElement = document.querySelector('#flour-total');
 export const waterTotalElement = document.querySelector('#water-total');
+
+export const whiteFlourResultElement = document.querySelector(
+  '#whiteFlour-flours-form-result'
+);
+
+export const totalCalculatedFlourResultElement = document.querySelector(
+  '#totalFlour-flours-form-result'
+);

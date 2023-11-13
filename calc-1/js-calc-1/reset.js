@@ -1,28 +1,28 @@
 // Reset functions
-export function resetMainForm() {
-  resetMainInputs();
-  resetMainPrimaryResults();
-  resetMainSecondaryResults();
-
+export function resetGlobalLocalStorage() {
   setTimeout(() => {
     resetConfirmDialog
       .open()
       .then((val) => {
         localStorage.clear();
         temporaryOnClickAlert('&check;', 500, 'rgb(192, 0, 0)');
+        location.reload();
       })
       .catch((val) => {});
   }, 300);
 }
 
-export function resetMainInputs() {
-  formMain.reset();
-  // numberFieldsMain.forEach((inp) => {
-  //   inp.value = '';
-  // });
+export function resetMainForm() {
+  resetMainInputs();
+  resetMainPrimaryResults();
+  resetMainSecondaryResults();
 }
 
-export function resetMainPrimaryResults() {
+function resetMainInputs() {
+  formMain.reset();
+}
+
+function resetMainPrimaryResults() {
   doughWeightElement.textContent = '####';
   flourWeightElement.textContent = '####';
   leavenWeightElement.textContent = '####';
@@ -30,11 +30,15 @@ export function resetMainPrimaryResults() {
   saltWeightElement.textContent = '####';
 }
 
-export function resetMainSecondaryResults() {
+function resetMainSecondaryResults() {
   flourLeavenElement.textContent = '###';
   waterLeavenElement.textContent = '###';
   flourTotalElement.textContent = '###';
   waterTotalElement.textContent = '###';
+}
+
+export function resetFloursInputs() {
+  formFlours.reset();
 }
 
 // IMPORTS
@@ -51,4 +55,5 @@ import {
   flourTotalElement,
   waterTotalElement,
   formMain,
+  formFlours,
 } from './elements.js';

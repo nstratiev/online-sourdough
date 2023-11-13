@@ -34,6 +34,8 @@ export function onFocusOutValidation(field, min, max, isRequired) {
   if (field.value === '') {
     if (isRequired) {
       field.style.outline = '2px solid green';
+    } else {
+      field.style.outline = 'none';
     }
   } else if (inputValue < min || inputValue > max) {
     field.style.outline = '2px solid red';
@@ -54,11 +56,11 @@ export function hasEmptyFieldsValidation() {
         field.style.outline = '2px solid green';
       }, 0);
 
-      return true;
+      return [true, field];
     }
   }
 
-  return false;
+  return [false];
 }
 
 export function valueRangeCheck(field, min, max) {
@@ -88,8 +90,14 @@ export function valueRangeCheck(field, min, max) {
 
     alertOutOfRangeBox
       .open()
-      .then((val) => {})
-      .catch((val) => {});
+      .then((val) => {
+        field.focus();
+      })
+      .catch((val) => {
+        field.focus();
+      });
+
+    // console.log('RANGE');
 
     return false;
   } else {
@@ -98,10 +106,10 @@ export function valueRangeCheck(field, min, max) {
   }
 }
 
-export function valuesRangeValidation() {
+export function valuesRangeValidation(fields) {
   let isValid = true;
 
-  for (const field of numberFieldsMain) {
+  for (const field of fields) {
     const min = field.min;
     const max = field.max;
 

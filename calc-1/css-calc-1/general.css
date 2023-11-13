@@ -135,7 +135,7 @@ ul.top-nav {
 a.top-nav-item:link,
 a.top-nav-item:visited {
   border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 6px;
   /* padding: 14px 25px; */
   padding: 5px;
   min-width: 50px;
@@ -148,12 +148,17 @@ a.top-nav-item:visited {
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
+
+  background-color: white;
 }
 
 a.top-nav-item:hover,
 a.top-nav-item:active {
   outline: 2px solid black;
   border: 1px solid white;
+  /* background-color: white; */
+  /* background-color: var(--grey-bg); */
+  background-color: rgb(242, 242, 242);
 }
 
 .top-nav-text {

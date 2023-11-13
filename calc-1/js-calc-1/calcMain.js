@@ -26,7 +26,8 @@ export function calcMainSubmit() {
   const formDataObj = formdataToObject(formData);
 
   // Validation
-  if (hasEmptyFieldsValidation()) {
+  const condition = hasEmptyFieldsValidation();
+  if (condition[0]) {
     if (isFirstPageLoad) {
       isFirstPageLoad = false;
     } else {
@@ -35,7 +36,9 @@ export function calcMainSubmit() {
       setTimeout(() => {
         alertEmptyFieldBox
           .open()
-          .then((val) => {})
+          .then((val) => {
+            condition[1].focus();
+          })
           .catch((val) => {});
       }, 100);
 
@@ -47,7 +50,7 @@ export function calcMainSubmit() {
     return false;
   }
 
-  if (!valuesRangeValidation()) {
+  if (!valuesRangeValidation(numberFieldsMain)) {
     breadParamsObj = null;
     return false;
   }
@@ -131,7 +134,7 @@ export function calcMainSubmit() {
 
 // IMPORTS
 import { formdataToObject } from './helpers.js';
-import { formMain } from './elements.js';
+import { formMain, numberFieldsMain } from './elements.js';
 import { setLocaleStorageMain } from './storage.js';
 import { printMainPrimaryResults, printMainSecondaryResults } from './print.js';
 import { alertEmptyFieldBox, temporaryOnClickAlert } from './alerts.js';

@@ -71,131 +71,82 @@
   z-index: 99;
 }
 
-/* Button to top */
-#btn-to-top {
-  width: 36px;
-  height: 36px;
-  background-color: rgba(128, 128, 128, 0.8);
-  border-radius: 50%;
-
-  display: none;
-  position: fixed;
-  bottom: 60px;
-  right: 20px;
-  z-index: 99;
-  cursor: pointer;
-}
-
-.up-arrow {
-  width: 14px;
-  height: 14px;
-  border-top: 4px solid white;
-  border-left: 4px solid white;
-  margin: auto;
-  transform: rotate(45deg);
-  translate: 0 0.8em;
-}
-
-#btn-to-top:hover,
-#btn-to-top:active {
-  border: 2px solid rgb(128, 128, 128);
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-#btn-to-top:hover .up-arrow,
-#btn-to-top:active .up-arrow {
-  border-color: rgb(128, 128, 128);
-}
-
-/* Global reset button */
-.btn-reset-global {
-  width: 36px;
-  height: 36px;
-  background-color: rgba(128, 128, 128, 0.8);
-  /* background-color: rgba(0, 100, 0, 0.8); */
-  /* border: 2px solid green; */
-  border-radius: 50%;
-
-  /* display: none; */
-  position: fixed;
-  bottom: 140px;
-  right: 20px;
-  z-index: 99;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-reset-global div {
-  /* border: 2px solid red; */
-  padding: 4px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* width: 85%;
-  height: auto; */
-}
-
-.btn-reset-global svg {
-  color: white;
-  width: 85%;
-  height: auto;
-
-  /* color: green; */
-  color: white;
-}
-
-.btn-reset-global path {
-  stroke-width: 24;
-}
-
-/* Global save button */
+/* To-top button + Global reset/save button */
+.btn-to-top,
+.btn-reset-global,
 .btn-save-global {
   width: 36px;
   height: 36px;
   background-color: rgba(128, 128, 128, 0.8);
-  /* background-color: rgba(0, 100, 0, 0.8); */
-  /* border: 2px solid green; */
   border-radius: 50%;
-
-  /* display: none; */
   position: fixed;
-  bottom: 100px;
   right: 20px;
   z-index: 99;
   cursor: pointer;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.btn-to-top:hover,
+.btn-reset-global:hover,
+.btn-save-global:hover,
+.btn-to-top:active,
+.btn-reset-global:active,
+.btn-save-global:active {
+  border: 2px solid rgba(128, 128, 128, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-to-top:hover svg,
+.btn-reset-global:hover svg,
+.btn-save-global:hover svg,
+.btn-to-top:active svg,
+.btn-reset-global:active svg,
+.btn-save-global:active svg {
+  color: rgb(128, 128, 128);
+}
+
+.btn-to-top div,
+.btn-reset-global div,
 .btn-save-global div {
-  /* border: 2px solid red; */
   padding: 4px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* width: 85%;
-  height: auto; */
 }
 
+.btn-to-top svg,
+.btn-reset-global svg,
 .btn-save-global svg {
   color: white;
   width: 85%;
   height: auto;
-
-  /* color: green; */
   color: white;
 }
 
+.btn-to-top polyline {
+  translate: 0 1em;
+}
+
+.btn-to-top polyline,
+.btn-reset-global path,
 .btn-save-global path {
-  /* fill: red; */
   stroke-width: 24;
+}
+
+/* To-top button */
+.btn-to-top {
+  display: none;
+  bottom: 60px;
+}
+
+/* Global reset button */
+.btn-reset-global {
+  bottom: 140px;
+}
+
+/* Global save button */
+.btn-save-global {
+  bottom: 100px;
 }

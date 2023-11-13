@@ -45,80 +45,86 @@
     </header>
 
     <main>
+      <!-- To-top Button -->
       <div class="btn-to-top" id="btn-to-top">
-        <div class="up-arrow"></div>
-      </div>
-      <!-- Global Reset Button -->
-      <div class="btn-reset-global" id="btn-reset-global">
+        <!-- <div class="up-arrow"></div> -->
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
             <rect width="256" height="256" fill="none" />
-            <path
-              d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="12"
-            />
-            <path
-              d="M64,192s24,24,64,24c56,0,88-56,88-56"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="12"
-            />
             <polyline
-              points="88 96 40 96 40 48"
+              points="48 160 128 80 208 160"
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="12"
+              stroke-width="16"
             />
+          </svg>
+        </div>
+      </div>
+      <!-- Global Reset Button -->
+      <div
+        class="btn-reset-global"
+        id="btn-reset-global"
+        title="Нулиране на всички полета"
+      >
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none" />
             <polyline
-              points="168 160 216 160 216 208"
+              points="24 56 24 104 72 104"
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="12"
+              stroke-width="16"
+            />
+            <path
+              d="M67.59,192A88,88,0,1,0,65.77,65.77L24,104"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
             />
           </svg>
         </div>
       </div>
       <!-- Global Save Button -->
-      <div class="btn-save-global" id="btn-save-global">
+      <div
+        class="btn-save-global"
+        id="btn-save-global"
+        title="Запаметяване на стойностите от всички полета на текущата страница"
+      >
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
             <rect width="256" height="256" fill="none" />
-            <path
-              d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+            <ellipse
+              cx="128"
+              cy="80"
+              rx="88"
+              ry="48"
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="12"
+              stroke-width="16"
             />
             <path
-              d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
+              d="M40,80v48c0,26.51,39.4,48,88,48s88-21.49,88-48V80"
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="12"
+              stroke-width="16"
             />
-            <line
-              x1="152"
-              y1="72"
-              x2="96"
-              y2="72"
+            <path
+              d="M40,128v48c0,26.51,39.4,48,88,48s88-21.49,88-48V128"
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="12"
+              stroke-width="16"
             />
           </svg>
         </div>
@@ -404,7 +410,7 @@
               type="button"
               class="btn-submit"
               id="btn-submit-main"
-              title="Изчисли търсените стойности"
+              title="Изчисляване на търсените стойности"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -444,7 +450,7 @@
               type="button"
               class="btn-reset"
               id="btn-reset-main"
-              title="Нулиране на всички стойности"
+              title="Нулиране на полетата от текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -486,7 +492,7 @@
               type="button"
               class="btn-save"
               id="btn-save-main"
-              title="Запамети стойностите от полетата за свободно въвеждане"
+              title="Запаметяване на стойностите от полетата на текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -593,7 +599,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="1">
-                    ##
                   </span>
                 </div>
               </div>
@@ -629,7 +634,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="2">
-                    ##
                   </span>
                 </div>
               </div>
@@ -665,7 +669,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="3">
-                    ##
                   </span>
                 </div>
               </div>
@@ -701,7 +704,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="4">
-                    ##
                   </span>
                 </div>
               </div>
@@ -737,7 +739,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="5">
-                    ##
                   </span>
                 </div>
               </div>
@@ -773,7 +774,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="6">
-                    ##
                   </span>
                 </div>
               </div>
@@ -809,7 +809,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="7">
-                    ##
                   </span>
                 </div>
               </div>
@@ -845,7 +844,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="8">
-                    ##
                   </span>
                 </div>
               </div>
@@ -857,11 +855,12 @@
           <!-- White flour grid -->
           <div class="white-flour-grid">
             <div class="white-flour-cell-1">Основно брашно (бяло), (g):</div>
-            <div class="white-flour-cell-2" id="white-flour-grid-result">
-              ####
-            </div>
+            <div
+              class="white-flour-cell-2"
+              id="whiteFlour-flours-form-result"
+            ></div>
             <div class="additional-flour-total">Общо:</div>
-            <div id="additional-flour-total-result">###</div>
+            <div id="totalFlour-flours-form-result"></div>
           </div>
 
           <!-- Ingredients - calculator -->
@@ -915,7 +914,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="1b">
-                    ##
                   </span>
                 </div>
               </div>
@@ -951,7 +949,6 @@
                 </div>
                 <div class="card-flours-cell _2b">
                   <span class="additional-flour-result bold" data-id="2b">
-                    ##
                   </span>
                 </div>
               </div>
@@ -966,7 +963,7 @@
               type="button"
               class="btn-submit"
               id="btn-submit-flours"
-              title="Изчисли търсените стойности"
+              title="Изчисляване на търсените стойности"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1006,7 +1003,7 @@
               type="button"
               class="btn-reset"
               id="btn-reset-flours"
-              title="Нулиране на всички стойности"
+              title="Нулиране на полетата от текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1048,7 +1045,7 @@
               type="button"
               class="btn-save"
               id="btn-save-flours"
-              title="Запамети стойностите от полетата за свободно въвеждане"
+              title="Запаметяване на стойностите от полетата на текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1149,7 +1146,7 @@
               type="button"
               class="btn-submit"
               id="btn-submit-corrections"
-              title="Изчисли търсените стойности"
+              title="Изчисляване на търсените стойности"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1189,7 +1186,7 @@
               type="button"
               class="btn-reset"
               id="btn-reset-corrections"
-              title="Нулиране на всички стойности"
+              title="Нулиране на полетата от текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1231,7 +1228,7 @@
               type="button"
               class="btn-save"
               id="btn-save-corrections"
-              title="Запамети стойностите от полетата за свободно въвеждане"
+              title="Запаметяване на стойностите от полетата на текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1347,7 +1344,7 @@
               type="button"
               class="btn-submit"
               id="btn-submit-water"
-              title="Изчисли търсените стойности"
+              title="Изчисляване на търсените стойности"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1387,7 +1384,7 @@
               type="button"
               class="btn-reset"
               id="btn-reset-water"
-              title="Нулиране на всички стойности"
+              title="Нулиране на полетата от текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1429,7 +1426,7 @@
               type="button"
               class="btn-save"
               id="btn-save-water"
-              title="Запамети стойностите от полетата за свободно въвеждане"
+              title="Запаметяване на стойностите от полетата на текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1668,7 +1665,7 @@
               type="button"
               class="btn-submit"
               id="btn-submit-leaven"
-              title="Изчисли търсените стойности"
+              title="Изчисляване на търсените стойности"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1708,7 +1705,7 @@
               type="button"
               class="btn-reset"
               id="btn-reset-leaven"
-              title="Нулиране на всички стойности"
+              title="Нулиране на полетата от текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
@@ -1750,7 +1747,7 @@
               type="button"
               class="btn-save"
               id="btn-save-leaven"
-              title="Запамети стойностите от полетата за свободно въвеждане"
+              title="Запаметяване на стойностите от полетата на текущата форма"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <rect width="256" height="256" fill="none" />
