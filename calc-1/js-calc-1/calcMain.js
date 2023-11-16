@@ -27,6 +27,7 @@ export function calcMainSubmit() {
 
   // Validation
   const condition = hasEmptyFieldsValidation();
+
   if (condition[0]) {
     if (isFirstPageLoad) {
       isFirstPageLoad = false;
@@ -127,6 +128,7 @@ export function calcMainSubmit() {
     isFirstPageLoad = false;
   } else {
     temporaryOnClickAlert('&check;', 400, 'green');
+    // console.log(isFirstPageLoad);
   }
 
   return true;

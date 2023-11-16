@@ -44,6 +44,7 @@ export class ConfirmModal {
         this.close();
       });
       contentElem.appendChild(cancelBtnElem);
+      // cancelBtnElem.focus();
     }
 
     // Confirm Button
@@ -59,6 +60,13 @@ export class ConfirmModal {
     }
 
     document.body.appendChild(this.modalElem);
+
+    const cancelBtn = document.querySelector('.btn-cancel');
+    if (cancelBtn) {
+      cancelBtn.focus();
+    } else {
+      document.querySelector('.btn-confirm').focus();
+    }
   }
 
   open() {

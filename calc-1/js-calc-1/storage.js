@@ -36,6 +36,11 @@ export function setLocalStorageFloursAndIngredients() {
 // Flours localStorage
 export function getLocaleStorageFlours() {
   let formFloursStorage = localStorage.getItem('formFlours');
+
+  if (formFloursStorage === null) {
+    return;
+  }
+
   formFloursStorage = JSON.parse(formFloursStorage);
 
   // console.log(formFloursStorage);
@@ -66,6 +71,11 @@ export function setLocaleStorageFlours() {
 // Ingredients localStorage
 export function getLocaleStorageIngredients() {
   let formIngredientsStorage = localStorage.getItem('formIngredients');
+
+  if (formIngredientsStorage === null) {
+    return;
+  }
+
   formIngredientsStorage = JSON.parse(formIngredientsStorage);
 
   for (let i = 1; i <= 2; i++) {

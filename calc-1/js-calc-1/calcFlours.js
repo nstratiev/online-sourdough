@@ -1,4 +1,3 @@
-let isFirstPageLoad = true;
 // const formFloursObj = {'1': {flourType: 'Wholewheat', flourPercent: 25, flourWeight: 320}, '2': {}, ...};
 
 // Flours Calculation on submit
@@ -10,29 +9,13 @@ export function calcFloursAndIngredientsSubmit() {
   if (!calculateAdditionalFlours() || !calculateAdditionalIngredients()) {
     return false;
   }
-
-  // Validation
-
-  // if (!valuesRangeValidation()) {
-  //   return false;
-  // }
-
-  // Input values
-
-  // Print calculated values
-
-  // setLocaleStorageMain();
-
-  // if (isFirstPageLoad) {
-  //   isFirstPageLoad = false;
-  // } else {
-  //   temporaryOnClickAlert('&check;', 400, 'green');
-  // }
-
-  // return true;
 }
 
 export function calculateAdditionalFlours() {
+  if (breadParamsObj === null) {
+    return;
+  }
+
   const flourForKneading = breadParamsObj.kneading.flour;
   let additionalFlours = 0;
   const formFloursObj = {};
@@ -82,6 +65,10 @@ export function calculateAdditionalFlours() {
 }
 
 export function calculateAdditionalIngredients() {
+  if (breadParamsObj === null) {
+    return;
+  }
+
   const doughWeight = breadParamsObj.doughWeight;
   let additionalIngredients = 0;
   const formIngredientsObj = {};

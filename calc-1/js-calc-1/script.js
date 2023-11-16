@@ -71,7 +71,8 @@ document.addEventListener('click', (e) => {
     if (btnClassName === 'btn-submit') {
       calcFloursAndIngredientsSubmit();
     } else if (btnClassName === 'btn-reset') {
-      resetFloursInputs();
+      resetFloursForm();
+      // resetFloursInputs();
       temporaryOnClickAlert('&check;', 400, 'green');
     } else if (btnClassName === 'btn-save') {
       setLocalStorageFloursAndIngredients();
@@ -95,7 +96,8 @@ import {
 } from './calcFlours.js';
 import {
   resetMainForm,
-  resetFloursInputs,
+  resetFloursForm,
+  // resetFloursInputs,
   resetGlobalLocalStorage,
 } from './reset.js';
 import {

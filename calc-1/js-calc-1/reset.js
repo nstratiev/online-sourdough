@@ -1,15 +1,30 @@
 // Reset functions
 export function resetGlobalLocalStorage() {
+  btnGlobalReset.style.pointerEvents = 'none';
+  btnGlobalSave.style.pointerEvents = 'none';
+  btnToTop.style.pointerEvents = 'none';
+
+  resetMainForm();
+  resetFloursInputs();
+  temporaryOnClickAlert('&check;', 400, 'green');
+
   setTimeout(() => {
     resetConfirmDialog
       .open()
       .then((val) => {
         localStorage.clear();
-        temporaryOnClickAlert('&check;', 500, 'rgb(192, 0, 0)');
+        temporaryOnClickAlert('&check;', 400, 'green');
         location.reload();
       })
-      .catch((val) => {});
-  }, 300);
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        btnGlobalReset.style.pointerEvents = 'auto';
+        btnGlobalSave.style.pointerEvents = 'auto';
+        btnToTop.style.pointerEvents = 'auto';
+      });
+  }, 200);
 }
 
 export function resetMainForm() {
@@ -37,8 +52,24 @@ function resetMainSecondaryResults() {
   waterTotalElement.textContent = '###';
 }
 
-export function resetFloursInputs() {
+export function resetFloursForm() {
+  resetFloursInputs();
+  resetFloursResults();
+  resetIngredientsResults();
+}
+
+function resetFloursInputs() {
   formFlours.reset();
+}
+
+function resetFloursResults() {
+  floursResultElements.forEach((el) => (el.textContent = ''));
+  whiteFlourResultElement.textContent = '';
+  totalCalculatedFlourResultElement.textContent = '';
+}
+
+function resetIngredientsResults() {
+  ingredientsResultElements.forEach((el) => (el.textContent = ''));
 }
 
 // IMPORTS
@@ -56,4 +87,11 @@ import {
   waterTotalElement,
   formMain,
   formFlours,
+  floursResultElements,
+  whiteFlourResultElement,
+  totalCalculatedFlourResultElement,
+  ingredientsResultElements,
+  btnGlobalReset,
+  btnGlobalSave,
+  btnToTop,
 } from './elements.js';
