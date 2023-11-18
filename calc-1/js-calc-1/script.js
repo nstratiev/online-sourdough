@@ -29,8 +29,6 @@ btnGlobalSave.addEventListener('click', setGlobalLocalStorage);
 
 // -- Buttons listeners
 document.addEventListener('click', (e) => {
-  e.preventDefault();
-
   if (e.target.tagName !== 'BUTTON') {
     return;
   }
