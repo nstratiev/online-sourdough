@@ -1,4 +1,6 @@
 // Reset functions
+
+// Global
 export function resetGlobalLocalStorage() {
   btnGlobalReset.style.pointerEvents = 'none';
   btnGlobalSave.style.pointerEvents = 'none';
@@ -6,14 +8,14 @@ export function resetGlobalLocalStorage() {
 
   resetMainForm();
   resetFloursInputs();
-  temporaryOnClickAlert('&check;', 400, 'green');
+  checkmarkAlertGreen();
 
   setTimeout(() => {
     resetConfirmDialog
       .open()
       .then((val) => {
         localStorage.clear();
-        temporaryOnClickAlert('&check;', 400, 'green');
+        checkmarkAlertGreen();
         location.reload();
       })
       .catch((err) => {
@@ -27,6 +29,7 @@ export function resetGlobalLocalStorage() {
   }, 200);
 }
 
+// Main
 export function resetMainForm() {
   resetMainInputs();
   resetMainPrimaryResults();
@@ -52,6 +55,7 @@ function resetMainSecondaryResults() {
   waterTotalElement.textContent = '###';
 }
 
+// Flours & Ingredients
 export function resetFloursForm() {
   resetFloursInputs();
   resetFloursResults();
@@ -72,10 +76,45 @@ function resetIngredientsResults() {
   ingredientsResultElements.forEach((el) => (el.textContent = ''));
 }
 
+// Corrections
+export function resetCorrectionsForm() {
+  resetCorrectionsInputs();
+  resetCorrectionsResults();
+}
+
+function resetCorrectionsInputs() {
+  formCorrections.reset();
+}
+
+function resetCorrectionsResults() {
+  correctionsIncrResultElemWater.textContent = '';
+  correctionsDecrResultElemFlour.textContent = '';
+  correctionsDecrResultElemSalt.textContent = '';
+  correctionsDecrResultElemPreferm.textContent = '';
+}
+
+// Water
+export function resetWaterForm() {
+  resetWaterInputs();
+  resetWaterResults();
+}
+
+function resetWaterInputs() {
+  formWater.reset();
+}
+
+function resetWaterResults() {
+  totalWaterCheckResultElem.textContent = '';
+  initialWaterResultElem.textContent = '';
+  secondaryWaterResultElem.textContent = '';
+  secondaryWaterPercentResultElem.textContent = '';
+}
+
+// Leaven feed
+
 // IMPORTS
-import { resetConfirmDialog, temporaryOnClickAlert } from './alerts.js';
+import { resetConfirmDialog, checkmarkAlertGreen } from './alerts.js';
 import {
-  numberFieldsMain,
   doughWeightElement,
   flourWeightElement,
   waterWeightElement,
@@ -87,11 +126,21 @@ import {
   waterTotalElement,
   formMain,
   formFlours,
+  formCorrections,
   floursResultElements,
   whiteFlourResultElement,
   totalCalculatedFlourResultElement,
   ingredientsResultElements,
+  correctionsIncrResultElemWater,
+  correctionsDecrResultElemFlour,
+  correctionsDecrResultElemSalt,
+  correctionsDecrResultElemPreferm,
+  totalWaterCheckResultElem,
+  initialWaterResultElem,
+  secondaryWaterResultElem,
+  secondaryWaterPercentResultElem,
   btnGlobalReset,
   btnGlobalSave,
   btnToTop,
+  formWater,
 } from './elements.js';

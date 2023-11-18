@@ -13,7 +13,7 @@ export function calcFloursAndIngredientsSubmit() {
 
 export function calculateAdditionalFlours() {
   if (breadParamsObj === null) {
-    return;
+    return false;
   }
 
   const flourForKneading = breadParamsObj.kneading.flour;
@@ -66,7 +66,7 @@ export function calculateAdditionalFlours() {
 
 export function calculateAdditionalIngredients() {
   if (breadParamsObj === null) {
-    return;
+    return false;
   }
 
   const doughWeight = breadParamsObj.doughWeight;

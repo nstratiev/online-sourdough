@@ -1,0 +1,10 @@
+Convention (html attribute names):
+- class = "" / id="" >>> Kebap case
+- name = "" >>> Camel case
+
+
+Form calculator (example):
+calcMain.js >>> calcMainSubmit()
+print.js >>> printMainResults
+reset.js >>> resetMainForm / resetMainInputs / resetMainResults
+storage.js >>> getLocalStorageMain / setLocalStorageMain

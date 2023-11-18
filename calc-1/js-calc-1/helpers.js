@@ -24,3 +24,11 @@ export function camelToKebapCase(str) {
 
   return strArr.join('');
 }
+
+export function preventDefaultOnEnterKeyPress(element) {
+  element.addEventListener('keypress', function (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  });
+}

@@ -1,5 +1,9 @@
 // --- Alert functions
-export function temporaryOnClickAlert(msg, duration, bgColor) {
+export function checkmarkAlertGreen() {
+  temporaryOnClickAlert('&check;', 400, 'green');
+}
+
+function temporaryOnClickAlert(msg, duration, bgColor) {
   const containerEl = document.createElement('div');
   containerEl.setAttribute('class', 'temp-alert');
   containerEl.style.backgroundColor = bgColor;

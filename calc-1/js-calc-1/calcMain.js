@@ -1,4 +1,20 @@
 let isFirstPageLoad = true;
+
+/*  
+const breadParamsObj = {
+  formula: {
+    prefermFlourPercent,
+    leavenHydr,
+    waterPercent,
+    saltPercent,
+  },
+  doughWeight,
+  leaven: { flour, water },
+  kneading: { flour, leaven, water, salt },
+  total: { flour, water },
+};
+*/
+
 export let breadParamsObj = {
   formula: {},
   doughWeight: null,
@@ -6,19 +22,6 @@ export let breadParamsObj = {
   kneading: {},
   total: {},
 };
-
-// const breadParamsObj = {
-//   formula: {
-//     prefermFlourPercent,
-//     leavenHydr,
-//     waterPercent,
-//     saltPercent,
-//   },
-//   doughWeight,
-//   leaven: { flour, water },
-//   kneading: { flour, leaven, water, salt },
-//   total: { flour, water },
-// };
 
 // Main Calculation on submit
 export function calcMainSubmit() {
@@ -52,6 +55,8 @@ export function calcMainSubmit() {
   }
 
   if (!valuesRangeValidation(numberFieldsMain)) {
+    setLocaleStorageMain();
+
     breadParamsObj = null;
     return false;
   }
@@ -63,6 +68,7 @@ export function calcMainSubmit() {
   const saltPercent = formDataObj.saltPercent / 100;
   const loafsCount = formDataObj.loafsCount;
   const loafWeight = formDataObj.loafWeight;
+  numberFieldsWater[0].setAttribute('max', formDataObj.waterPercent);
 
   // Calculated values
   const totalDoughWeight = getTotalDoughWeight(loafsCount, loafWeight);
@@ -127,7 +133,7 @@ export function calcMainSubmit() {
   if (isFirstPageLoad) {
     isFirstPageLoad = false;
   } else {
-    temporaryOnClickAlert('&check;', 400, 'green');
+    checkmarkAlertGreen();
     // console.log(isFirstPageLoad);
   }
 
@@ -136,10 +142,10 @@ export function calcMainSubmit() {
 
 // IMPORTS
 import { formdataToObject } from './helpers.js';
-import { formMain, numberFieldsMain } from './elements.js';
+import { formMain, numberFieldsMain, numberFieldsWater } from './elements.js';
 import { setLocaleStorageMain } from './storage.js';
 import { printMainPrimaryResults, printMainSecondaryResults } from './print.js';
-import { alertEmptyFieldBox, temporaryOnClickAlert } from './alerts.js';
+import { alertEmptyFieldBox, checkmarkAlertGreen } from './alerts.js';
 import {
   hasEmptyFieldsValidation,
   valuesRangeValidation,

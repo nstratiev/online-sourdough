@@ -71,8 +71,8 @@
   border-top: 3px solid rgb(150, 54, 52);
 }
 
-#correction-hydr-incr-input,
-#correction-hydr-decr-input {
+#hydratation-increment,
+#hydratation-decrement {
   background-color: rgb(255, 255, 153);
   border: 1px solid black;
   padding: 1px;

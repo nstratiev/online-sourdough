@@ -22,7 +22,19 @@
 
 //   return false;
 // }
-export function onFocusOutValidation(field, min, max, isRequired) {
+
+export function addOnFocusOutInputsListener(numberFields) {
+  numberFields.forEach((field) => {
+    field.addEventListener('focusout', (e) => {
+      const min = e.target.min;
+      const max = e.target.max;
+      const isRequired = e.target.required;
+      onFocusOutValidation(e.target, min, max, isRequired);
+    });
+  });
+}
+
+function onFocusOutValidation(field, min, max, isRequired) {
   const inputValue = Number(field.value);
   min = Number(min);
   max = Number(max);
@@ -82,7 +94,6 @@ export function valueRangeCheck(field, min, max) {
     });
 
     setTimeout(() => {
-      field.focus();
       field.style.outline = '2px solid red';
 
       // alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
@@ -94,7 +105,7 @@ export function valueRangeCheck(field, min, max) {
         field.focus();
       })
       .catch((val) => {
-        field.focus();
+        // field.focus();
       });
 
     // console.log('RANGE');

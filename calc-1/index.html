@@ -1095,9 +1095,9 @@
               <span>
                 <input
                   type="number"
-                  name="correctionHydrPercentIncrement"
-                  class="correction-hydr-percent-incr"
-                  id="correction-hydr-incr-input"
+                  name="hydratationIncrement"
+                  class="correction-hydr-percent"
+                  id="hydratation-increment"
                   min="0"
                   max="100"
                   step="1"
@@ -1107,7 +1107,7 @@
               %<br />се равнява на:
             </div>
             <div class="cell-correction-1 _bottom blue bold">
-              + 45.00 g (вода) ####
+              <span class="corrections-incr-result-water"></span>
             </div>
           </article>
 
@@ -1118,9 +1118,9 @@
               <span>
                 <input
                   type="number"
-                  name="correctionHydrPercentDecrement"
-                  class="correction-hydr-percent-decr"
-                  id="correction-hydr-decr-input"
+                  name="hydratationDecrement"
+                  class="correction-hydr-percent"
+                  id="hydratation-decrement"
                   min="0"
                   max="100"
                   step="1"
@@ -1129,10 +1129,14 @@
               </span>
               %<br />се равнява на:
             </div>
-            <div class="cell-correction-2 red bold">+ 45.5 g (брашно) ####</div>
-            <div class="cell-correction-2 green bold">+ 0.9 g (сол) ####</div>
+            <div class="cell-correction-2 red bold">
+              <span class="corrections-decr-result-flour"> </span>
+            </div>
+            <div class="cell-correction-2 green bold">
+              <span class="corrections-decr-result-salt"> </span>
+            </div>
             <div class="cell-correction-2 purple comment">
-              Прфб. - променено: <span>7.8 ##</span>%
+              <span class="corrections-decr-result-preferm"></span>
               <aside class="comment-box">
                 Актуалният % на Прфб., след добавяне на допълнително брашно;
               </aside>
@@ -1273,7 +1277,7 @@
             При тесто с висока хидратация
             <aside class="comment-box">
               При замесване на тесто <br />
-              с висока хидратация, водата би <br />
+              с много висока хидратация, водата би <br />
               могло да се добави на два пъти, <br />
               с цел по-лесно хомогенизиране; <br />
             </aside>
@@ -1286,7 +1290,7 @@
           <!-- ############# -->
           <div class="water-addition-grid">
             <div class="water-addition-total-amount outer-left-top-border">
-              Вода (общо), (g): <span>####</span>
+              Вода (общо), (g): <span class="total-water-check"></span>
             </div>
 
             <div class="outer-left-border no-top-border"></div>
@@ -1297,7 +1301,7 @@
             <!-- ############# -->
             <div class="outer-left-border">Вода':</div>
             <div class="inner-left-border comment">
-              <span>###</span>
+              <span class="initial-water-result"></span>
               <aside class="comment-box">
                 Вода за първоначално <br />
                 добавяне, (g);
@@ -1306,11 +1310,11 @@
             <div class="outer-left-border comment">
               <input
                 type="number"
-                name="waterAdditionPercent"
+                name="initialDoughHydratation"
                 class="water-addition-percent"
-                id="water-addition-input"
+                id="initial-dough-hydratation"
                 min="0"
-                max="100"
+                max="125"
                 step="1"
                 placeholder="пр.68"
               />
@@ -1322,14 +1326,14 @@
             <!-- ############# -->
             <div class="outer-left-border">Вода'':</div>
             <div class="inner-left-border comment">
-              <span>###</span>
+              <span class="secondary-water-result"></span>
               <aside class="comment-box">
                 Вода за финално <br />
                 добавяне, (g);
               </aside>
             </div>
             <div class="outer-left-border comment">
-              <span>###</span>
+              <span class="secondary-water-percent-result"></span>
               <aside class="comment-box">
                 h на тестото след финалното <br />
                 добавяне на вода;
