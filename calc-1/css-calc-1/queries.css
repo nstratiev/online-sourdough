@@ -26,6 +26,10 @@
   .page-column:last-child {
     border-right: 1px solid var(--grey-bg);
   }
+
+  .comment-box {
+    margin: 5px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -126,6 +130,10 @@
 }
 
 @media (max-width: 300px) {
+  .card-flours-row {
+    grid-template-columns: 1fr;
+  }
+
   .card-flours-cell._1a._top {
     border: none;
   }

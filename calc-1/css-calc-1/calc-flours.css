@@ -21,7 +21,7 @@
 }
 
 .card-flours-row-header {
-  padding: 2px;
+  padding: 4px;
 }
 
 .card-flours-cell._1a._top {
@@ -88,9 +88,3 @@
   justify-self: right;
 }
 /* ####################### */
-
-@media (max-width: 300px) {
-  .card-flours-row {
-    grid-template-columns: 1fr;
-  }
-}

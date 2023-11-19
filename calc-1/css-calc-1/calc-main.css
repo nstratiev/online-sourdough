@@ -10,7 +10,11 @@
   background-color: rgb(220, 230, 241);
   text-decoration: underline;
   font-weight: bold;
-  padding: 2px;
+  padding: 2px 2px 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-body._main {

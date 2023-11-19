@@ -9,12 +9,12 @@
 }
 
 .card-header._leaven-feed {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   color: rgb(192, 0, 0);
   font-weight: bold;
   text-align: center;
   text-decoration: underline;
-  padding: 2px;
+  padding: 4px;
 }
 
 .card-body._leaven-feed {
