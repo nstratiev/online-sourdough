@@ -69,6 +69,8 @@ export function calcMainSubmit() {
   const loafsCount = formDataObj.loafsCount;
   const loafWeight = formDataObj.loafWeight;
   numberFieldsWater[0].setAttribute('max', formDataObj.waterPercent);
+  leavenHydrPredifinedResultElem.textContent =
+    formDataObj.leavenHydratationPercent;
 
   // Calculated values
   const totalDoughWeight = getTotalDoughWeight(loafsCount, loafWeight);
@@ -142,7 +144,12 @@ export function calcMainSubmit() {
 
 // IMPORTS
 import { formdataToObject } from './helpers.js';
-import { formMain, numberFieldsMain, numberFieldsWater } from './elements.js';
+import {
+  formMain,
+  numberFieldsMain,
+  numberFieldsWater,
+  leavenHydrPredifinedResultElem,
+} from './elements.js';
 import { setLocaleStorageMain } from './storage.js';
 import { printMainPrimaryResults, printMainSecondaryResults } from './print.js';
 import { alertEmptyFieldBox, checkmarkAlertGreen } from './alerts.js';

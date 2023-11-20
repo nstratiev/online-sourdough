@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   calculateHydrDecrement();
   getLocalStorageWater();
   calcWater();
+  getLocalStorageLeaven();
+  calcLeaven();
 });
 
 // -- Focusout input listeners
@@ -19,6 +21,12 @@ addOnFocusOutInputsListener(numberFieldsFlours);
 addOnFocusOutInputsListener(numberFieldsIngredients);
 addOnFocusOutInputsListener(numberFieldsCorrections);
 addOnFocusOutInputsListener(numberFieldsWater);
+addOnFocusOutInputsListener(numberFieldsLeaven);
+
+// -- OnInput input listeners
+numberFieldsMain[1].addEventListener('input', () => {
+  leavenHydrPredifinedResultElem.textContent = numberFieldsMain[1].value;
+});
 
 // -- Button-to-top listeners
 window.addEventListener('scroll', onScreenScroll);
@@ -82,6 +90,15 @@ document.addEventListener('click', (e) => {
     }
   } else if (btnsGroupClassName.includes('_leaven-feed')) {
     // console.log('LEAVEN FEED');
+    if (btnClassName === 'btn-submit') {
+      calculateLeavenSubmit();
+    } else if (btnClassName === 'btn-reset') {
+      resetLeavenForm();
+      checkmarkAlertGreen();
+    } else if (btnClassName === 'btn-save') {
+      setLocalStorageLeaven();
+      checkmarkAlertGreen();
+    }
   }
 });
 
@@ -99,13 +116,14 @@ import {
 } from './calcCorrections.js';
 
 import { calcWater, calculateWaterSubmit } from './calcWater.js';
-
+import { calculateLeavenSubmit, calcLeaven } from './calcLeaven.js';
 import {
   resetMainForm,
   resetFloursForm,
   resetGlobalLocalStorage,
   resetCorrectionsForm,
   resetWaterForm,
+  resetLeavenForm,
 } from './reset.js';
 import {
   btnToTop,
@@ -116,6 +134,8 @@ import {
   numberFieldsIngredients,
   numberFieldsCorrections,
   numberFieldsWater,
+  numberFieldsLeaven,
+  leavenHydrPredifinedResultElem,
 } from './elements.js';
 
 import { onScreenScroll, goToScreenTop } from './scroll.js';
@@ -131,5 +151,7 @@ import {
   setLocalStorageCorrections,
   getLocalStorageWater,
   setLocalStorageWater,
+  getLocalStorageLeaven,
+  setLocalStorageLeaven,
 } from './storage.js';
 import { checkmarkAlertGreen } from './alerts.js';

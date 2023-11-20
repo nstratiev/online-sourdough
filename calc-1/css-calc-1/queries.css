@@ -110,6 +110,13 @@
   .right-dotted.result-secondary {
     border-left: 2px dotted black;
   }
+
+  .feed-mother,
+  .feed-flour,
+  .feed-water,
+  .feed-total {
+    height: 20px;
+  }
 }
 
 @media (max-width: 370px) {

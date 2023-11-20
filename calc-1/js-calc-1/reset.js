@@ -7,7 +7,10 @@ export function resetGlobalLocalStorage() {
   btnToTop.style.pointerEvents = 'none';
 
   resetMainForm();
-  resetFloursInputs();
+  resetFloursForm();
+  resetCorrectionsForm();
+  resetWaterForm();
+  resetLeavenForm();
   checkmarkAlertGreen();
 
   setTimeout(() => {
@@ -111,6 +114,29 @@ function resetWaterResults() {
 }
 
 // Leaven feed
+export function resetLeavenForm() {
+  resetLeavenInputs();
+  resetLeavenResults();
+}
+
+function resetLeavenInputs() {
+  formLeaven.reset();
+}
+
+export function resetLeavenResults() {
+  feedMotherResultElem_1.textContent = '';
+  feedFlourResultElem_1.textContent = '';
+  feedWaterResultElem_1.textContent = '';
+  feedTotalResultElem_1.textContent = '';
+  feedMotherResultElem_2.textContent = '';
+  feedFlourResultElem_2.textContent = '';
+  feedWaterResultElem_2.textContent = '';
+  feedTotalResultElem_2.textContent = '';
+  explainedResultElemEquals.innerHTML = '';
+  explainedResultElemPlus.innerHTML = '';
+  explainedResultElem_A.textContent = '';
+  explainedResultElem_B.textContent = '';
+}
 
 // IMPORTS
 import { resetConfirmDialog, checkmarkAlertGreen } from './alerts.js';
@@ -139,8 +165,21 @@ import {
   initialWaterResultElem,
   secondaryWaterResultElem,
   secondaryWaterPercentResultElem,
+  feedMotherResultElem_1,
+  feedFlourResultElem_1,
+  feedWaterResultElem_1,
+  feedTotalResultElem_1,
+  feedMotherResultElem_2,
+  feedFlourResultElem_2,
+  feedWaterResultElem_2,
+  feedTotalResultElem_2,
+  explainedResultElemEquals,
+  explainedResultElemPlus,
+  explainedResultElem_A,
+  explainedResultElem_B,
   btnGlobalReset,
   btnGlobalSave,
   btnToTop,
   formWater,
+  formLeaven,
 } from './elements.js';

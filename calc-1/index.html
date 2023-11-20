@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1492,7 +1492,7 @@
                   h<span class="superscript">кв</span>, (%):
                 </div>
                 <div class="grid-item top-dashed">
-                  <span id="leaven-hydratation-predefined">####</span>
+                  <span class="leaven-hydratation-predefined"></span>
                 </div>
               </div>
 
@@ -1524,12 +1524,12 @@
                     <span style="color: red">К</span> ;
                   </aside>
                 </label>
-                <div class="grid-item">
+                <div class="grid-item inp">
                   <input
                     type="number"
-                    name="workLeaven"
+                    name="feedRatio"
                     class="work-leaven"
-                    id="work-leaven"
+                    id="feed-ratio"
                     min="0"
                     max="100    "
                     step="0.1"
@@ -1558,7 +1558,7 @@
                   </aside>
                 </div>
                 <div class="grid-item feed-mother _1">
-                  <span id="feed-mother-1">###</span>
+                  <span class="feed-mother _1"></span>
                 </div>
 
                 <div class="grid-item comment">
@@ -1568,7 +1568,7 @@
                   </aside>
                 </div>
                 <div class="grid-item feed-flour _1">
-                  <span id="feed-flour-1">###</span>
+                  <span class="feed-flour _1"></span>
                 </div>
 
                 <div class="grid-item comment">
@@ -1578,14 +1578,14 @@
                   </aside>
                 </div>
                 <div class="grid-item feed-water _1">
-                  <span id="feed-water-1">###</span>
+                  <span class="feed-water _1"></span>
                 </div>
 
                 <div class="grid-item">
                   <span class="underline">Общо</span>:
                 </div>
                 <div class="grid-item feed-total _1">
-                  <span id="feed-total-1">###</span>
+                  <span class="feed-total _1"></span>
                 </div>
               </div>
 
@@ -1611,28 +1611,28 @@
                   </aside>
                 </div>
                 <div class="grid-item feed-mother _2">
-                  <span id="feed-mother-2">###</span>
+                  <span class="feed-mother _2"></span>
                 </div>
 
                 <div class="grid-item">
                   бр<span class="superscript">п</span>, (g)
                 </div>
                 <div class="grid-item feed-flour _2">
-                  <span id="feed-flour-2">###</span>
+                  <span class="feed-flour _2"></span>
                 </div>
 
                 <div class="grid-item">
                   в<span class="superscript">п</span>, (g)
                 </div>
                 <div class="grid-item feed-water _2">
-                  <span id="feed-water-2">###</span>
+                  <span class="feed-water _2"></span>
                 </div>
 
                 <div class="grid-item">
                   <span class="underline">Общо</span>:
                 </div>
                 <div class="grid-item feed-total _2">
-                  <span id="feed-total-2">###</span>
+                  <span class="feed-total _2"></span>
                 </div>
               </div>
 
@@ -1640,10 +1640,12 @@
                 <div class="grid-item"></div>
                 <div class="grid-item">
                   <div class="explained">
-                    <div>=</div>
-                    <div><span id="explained-A">###</span></div>
-                    <div>+</div>
-                    <div><span id="explained-B">###</span></div>
+                    <div class="explained _equals"></div>
+                    <!-- <div class="explained _equals">&equals;</div> -->
+                    <div><span class="explained _A"></span></div>
+                    <div class="explained _plus"></div>
+                    <!-- <div class="explained _plus">&plus;</div> -->
+                    <div><span class="explained _B"></span></div>
                   </div>
                 </div>
               </div>

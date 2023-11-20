@@ -8,26 +8,11 @@ export function setGlobalLocalStorage() {
 
 // Main localStorage
 export function getLocaleStorageMain() {
-  let formMainStorage = localStorage.getItem('formMain');
-  formMainStorage = JSON.parse(formMainStorage);
-
-  for (const key in formMainStorage) {
-    const val = formMainStorage[key];
-    const elem = document.querySelector(`#${camelToKebapCase(key)}`);
-    elem.value = val;
-  }
-
-  return formMainStorage;
+  getLocalStorage('formMain');
 }
 
 export function setLocaleStorageMain() {
-  const obj = {};
-
-  for (const numField of numberFieldsMain) {
-    obj[numField.name] = numField.value;
-  }
-
-  localStorage.setItem('formMain', JSON.stringify(obj));
+  setLocalStorage('formMain', numberFieldsMain);
 }
 
 // Flours & Ingredients localStorage
@@ -44,8 +29,6 @@ export function getLocaleStorageFlours() {
   }
 
   formFloursStorage = JSON.parse(formFloursStorage);
-
-  // console.log(formFloursStorage);
 
   for (let i = 1; i <= 8; i++) {
     const elementsGroup = formFlours.querySelectorAll(`[data-id="${i}"]`);
@@ -105,50 +88,53 @@ export function setLocaleStorageIngredients() {
 
 // Corrections localStorage
 export function getLocalStorageCorrections() {
-  let formCorrectionsStorage = localStorage.getItem('formCorrections');
-  formCorrectionsStorage = JSON.parse(formCorrectionsStorage);
-
-  for (const key in formCorrectionsStorage) {
-    const val = formCorrectionsStorage[key];
-    const elem = document.querySelector(`#${camelToKebapCase(key)}`);
-    elem.value = val;
-  }
-
-  return formCorrectionsStorage;
+  getLocalStorage('formCorrections');
 }
 
 export function setLocalStorageCorrections() {
-  const obj = {};
-
-  for (const numField of numberFieldsCorrections) {
-    obj[numField.name] = numField.value;
-  }
-
-  localStorage.setItem('formCorrections', JSON.stringify(obj));
+  setLocalStorage('formCorrections', numberFieldsCorrections);
 }
 
 // Water localStorage
 export function getLocalStorageWater() {
-  let formWaterStorage = localStorage.getItem('formWater');
-  formWaterStorage = JSON.parse(formWaterStorage);
+  getLocalStorage('formWater');
+}
 
-  for (const key in formWaterStorage) {
-    const val = formWaterStorage[key];
+export function setLocalStorageWater() {
+  setLocalStorage('formWater', numberFieldsWater);
+}
+
+// Leaven localStorage
+export function getLocalStorageLeaven() {
+  getLocalStorage('formLeaven');
+}
+
+export function setLocalStorageLeaven() {
+  setLocalStorage('formLeaven', numberFieldsLeaven);
+}
+
+// Basic functions
+function getLocalStorage(formItemStr) {
+  let formStorage = localStorage.getItem(formItemStr);
+  formStorage = JSON.parse(formStorage);
+
+  for (const key in formStorage) {
+    const val = formStorage[key];
     const elem = document.querySelector(`#${camelToKebapCase(key)}`);
     elem.value = val;
   }
 
-  return formWaterStorage;
+  return formStorage;
 }
 
-export function setLocalStorageWater() {
+function setLocalStorage(formItemStr, numberFieldsCollection) {
   const obj = {};
 
-  for (const numField of numberFieldsWater) {
+  for (const numField of numberFieldsCollection) {
     obj[numField.name] = numField.value;
   }
 
-  localStorage.setItem('formWater', JSON.stringify(obj));
+  localStorage.setItem(formItemStr, JSON.stringify(obj));
 }
 
 // IMPORTS
@@ -157,6 +143,7 @@ import {
   formFlours,
   numberFieldsCorrections,
   numberFieldsWater,
+  numberFieldsLeaven,
 } from './elements.js';
 import { camelToKebapCase } from './helpers.js';
 import { checkmarkAlertGreen } from './alerts.js';
