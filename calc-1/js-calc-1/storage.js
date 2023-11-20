@@ -3,6 +3,8 @@ export function setGlobalLocalStorage() {
   setLocaleStorageMain();
   setLocalStorageFloursAndIngredients();
   setLocalStorageCorrections();
+  setLocalStorageWater();
+  setLocalStorageLeaven();
   checkmarkAlertGreen();
 }
 
