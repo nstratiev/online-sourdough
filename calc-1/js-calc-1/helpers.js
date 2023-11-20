@@ -1,4 +1,22 @@
 // Helper Functions
+// --- DOM helper functions
+export function preventDefaultOnEnterKeyPress(element) {
+  element.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+    }
+  });
+}
+
+export function addOnEnterFormListener(form, func) {
+  form.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' && e.keyCode === 13) {
+      func();
+    }
+  });
+}
+
+// --- Basic helper functions
 export function formdataToObject(formData) {
   const formDataArr = Array.from(formData);
   formDataArr.map((el) => {
@@ -23,12 +41,4 @@ export function camelToKebapCase(str) {
   }
 
   return strArr.join('');
-}
-
-export function preventDefaultOnEnterKeyPress(element) {
-  element.addEventListener('keypress', function (e) {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-    }
-  });
 }

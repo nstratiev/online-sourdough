@@ -1,4 +1,4 @@
-// --- Math export functions
+// --- Math functions
 export function getTotalDoughWeight(loafsCount, loafWeight) {
   return loafsCount * loafWeight;
 }

@@ -1,19 +1,18 @@
 // EVENT LISTENERS
 document.addEventListener('DOMContentLoaded', function () {
-  getLocaleStorageMain();
-  calcMainSubmit();
-  getLocaleStorageFlours();
-  getLocaleStorageIngredients();
-  calculateAdditionalFlours();
-  calculateAdditionalIngredients();
-  getLocalStorageCorrections();
-  calculateHydrIncrement();
-  calculateHydrDecrement();
-  getLocalStorageWater();
-  calcWater();
-  getLocalStorageLeaven();
-  calcLeaven();
+  getStorageAndCalculateMain();
+  getStorageAndCalculateFlours();
+  getStorageAndCalculateCorrections();
+  getStorageAndCalculateWater();
+  getStorageAndCalculateLeaven();
 });
+
+// -- OnEnter form listeners
+addOnEnterFormListener(formMain, calcMainSubmit);
+addOnEnterFormListener(formFlours, calcFloursAndIngredientsSubmit);
+addOnEnterFormListener(formCorrections, calculateCorrections);
+addOnEnterFormListener(formWater, calculateWaterSubmit);
+addOnEnterFormListener(formLeaven, calculateLeavenSubmit);
 
 // -- Focusout input listeners
 addOnFocusOutInputsListener(numberFieldsMain);
@@ -103,29 +102,12 @@ document.addEventListener('click', (e) => {
 });
 
 // IMPORTS
-import { calcMainSubmit } from './calcMain.js';
 import {
-  calcFloursAndIngredientsSubmit,
-  calculateAdditionalFlours,
-  calculateAdditionalIngredients,
-} from './calcFlours.js';
-import {
-  calculateCorrections,
-  calculateHydrIncrement,
-  calculateHydrDecrement,
-} from './calcCorrections.js';
-
-import { calcWater, calculateWaterSubmit } from './calcWater.js';
-import { calculateLeavenSubmit, calcLeaven } from './calcLeaven.js';
-import {
-  resetMainForm,
-  resetFloursForm,
-  resetGlobalLocalStorage,
-  resetCorrectionsForm,
-  resetWaterForm,
-  resetLeavenForm,
-} from './reset.js';
-import {
+  formMain,
+  formFlours,
+  formCorrections,
+  formWater,
+  formLeaven,
   btnToTop,
   btnGlobalReset,
   btnGlobalSave,
@@ -138,20 +120,44 @@ import {
   leavenHydrPredifinedResultElem,
 } from './elements.js';
 
-import { onScreenScroll, goToScreenTop } from './scroll.js';
-import { addOnFocusOutInputsListener } from './validation.js';
+import { calcMainSubmit, getStorageAndCalculateMain } from './calcMain.js';
+import {
+  calcFloursAndIngredientsSubmit,
+  getStorageAndCalculateFlours,
+} from './calcFlours.js';
+import {
+  calculateCorrections,
+  getStorageAndCalculateCorrections,
+} from './calcCorrections.js';
+
+import {
+  getStorageAndCalculateWater,
+  calculateWaterSubmit,
+} from './calcWater.js';
+import {
+  calculateLeavenSubmit,
+  getStorageAndCalculateLeaven,
+} from './calcLeaven.js';
+
+import {
+  resetMainForm,
+  resetFloursForm,
+  resetGlobalLocalStorage,
+  resetCorrectionsForm,
+  resetWaterForm,
+  resetLeavenForm,
+} from './reset.js';
+
 import {
   setGlobalLocalStorage,
-  getLocaleStorageMain,
   setLocaleStorageMain,
-  getLocaleStorageFlours,
-  getLocaleStorageIngredients,
   setLocalStorageFloursAndIngredients,
-  getLocalStorageCorrections,
   setLocalStorageCorrections,
-  getLocalStorageWater,
   setLocalStorageWater,
-  getLocalStorageLeaven,
   setLocalStorageLeaven,
 } from './storage.js';
+
+import { addOnFocusOutInputsListener } from './validation.js';
 import { checkmarkAlertGreen } from './alerts.js';
+import { onScreenScroll, goToScreenTop } from './scroll.js';
+import { addOnEnterFormListener } from './helpers.js';

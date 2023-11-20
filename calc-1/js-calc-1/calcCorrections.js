@@ -108,6 +108,12 @@ export function calculateHydrDecrement() {
   return true;
 }
 
+export function getStorageAndCalculateCorrections() {
+  getLocalStorageCorrections();
+  calculateHydrIncrement();
+  calculateHydrDecrement();
+}
+
 // IMPORTS
 import {
   numberFieldsCorrections,
@@ -118,3 +124,4 @@ import {
 } from './elements.js';
 import { valuesRangeValidation } from './validation.js';
 import { breadParamsObj, calcMainSubmit } from './calcMain.js';
+import { getLocalStorageCorrections } from './storage.js';

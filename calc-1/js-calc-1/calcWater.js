@@ -80,6 +80,11 @@ export function calcWater() {
   return true;
 }
 
+export function getStorageAndCalculateWater() {
+  getLocalStorageWater();
+  calcWater();
+}
+
 //IMPORTS
 import {
   totalWaterCheckResultElem,
@@ -93,3 +98,4 @@ import { calcMainSubmit, breadParamsObj } from './calcMain.js';
 import { valuesRangeValidation } from './validation.js';
 import { resetWaterForm } from './reset.js';
 import { preventDefaultOnEnterKeyPress } from './helpers.js';
+import { getLocalStorageWater } from './storage.js';

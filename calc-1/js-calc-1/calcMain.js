@@ -45,9 +45,6 @@ export function calcMainSubmit() {
           })
           .catch((val) => {});
       }, 100);
-
-      // alert('Необходимо е всички полета да бъдат попълнени!');
-      // alert('All fields required!');
     }
 
     breadParamsObj = null;
@@ -82,6 +79,8 @@ export function calcMainSubmit() {
     prefermFlourPercent,
     leavenHydratationPercent
   );
+
+  // Set kneading object
   const kneadingdObj = getIngredientsForKneading(
     totalFlour,
     totalWater,
@@ -91,29 +90,10 @@ export function calcMainSubmit() {
   );
 
   // Print calculated values
-  printMainPrimaryResults(
-    totalDoughWeight,
-    kneadingdObj.flour,
-    leavenObj.leavenTotal,
-    kneadingdObj.water,
-    kneadingdObj.salt
-  );
-  printMainSecondaryResults(
-    leavenObj.leavenFlour,
-    leavenObj.leavenWater,
-    totalFlour,
-    totalWater
-  );
+  printMainPrimaryResults();
+  printMainSecondaryResults();
 
   // Set breadParamsObj
-  breadParamsObj = {
-    formula: {},
-    doughWeight: null,
-    leaven: {},
-    kneading: {},
-    total: {},
-  };
-
   breadParamsObj.formula.prefermFlourPercent = prefermFlourPercent;
   breadParamsObj.formula.leavenHydr = leavenHydratationPercent;
   breadParamsObj.formula.waterPercent = waterPercent;
@@ -128,35 +108,64 @@ export function calcMainSubmit() {
   breadParamsObj.total.flour = totalFlour;
   breadParamsObj.total.water = totalWater;
 
-  // console.log(breadParamsObj);
-
+  // Set localStorage
   setLocaleStorageMain();
 
   if (isFirstPageLoad) {
     isFirstPageLoad = false;
   } else {
     checkmarkAlertGreen();
-    // console.log(isFirstPageLoad);
   }
 
   return true;
+
+  // Inner functions
+  function printMainPrimaryResults() {
+    doughWeightElement.textContent = totalDoughWeight.toFixed(0);
+    flourWeightElement.textContent = kneadingdObj.flour.toFixed(0);
+    leavenWeightElement.textContent = leavenObj.leavenTotal.toFixed(0);
+    waterWeightElement.textContent = kneadingdObj.water.toFixed(0);
+    saltWeightElement.textContent = kneadingdObj.salt.toFixed(0);
+  }
+
+  function printMainSecondaryResults() {
+    flourLeavenElement.textContent = leavenObj.leavenFlour.toFixed(0);
+    waterLeavenElement.textContent = leavenObj.leavenWater.toFixed(0);
+    flourTotalElement.textContent = totalFlour.toFixed(0);
+    waterTotalElement.textContent = totalWater.toFixed(0);
+  }
+}
+
+export function getStorageAndCalculateMain() {
+  getLocaleStorageMain();
+  calcMainSubmit();
 }
 
 // IMPORTS
-import { formdataToObject } from './helpers.js';
 import {
   formMain,
   numberFieldsMain,
   numberFieldsWater,
   leavenHydrPredifinedResultElem,
+  doughWeightElement,
+  flourWeightElement,
+  leavenWeightElement,
+  waterWeightElement,
+  saltWeightElement,
+  flourLeavenElement,
+  waterLeavenElement,
+  flourTotalElement,
+  waterTotalElement,
 } from './elements.js';
-import { setLocaleStorageMain } from './storage.js';
-import { printMainPrimaryResults, printMainSecondaryResults } from './print.js';
-import { alertEmptyFieldBox, checkmarkAlertGreen } from './alerts.js';
+
 import {
   hasEmptyFieldsValidation,
   valuesRangeValidation,
 } from './validation.js';
+
+import { alertEmptyFieldBox, checkmarkAlertGreen } from './alerts.js';
+import { getLocaleStorageMain, setLocaleStorageMain } from './storage.js';
+
 import {
   getTotalDoughWeight,
   getTotalFlour,
@@ -165,3 +174,5 @@ import {
   getLeavenComponents,
   getIngredientsForKneading,
 } from './math.js';
+
+import { formdataToObject } from './helpers.js';

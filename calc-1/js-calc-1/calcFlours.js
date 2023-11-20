@@ -105,6 +105,13 @@ export function calculateAdditionalIngredients() {
   return true;
 }
 
+export function getStorageAndCalculateFlours() {
+  getLocaleStorageFlours();
+  getLocaleStorageIngredients();
+  calculateAdditionalFlours();
+  calculateAdditionalIngredients();
+}
+
 // IMPORTS
 import {
   formFlours,
@@ -115,3 +122,7 @@ import {
 } from './elements.js';
 import { valuesRangeValidation } from './validation.js';
 import { breadParamsObj, calcMainSubmit } from './calcMain.js';
+import {
+  getLocaleStorageFlours,
+  getLocaleStorageIngredients,
+} from './storage.js';

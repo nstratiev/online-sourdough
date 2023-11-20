@@ -89,6 +89,11 @@ export function calcLeaven() {
   }
 }
 
+export function getStorageAndCalculateLeaven() {
+  getLocalStorageLeaven();
+  calcLeaven();
+}
+
 //IMPORTS
 import {
   numberFieldsLeaven,
@@ -109,3 +114,4 @@ import { calcMainSubmit, breadParamsObj } from './calcMain.js';
 import { valuesRangeValidation } from './validation.js';
 import { resetLeavenResults } from './reset.js';
 import { printResult } from './print.js';
+import { getLocalStorageLeaven } from './storage.js';
