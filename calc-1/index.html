@@ -302,7 +302,13 @@
 
             <div class="card-body _main">
               <div class="grid--2-cols">
-                <div class="grid-item bold italic">Брашно, (g):</div>
+                <div class="grid-item bold italic comment">
+                  Брашно, (g):
+                  <aside class="comment-box">
+                    Бр. за замесване <span class="red bold">&equals;</span> Общо
+                    бр. <span class="red bold">&minus;</span> бр (квас);
+                  </aside>
+                </div>
                 <div class="grid-item result-primary">
                   <span id="flour-weight-result">####</span>
                 </div>
@@ -370,23 +376,23 @@
           <!-- Fourth card - Overall -->
           <article class="card-overall">
             <div class="grid--2-cols _dotted">
-              <div class="grid-item top-left-dotted comment">
+              <div class="grid-item top-left-dotted total comment">
                 Брашно - общо, (g):
                 <aside class="comment-box">
                   Общо брашно => Всичкото брашно, което се съдържа в тестото;
                 </aside>
               </div>
-              <div class="grid-item top-dotted result-secondary">
+              <div class="grid-item top-dotted result-secondary total">
                 <span id="flour-total" class="result-secondary">###</span>
               </div>
 
-              <div class="grid-item left-dotted comment">
+              <div class="grid-item left-dotted total comment">
                 Вода - обща, (g):
                 <aside class="comment-box">
                   Обща вода => Всичката вода, която се съдържа в тестото;
                 </aside>
               </div>
-              <div class="grid-item right-dotted result-secondary">
+              <div class="grid-item right-dotted result-secondary total">
                 <span id="water-total" class="result-secondary">###</span>
               </div>
             </div>
@@ -1582,7 +1588,7 @@
                 </div>
 
                 <div class="grid-item">
-                  <span class="underline">Общо</span>:
+                  <span class="feed-total _text">Общо</span>:
                 </div>
                 <div class="grid-item feed-total _1">
                   <span class="feed-total _1"></span>
@@ -1629,7 +1635,7 @@
                 </div>
 
                 <div class="grid-item">
-                  <span class="underline">Общо</span>:
+                  <span class="feed-total _text">Общо</span>:
                 </div>
                 <div class="grid-item feed-total _2">
                   <span class="feed-total _2"></span>

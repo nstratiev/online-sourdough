@@ -60,6 +60,11 @@
   flex: 1 1 auto;
 }
 
+._dotted .total {
+  font-style: italic;
+  font-size: 85%;
+}
+
 /* #-FONT STYLES */
 .bold {
   font-weight: bold;
@@ -89,4 +94,8 @@
 
 .multiply-sign {
   font-size: 110%;
+}
+
+span.red {
+  color: rgb(192, 0, 0);
 }
