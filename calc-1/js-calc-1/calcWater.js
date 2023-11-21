@@ -5,7 +5,7 @@ preventDefaultOnEnterKeyPress(numberFieldsWater[0]);
 
 export function calculateWaterSubmit() {
   if (!calcMainSubmit()) {
-    return false;
+    return null;
   }
 
   if (!calcWater()) {
@@ -13,6 +13,7 @@ export function calculateWaterSubmit() {
   }
 
   localStorage.setItem('formWater', JSON.stringify(formWaterObj));
+  return true;
 }
 
 export function calcWater() {
@@ -32,6 +33,7 @@ export function calcWater() {
   const initialWaterPercentStr = numberFieldsWater[0].value;
   const initialWaterPercent = Number(initialWaterPercentStr) / 100;
 
+  // Reset in case of empty input
   if (!initialWaterPercent) {
     resetWaterForm();
     return false;
@@ -48,34 +50,15 @@ export function calcWater() {
   const totalWaterWeightCheck = initialWaterWeight + secondaryWaterWeight;
 
   // Print results
-  if (initialWaterWeight) {
-    initialWaterResultElem.textContent = `${initialWaterWeight.toFixed(0)}`;
-  } else {
-    initialWaterResultElem.textContent = '';
-  }
+  printResult(initialWaterWeight, initialWaterResultElem, 0);
+  printResult(secondaryWaterWeight, secondaryWaterResultElem, 0);
+  printResult(secondaryWaterPercent, secondaryWaterPercentResultElem, 0, {
+    prefix: '',
+    postfix: ' %',
+  });
+  printResult(totalWaterWeightCheck, totalWaterCheckResultElem, 0);
 
-  if (secondaryWaterWeight) {
-    secondaryWaterResultElem.textContent = `${secondaryWaterWeight.toFixed(0)}`;
-  } else {
-    secondaryWaterResultElem.textContent = '';
-  }
-
-  if (secondaryWaterPercent) {
-    secondaryWaterPercentResultElem.textContent = `${secondaryWaterPercent.toFixed(
-      0
-    )} %`;
-  } else {
-    secondaryWaterPercentResultElem.textContent = '';
-  }
-
-  if (totalWaterWeightCheck) {
-    totalWaterCheckResultElem.textContent = `${totalWaterWeightCheck.toFixed(
-      0
-    )}`;
-  } else {
-    totalWaterCheckResultElem.textContent = '';
-  }
-
+  // Set storage object
   formWaterObj.initialDoughHydratation = initialWaterPercentStr;
   return true;
 }
@@ -99,3 +82,4 @@ import { valuesRangeValidation } from './validation.js';
 import { resetWaterForm } from './reset.js';
 import { preventDefaultOnEnterKeyPress } from './helpers.js';
 import { getLocalStorageWater } from './storage.js';
+import { printResult } from './print.js';

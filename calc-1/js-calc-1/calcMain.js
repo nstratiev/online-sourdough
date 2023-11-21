@@ -94,6 +94,14 @@ export function calcMainSubmit() {
   printMainSecondaryResults();
 
   // Set breadParamsObj
+  breadParamsObj = {
+    formula: {},
+    doughWeight: null,
+    leaven: {},
+    kneading: {},
+    total: {},
+  };
+
   breadParamsObj.formula.prefermFlourPercent = prefermFlourPercent;
   breadParamsObj.formula.leavenHydr = leavenHydratationPercent;
   breadParamsObj.formula.waterPercent = waterPercent;

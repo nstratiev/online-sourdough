@@ -1,8 +1,24 @@
 // Print functions
-export function printResult(value, resultElem, toFixedIndex) {
+// additionalTextObj = {prefix: '', postfix: ''};
+export function printResult(
+  value,
+  resultElem,
+  toFixedIndex,
+  additionalTextObj
+) {
+  let result;
+
   if (value) {
-    resultElem.textContent = `${value.toFixed(toFixedIndex)}`;
+    if (additionalTextObj) {
+      result = `${additionalTextObj.prefix}${value.toFixed(toFixedIndex)}${
+        additionalTextObj.postfix
+      }`;
+    } else {
+      result = `${value.toFixed(toFixedIndex)}`;
+    }
   } else {
-    resultElem.textContent = '';
+    result = '';
   }
+
+  resultElem.textContent = result;
 }

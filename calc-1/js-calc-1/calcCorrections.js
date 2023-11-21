@@ -3,7 +3,7 @@ let formCorrectionsObj = {};
 
 export function calculateCorrections() {
   if (!calcMainSubmit()) {
-    return;
+    return null;
   }
 
   if (!calculateHydrIncrement() || !calculateHydrDecrement()) {
@@ -11,6 +11,7 @@ export function calculateCorrections() {
   }
 
   localStorage.setItem('formCorrections', JSON.stringify(formCorrectionsObj));
+  return true;
 }
 
 export function calculateHydrIncrement() {
@@ -33,16 +34,15 @@ export function calculateHydrIncrement() {
     incrementHydrPercent = Number(incrementHydrPercentStr) / 100;
     additionalWaterWeight = totalDoughFlour * incrementHydrPercent;
 
+    // Set storage object
     formCorrectionsObj.hydratationIncrement = incrementHydrPercentStr;
   }
 
-  if (additionalWaterWeight) {
-    correctionsIncrResultElemWater.textContent = `+ ${additionalWaterWeight.toFixed(
-      1
-    )} g (вода)`;
-  } else {
-    correctionsIncrResultElemWater.textContent = '';
-  }
+  // Print results
+  printResult(additionalWaterWeight, correctionsIncrResultElemWater, 1, {
+    prefix: '+ ',
+    postfix: ' g (вода)',
+  });
 
   return true;
 }
@@ -78,32 +78,23 @@ export function calculateHydrDecrement() {
     prefermFlourPercent =
       (leavenFlour / (totalDoughFlour + additionalFlourWeight)) * 100;
 
+    // Set storage object
     formCorrectionsObj.hydratationDecrement = decrementHydrPercentStr;
   }
 
-  if (additionalFlourWeight) {
-    correctionsDecrResultElemFlour.textContent = `+ ${additionalFlourWeight.toFixed(
-      1
-    )} g (брашно)`;
-  } else {
-    correctionsDecrResultElemFlour.textContent = '';
-  }
-
-  if (additionalSaltWeight) {
-    correctionsDecrResultElemSalt.textContent = `+ ${additionalSaltWeight.toFixed(
-      1
-    )} g (сол)`;
-  } else {
-    correctionsDecrResultElemSalt.textContent = '';
-  }
-
-  if (prefermFlourPercent) {
-    correctionsDecrResultElemPreferm.textContent = `Прфб. - променено: ${prefermFlourPercent.toFixed(
-      1
-    )} %`;
-  } else {
-    correctionsDecrResultElemPreferm.textContent = '';
-  }
+  // Print results
+  printResult(additionalFlourWeight, correctionsDecrResultElemFlour, 1, {
+    prefix: '+ ',
+    postfix: ' g (брашно)',
+  });
+  printResult(additionalSaltWeight, correctionsDecrResultElemSalt, 1, {
+    prefix: '+ ',
+    postfix: ' g (сол)',
+  });
+  printResult(prefermFlourPercent, correctionsDecrResultElemPreferm, 1, {
+    prefix: 'Прфб. - променено: ',
+    postfix: ' %',
+  });
 
   return true;
 }
@@ -125,3 +116,4 @@ import {
 import { valuesRangeValidation } from './validation.js';
 import { breadParamsObj, calcMainSubmit } from './calcMain.js';
 import { getLocalStorageCorrections } from './storage.js';
+import { printResult } from './print.js';

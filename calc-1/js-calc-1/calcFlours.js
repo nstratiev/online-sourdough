@@ -1,14 +1,21 @@
-// const formFloursObj = {'1': {flourType: 'Wholewheat', flourPercent: 25, flourWeight: 320}, '2': {}, ...};
+// const formFloursObj = {'1': {flourType: 'Wholewheat', flourPercent: '25'}, '2': {}, ...};
+const formFloursObj = {};
+// const formIngredientsObj = {'1': {ingrType: 'Seeds', ingrPercent: '10'}, '2': {}, ...};
+const formIngredientsObj = {};
 
-// Flours Calculation on submit
 export function calcFloursAndIngredientsSubmit() {
   if (!calcMainSubmit()) {
-    return;
+    return null;
   }
 
   if (!calculateAdditionalFlours() || !calculateAdditionalIngredients()) {
     return false;
   }
+
+  localStorage.setItem('formFlours', JSON.stringify(formFloursObj));
+  localStorage.setItem('formIngredients', JSON.stringify(formIngredientsObj));
+
+  return true;
 }
 
 export function calculateAdditionalFlours() {
@@ -18,7 +25,6 @@ export function calculateAdditionalFlours() {
 
   const flourForKneading = breadParamsObj.kneading.flour;
   let additionalFlours = 0;
-  const formFloursObj = {};
 
   // Validation
   if (!valuesRangeValidation(numberFieldsFlours)) {
@@ -47,8 +53,6 @@ export function calculateAdditionalFlours() {
     formFloursObj[i] = { flourType, flourPercent: flourPercentStr };
   }
 
-  localStorage.setItem('formFlours', JSON.stringify(formFloursObj));
-
   const whiteFlour = flourForKneading - additionalFlours;
 
   if (additionalFlours) {
@@ -71,7 +75,6 @@ export function calculateAdditionalIngredients() {
 
   const doughWeight = breadParamsObj.doughWeight;
   let additionalIngredients = 0;
-  const formIngredientsObj = {};
 
   // Validation
   if (!valuesRangeValidation(numberFieldsIngredients)) {
@@ -99,8 +102,6 @@ export function calculateAdditionalIngredients() {
 
     formIngredientsObj[i] = { ingrType, ingrPercent: ingrPercentStr };
   }
-
-  localStorage.setItem('formIngredients', JSON.stringify(formIngredientsObj));
 
   return true;
 }

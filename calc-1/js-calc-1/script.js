@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // -- OnEnter form listeners
-addOnEnterFormListener(formMain, calcMainSubmit);
+addOnEnterFormListener(formMain, calculateAllForms);
+// addOnEnterFormListener(formMain, calcMainSubmit);
 addOnEnterFormListener(formFlours, calcFloursAndIngredientsSubmit);
 addOnEnterFormListener(formCorrections, calculateCorrections);
 addOnEnterFormListener(formWater, calculateWaterSubmit);
@@ -46,7 +47,8 @@ document.addEventListener('click', (e) => {
   if (btnsGroupClassName.includes('_main')) {
     // console.log('MAIN');
     if (btnClassName === 'btn-submit') {
-      calcMainSubmit();
+      calculateAllForms();
+      // calcMainSubmit();
     } else if (btnClassName === 'btn-reset') {
       resetMainForm();
       checkmarkAlertGreen();
@@ -101,6 +103,16 @@ document.addEventListener('click', (e) => {
   }
 });
 
+function calculateAllForms() {
+  calcMainSubmit();
+  calculateAdditionalFlours();
+  calculateAdditionalIngredients();
+  calculateHydrIncrement();
+  calculateHydrDecrement();
+  calcWater();
+  calcLeaven();
+}
+
 // IMPORTS
 import {
   formMain,
@@ -124,19 +136,25 @@ import { calcMainSubmit, getStorageAndCalculateMain } from './calcMain.js';
 import {
   calcFloursAndIngredientsSubmit,
   getStorageAndCalculateFlours,
+  calculateAdditionalFlours,
+  calculateAdditionalIngredients,
 } from './calcFlours.js';
 import {
   calculateCorrections,
   getStorageAndCalculateCorrections,
+  calculateHydrIncrement,
+  calculateHydrDecrement,
 } from './calcCorrections.js';
 
 import {
   getStorageAndCalculateWater,
   calculateWaterSubmit,
+  calcWater,
 } from './calcWater.js';
 import {
   calculateLeavenSubmit,
   getStorageAndCalculateLeaven,
+  calcLeaven,
 } from './calcLeaven.js';
 
 import {

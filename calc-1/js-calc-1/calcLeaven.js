@@ -3,7 +3,7 @@ let formLeavenObj = {};
 
 export function calculateLeavenSubmit() {
   if (!calcMainSubmit()) {
-    return false;
+    return null;
   }
 
   if (!calcLeaven()) {
@@ -11,6 +11,7 @@ export function calculateLeavenSubmit() {
   }
 
   localStorage.setItem('formLeaven', JSON.stringify(formLeavenObj));
+  return true;
 }
 
 export function calcLeaven() {
@@ -30,9 +31,10 @@ export function calcLeaven() {
   const leavenFeedRatioStr = numberFieldsLeaven[1].value;
   const leavenFeedRatio = Number(leavenFeedRatioStr);
 
+  // Reset in case of empty input
+  // alert('Моля, поълнете всички полета на формата ...');
   if (!workLeavenWeight || !leavenFeedRatio) {
     resetLeavenResults();
-    // alert('Моля, поълнете всички полета на формата ...');
     return false;
   }
 
@@ -53,11 +55,12 @@ export function calcLeaven() {
   printLeavenFeedResultsVer_2();
   printExplainedResults();
 
-  // Set input values object
+  // Set storage object
   formLeavenObj.workLeaven = workLeavenWeightStr;
   formLeavenObj.feedRatio = leavenFeedRatioStr;
   return true;
 
+  // Inner functions
   function printLeavenFeedResultsVer_1() {
     printResult(feedMother_1, feedMotherResultElem_1, 0);
     printResult(feedFlour_1, feedFlourResultElem_1, 0);
