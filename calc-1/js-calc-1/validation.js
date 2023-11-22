@@ -1,28 +1,4 @@
-// export function hasEmptyInputField() {
-//   for (const field of numberFieldsMain) {
-//     const val = field.value;
-
-//     if (val === '') {
-//       setTimeout(() => {
-//         field.focus();
-//         field.style.outline = '2px solid green';
-//       }, 0);
-
-//       return true;
-//     }
-//   }
-
-//   return false;
-// }
-
-// export function hasEmptyFieldsValidation() {
-//   if (hasEmptyInputField()) {
-//     return true;
-//   }
-
-//   return false;
-// }
-
+// On Focus Out
 export function addOnFocusOutInputsListener(numberFields) {
   numberFields.forEach((field) => {
     field.addEventListener('focusout', (e) => {
@@ -56,11 +32,10 @@ function onFocusOutValidation(field, min, max, isRequired) {
   }
 }
 
-export function hasEmptyFieldsValidation() {
-  for (const field of numberFieldsMain) {
+// On Empty Field
+export function hasEmptyFieldsValidation(fields) {
+  for (const field of fields) {
     const val = field.value;
-
-    // console.log(val);
 
     if (val === '') {
       setTimeout(() => {
@@ -75,6 +50,7 @@ export function hasEmptyFieldsValidation() {
   return [false];
 }
 
+// On Out Of Range
 export function valueRangeCheck(field, min, max) {
   const inputValue = Number(field.value);
   min = Number(min);
@@ -95,8 +71,6 @@ export function valueRangeCheck(field, min, max) {
 
     setTimeout(() => {
       field.style.outline = '2px solid red';
-
-      // alert(`Моля, въведете стойност в диапазона: [ ${min} - ${max} ]!`);
     }, 0);
 
     alertOutOfRangeBox
@@ -104,11 +78,7 @@ export function valueRangeCheck(field, min, max) {
       .then((val) => {
         field.focus();
       })
-      .catch((val) => {
-        // field.focus();
-      });
-
-    // console.log('RANGE');
+      .catch((val) => {});
 
     return false;
   } else {
@@ -117,9 +87,7 @@ export function valueRangeCheck(field, min, max) {
   }
 }
 
-export function valuesRangeValidation(fields) {
-  let isValid = true;
-
+export function hasOutOfRangeFieldsValidation(fields) {
   for (const field of fields) {
     const min = field.min;
     const max = field.max;
@@ -127,14 +95,12 @@ export function valuesRangeValidation(fields) {
     if (valueRangeCheck(field, min, max)) {
       continue;
     } else {
-      isValid = false;
-      break;
+      return [true, field];
     }
   }
 
-  return isValid;
+  return [false];
 }
 
 // IMPORTS
 import { ConfirmModal } from '../../common-js/modalClass.js';
-import { numberFieldsMain } from './elements.js';

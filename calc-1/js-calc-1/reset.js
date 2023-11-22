@@ -1,6 +1,6 @@
 // Reset functions
 
-// Global
+// Global Reset Button
 export function resetGlobalLocalStorage() {
   btnGlobalReset.style.pointerEvents = 'none';
   btnGlobalSave.style.pointerEvents = 'none';
@@ -30,6 +30,17 @@ export function resetGlobalLocalStorage() {
         btnToTop.style.pointerEvents = 'auto';
       });
   }, 200);
+}
+
+// Global
+export function resetAllResults() {
+  resetMainPrimaryResults();
+  resetMainSecondaryResults();
+  resetFloursResults();
+  resetIngredientsResults;
+  resetCorrectionsResults();
+  resetWaterResults();
+  resetLeavenResults();
 }
 
 // Main
@@ -89,11 +100,19 @@ function resetCorrectionsInputs() {
   formCorrections.reset();
 }
 
-function resetCorrectionsResults() {
+export function correctionsIncrementSubform() {
   correctionsIncrResultElemWater.textContent = '';
+}
+
+export function correctionsDecrementSubform() {
   correctionsDecrResultElemFlour.textContent = '';
   correctionsDecrResultElemSalt.textContent = '';
   correctionsDecrResultElemPreferm.textContent = '';
+}
+
+function resetCorrectionsResults() {
+  correctionsIncrementSubform();
+  correctionsDecrementSubform();
 }
 
 // Water

@@ -20,7 +20,7 @@ export function calcLeaven() {
   }
 
   // Validation
-  if (!valuesRangeValidation(numberFieldsLeaven)) {
+  if (!hasOutOfRangeFieldsValidation(numberFieldsLeaven)) {
     return false;
   }
 
@@ -114,7 +114,7 @@ import {
   explainedResultElem_B,
 } from './elements.js';
 import { calcMainSubmit, breadParamsObj } from './calcMain.js';
-import { valuesRangeValidation } from './validation.js';
+import { hasOutOfRangeFieldsValidation } from './validation.js';
 import { resetLeavenResults } from './reset.js';
 import { printResult } from './print.js';
 import { getLocalStorageLeaven } from './storage.js';

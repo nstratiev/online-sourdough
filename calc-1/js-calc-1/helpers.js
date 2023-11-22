@@ -11,7 +11,7 @@ export function preventDefaultOnEnterKeyPress(element) {
 export function addOnEnterFormListener(form, func) {
   form.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' && e.keyCode === 13) {
-      func();
+      setTimeout(func, 10);
     }
   });
 }

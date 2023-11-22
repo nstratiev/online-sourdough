@@ -1,4 +1,5 @@
-let isFirstPageLoad = true;
+let isFirstPageLoadEmptyFieldCheck = true;
+let isFirstPageLoadOutOfRangeCheck = true;
 
 /*  
 const breadParamsObj = {
@@ -28,12 +29,12 @@ export function calcMainSubmit() {
   let formData = new FormData(formMain);
   const formDataObj = formdataToObject(formData);
 
-  // Validation
-  const condition = hasEmptyFieldsValidation();
+  // Validation - Empty fields
+  const conditionHasEmpty = hasEmptyFieldsValidation(numberFieldsMain);
 
-  if (condition[0]) {
-    if (isFirstPageLoad) {
-      isFirstPageLoad = false;
+  if (conditionHasEmpty[0]) {
+    if (isFirstPageLoadEmptyFieldCheck) {
+      isFirstPageLoadEmptyFieldCheck = false;
     } else {
       setLocaleStorageMain();
 
@@ -41,19 +42,28 @@ export function calcMainSubmit() {
         alertEmptyFieldBox
           .open()
           .then((val) => {
-            condition[1].focus();
+            conditionHasEmpty[1].focus();
           })
           .catch((val) => {});
       }, 100);
     }
 
+    resetAllResults();
     breadParamsObj = null;
     return false;
   }
 
-  if (!valuesRangeValidation(numberFieldsMain)) {
-    setLocaleStorageMain();
+  // Validation - Out of range fields
+  const conditionOutOfRange = hasOutOfRangeFieldsValidation(numberFieldsMain);
 
+  if (conditionOutOfRange[0]) {
+    if (isFirstPageLoadOutOfRangeCheck) {
+      isFirstPageLoadOutOfRangeCheck = false;
+    } else {
+      setLocaleStorageMain();
+    }
+
+    resetAllResults();
     breadParamsObj = null;
     return false;
   }
@@ -119,8 +129,9 @@ export function calcMainSubmit() {
   // Set localStorage
   setLocaleStorageMain();
 
-  if (isFirstPageLoad) {
-    isFirstPageLoad = false;
+  if (isFirstPageLoadEmptyFieldCheck || isFirstPageLoadOutOfRangeCheck) {
+    isFirstPageLoadEmptyFieldCheck = false;
+    isFirstPageLoadOutOfRangeCheck = false;
   } else {
     checkmarkAlertGreen();
   }
@@ -168,10 +179,11 @@ import {
 
 import {
   hasEmptyFieldsValidation,
-  valuesRangeValidation,
+  hasOutOfRangeFieldsValidation,
 } from './validation.js';
 
 import { alertEmptyFieldBox, checkmarkAlertGreen } from './alerts.js';
+import { resetAllResults } from './reset.js';
 import { getLocaleStorageMain, setLocaleStorageMain } from './storage.js';
 
 import {

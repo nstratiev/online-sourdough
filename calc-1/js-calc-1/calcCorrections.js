@@ -19,24 +19,24 @@ export function calculateHydrIncrement() {
     return false;
   }
 
-  const totalDoughFlour = breadParamsObj.total.flour;
-
   // Validation
-  if (!valuesRangeValidation(numberFieldsCorrections)) {
+  if (!hasOutOfRangeFieldsValidation(numberFieldsCorrections)) {
     return false;
   }
 
+  const totalDoughFlour = breadParamsObj.total.flour;
+
   const incrementHydrPercentStr = numberFieldsCorrections[0].value;
-  let incrementHydrPercent = null;
-  let additionalWaterWeight = null;
+  const incrementHydrPercent = Number(incrementHydrPercentStr) / 100;
 
-  if (incrementHydrPercentStr) {
-    incrementHydrPercent = Number(incrementHydrPercentStr) / 100;
-    additionalWaterWeight = totalDoughFlour * incrementHydrPercent;
-
-    // Set storage object
-    formCorrectionsObj.hydratationIncrement = incrementHydrPercentStr;
+  // Reset in case of empty input
+  if (!incrementHydrPercent) {
+    correctionsIncrementSubform();
+    // resetCorrectionsForm();
+    return false;
   }
+
+  const additionalWaterWeight = totalDoughFlour * incrementHydrPercent;
 
   // Print results
   printResult(additionalWaterWeight, correctionsIncrResultElemWater, 1, {
@@ -44,11 +44,18 @@ export function calculateHydrIncrement() {
     postfix: ' g (вода)',
   });
 
+  // Set storage object
+  formCorrectionsObj.hydratationIncrement = incrementHydrPercentStr;
   return true;
 }
 
 export function calculateHydrDecrement() {
   if (breadParamsObj === null) {
+    return false;
+  }
+
+  // Validation
+  if (!hasOutOfRangeFieldsValidation(numberFieldsCorrections)) {
     return false;
   }
 
@@ -58,29 +65,22 @@ export function calculateHydrDecrement() {
   const totalDoughWater = breadParamsObj.total.water;
   const leavenFlour = breadParamsObj.leaven.flour;
 
-  // Validation
-  if (!valuesRangeValidation(numberFieldsCorrections)) {
+  const decrementHydrPercentStr = numberFieldsCorrections[1].value;
+  const decrementHydrPercent = Number(decrementHydrPercentStr) / 100;
+
+  // Reset in case of empty input
+  if (!decrementHydrPercent) {
+    correctionsDecrementSubform();
+    // resetCorrectionsForm();
     return false;
   }
 
-  const decrementHydrPercentStr = numberFieldsCorrections[1].value;
-  let decrementHydrPercent = null;
-  let additionalFlourWeight = null;
-  let additionalSaltWeight = null;
-  let prefermFlourPercent = null;
+  const additionalFlourWeight =
+    totalDoughWater / (waterPercent - decrementHydrPercent) - totalDoughFlour;
 
-  if (decrementHydrPercentStr) {
-    decrementHydrPercent = Number(decrementHydrPercentStr) / 100;
-    additionalFlourWeight =
-      totalDoughWater / (waterPercent - decrementHydrPercent) - totalDoughFlour;
-
-    additionalSaltWeight = additionalFlourWeight * saltPercent;
-    prefermFlourPercent =
-      (leavenFlour / (totalDoughFlour + additionalFlourWeight)) * 100;
-
-    // Set storage object
-    formCorrectionsObj.hydratationDecrement = decrementHydrPercentStr;
-  }
+  const additionalSaltWeight = additionalFlourWeight * saltPercent;
+  const prefermFlourPercent =
+    (leavenFlour / (totalDoughFlour + additionalFlourWeight)) * 100;
 
   // Print results
   printResult(additionalFlourWeight, correctionsDecrResultElemFlour, 1, {
@@ -96,6 +96,8 @@ export function calculateHydrDecrement() {
     postfix: ' %',
   });
 
+  // Set storage object
+  formCorrectionsObj.hydratationDecrement = decrementHydrPercentStr;
   return true;
 }
 
@@ -113,7 +115,12 @@ import {
   correctionsDecrResultElemSalt,
   correctionsDecrResultElemPreferm,
 } from './elements.js';
-import { valuesRangeValidation } from './validation.js';
+import { hasOutOfRangeFieldsValidation } from './validation.js';
+import {
+  correctionsIncrementSubform,
+  correctionsDecrementSubform,
+  resetCorrectionsForm,
+} from './reset.js';
 import { breadParamsObj, calcMainSubmit } from './calcMain.js';
 import { getLocalStorageCorrections } from './storage.js';
 import { printResult } from './print.js';

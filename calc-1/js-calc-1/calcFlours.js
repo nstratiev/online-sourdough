@@ -23,13 +23,13 @@ export function calculateAdditionalFlours() {
     return false;
   }
 
-  const flourForKneading = breadParamsObj.kneading.flour;
-  let additionalFlours = 0;
-
   // Validation
-  if (!valuesRangeValidation(numberFieldsFlours)) {
+  if (!hasOutOfRangeFieldsValidation(numberFieldsFlours)) {
     return false;
   }
+
+  const flourForKneading = breadParamsObj.kneading.flour;
+  let additionalFlours = 0;
 
   for (let i = 1; i <= 8; i++) {
     const elementsGroup = formFlours.querySelectorAll(`[data-id="${i}"]`);
@@ -44,22 +44,23 @@ export function calculateAdditionalFlours() {
       additionalFlours += flourWeight;
     }
 
-    if (flourWeight) {
-      elementsGroup[2].textContent = flourWeight.toFixed(0);
-    } else {
-      elementsGroup[2].textContent = '';
-    }
+    // Print results
+    printResult(flourWeight, elementsGroup[2], 0);
 
+    // Set storage object
     formFloursObj[i] = { flourType, flourPercent: flourPercentStr };
   }
 
   const whiteFlour = flourForKneading - additionalFlours;
 
+  // Print results
   if (additionalFlours) {
-    whiteFlourResultElement.textContent = whiteFlour.toFixed(0);
-    totalCalculatedFlourResultElement.textContent = (
-      additionalFlours + whiteFlour
-    ).toFixed(0);
+    printResult(whiteFlour, whiteFlourResultElement, 0);
+    printResult(
+      additionalFlours + whiteFlour,
+      totalCalculatedFlourResultElement,
+      0
+    );
   } else {
     whiteFlourResultElement.textContent = '';
     totalCalculatedFlourResultElement.textContent = '';
@@ -73,13 +74,13 @@ export function calculateAdditionalIngredients() {
     return false;
   }
 
-  const doughWeight = breadParamsObj.doughWeight;
-  let additionalIngredients = 0;
-
   // Validation
-  if (!valuesRangeValidation(numberFieldsIngredients)) {
+  if (!hasOutOfRangeFieldsValidation(numberFieldsIngredients)) {
     return false;
   }
+
+  const doughWeight = breadParamsObj.doughWeight;
+  let additionalIngredients = 0;
 
   for (let i = 1; i <= 2; i++) {
     const elementsGroup = formFlours.querySelectorAll(`[data-id="${i}b"]`);
@@ -94,12 +95,10 @@ export function calculateAdditionalIngredients() {
       additionalIngredients += ingrWeight;
     }
 
-    if (ingrWeight) {
-      elementsGroup[2].textContent = ingrWeight.toFixed(0);
-    } else {
-      elementsGroup[2].textContent = '';
-    }
+    // Print results
+    printResult(ingrWeight, elementsGroup[2], 0);
 
+    // Set storage object
     formIngredientsObj[i] = { ingrType, ingrPercent: ingrPercentStr };
   }
 
@@ -121,9 +120,10 @@ import {
   whiteFlourResultElement,
   totalCalculatedFlourResultElement,
 } from './elements.js';
-import { valuesRangeValidation } from './validation.js';
+import { hasOutOfRangeFieldsValidation } from './validation.js';
 import { breadParamsObj, calcMainSubmit } from './calcMain.js';
 import {
   getLocaleStorageFlours,
   getLocaleStorageIngredients,
 } from './storage.js';
+import { printResult } from './print.js';
