@@ -153,13 +153,27 @@ a.top-nav-item:visited {
   background-color: white;
 }
 
-a.top-nav-item:hover,
+/* a.top-nav-item:hover,
 a.top-nav-item:active {
   outline: 2px solid black;
   border: 1px solid white;
-  /* background-color: white; */
-  /* background-color: var(--grey-bg); */
-  background-color: rgb(242, 242, 242);
+} */
+/* background-color: rgb(242, 242, 242); */
+
+@media (hover: hover) {
+  a.top-nav-item:hover {
+    outline: 2px solid black;
+    border: 1px solid white;
+    /* background-color: rgb(242, 242, 242); */
+  }
+}
+
+@media (hover: none) {
+  a.top-nav-item:active {
+    outline: 2px solid black;
+    border: 1px solid white;
+    /* background-color: rgb(242, 242, 242); */
+  }
 }
 
 .top-nav-text {

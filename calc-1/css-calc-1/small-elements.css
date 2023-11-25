@@ -90,7 +90,7 @@
   align-items: center;
 }
 
-.btn-to-top:hover,
+/* .btn-to-top:hover,
 .btn-reset-global:hover,
 .btn-save-global:hover,
 .btn-to-top:active,
@@ -107,6 +107,36 @@
 .btn-reset-global:active svg,
 .btn-save-global:active svg {
   color: rgb(128, 128, 128);
+} */
+
+@media (hover: hover) {
+  .btn-to-top:hover,
+  .btn-reset-global:hover,
+  .btn-save-global:hover {
+    border: 2px solid rgba(128, 128, 128, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .btn-to-top:hover svg,
+  .btn-reset-global:hover svg,
+  .btn-save-global:hover svg {
+    color: rgb(128, 128, 128);
+  }
+}
+
+@media (hover: none) {
+  .btn-to-top:active,
+  .btn-reset-global:active,
+  .btn-save-global:active {
+    border: 2px solid rgba(128, 128, 128, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .btn-to-top:active svg,
+  .btn-reset-global:active svg,
+  .btn-save-global:active svg {
+    color: rgb(128, 128, 128);
+  }
 }
 
 .btn-to-top div,

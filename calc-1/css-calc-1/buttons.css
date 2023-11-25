@@ -18,7 +18,7 @@
   height: 42px;
 }
 
-.btn-submit:hover,
+/* .btn-submit:hover,
 .btn-submit:active,
 .btn-reset:hover,
 .btn-reset:active,
@@ -26,6 +26,24 @@
 .btn-save:active {
   border-width: 2px;
   background-color: white;
+} */
+
+@media (hover: hover) {
+  .btn-submit:hover,
+  .btn-reset:hover,
+  .btn-save:hover {
+    border-width: 2px;
+    background-color: white;
+  }
+}
+
+@media (hover: none) {
+  .btn-submit:active,
+  .btn-reset:active,
+  .btn-save:active {
+    border-width: 2px;
+    background-color: white;
+  }
 }
 
 .btn-submit svg,
