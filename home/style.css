@@ -28,7 +28,7 @@ header {
 
 .warning {
   color: red;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   text-decoration: underline;
   margin-bottom: 20px;
@@ -36,7 +36,7 @@ header {
 
 main {
   margin-bottom: 20px;
-  padding: 0 20px 0 20px;
+  padding: 0 20px;
 }
 
 footer {
@@ -58,41 +58,42 @@ footer {
   border-left: 1px solid black;
 }
 
-.cell._full {
-  grid-column: 1 / -1;
-}
-
 .title-1,
 .title-2 {
   color: rgb(192, 0, 0);
-  font-weight: bold;
-  padding: 2px;
 }
 
 .title-1 {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .title-2 {
-  border-top: none;
-}
-
-.cell._A,
-.cell h3 {
-  display: flex;
-  align-items: center;
+  margin-bottom: 20px;
 }
 
 .cell h3 {
-  justify-content: left;
-  padding: 4px 4px 4px 16px;
+  height: 100%;
 }
 
 .cell._A {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 4px;
+  font-size: 90%;
+  font-weight: 600;
+  color: rgb(80, 80, 80);
 }
 
 /* ##### Links ##### */
+.calc-link {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 4px 2px 4px 8px;
+}
+
 .calc-link:link,
 .calc-link:visited {
   color: var(--blue-font-color);
@@ -121,6 +122,7 @@ footer {
 .not-active:link,
 .not-active:visited {
   color: grey;
+  pointer-events: none;
 }
 
 .not-active:hover,
@@ -143,21 +145,28 @@ footer {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 340px) {
   .grid-container {
     grid-template-columns: 1fr;
   }
 
-  .cell h3 {
-    justify-content: center;
-    padding: 2px 2px 4px 2px;
-  }
-
   .cell._A {
-    padding: 2px;
+    padding: 0;
   }
 
   .cell._B {
     border-top: none;
+  }
+
+  .calc-link {
+    justify-content: center;
+    padding: 0 2px 2px;
+  }
+}
+
+@media (max-width: 220px) {
+  main {
+    margin-bottom: 20px;
+    padding: 0 10px;
   }
 }
