@@ -1,4 +1,5 @@
-/* ######################################## */
+/* ##### GENERAL CSS ##### */
+
 /* ##### Global Reset [START] ##### */
 * {
   margin: 0;
@@ -38,7 +39,7 @@ body {
 }
 /* ##### Global Reset [END] ##### */
 
-/* ######################################## */
+/* ################################### */
 /* ##### Common elements [START] ##### */
 h1 {
   padding: 4px;
@@ -62,7 +63,7 @@ hr {
 }
 /* ##### Common elements [END] ##### */
 
-/* ######################################## */
+/* ###################################### */
 /* ##### Main page elements [START] ##### */
 header {
   background-color: var(--grey-bg);
@@ -70,19 +71,16 @@ header {
 }
 
 main {
-  /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
 .page-column {
   border-right: 2px solid var(--grey-bg);
-  /* border: 2px solid red; */
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-items: center; */
 }
 
 .page-column:last-child {
@@ -90,9 +88,7 @@ main {
 }
 
 footer {
-  /* border: 1px solid purple; */
   background-color: var(--grey-bg);
-  /* margin-top: 20px; */
   height: 60px;
   display: flex;
   justify-content: center;
@@ -106,10 +102,9 @@ footer > a {
 }
 /* ##### Main page elements [END] ##### */
 
-/* ######################################## */
+/* ################################## */
 /* ##### Top Navigation [START] ##### */
 ul.top-nav {
-  /* border: 2px solid orange; */
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
@@ -117,7 +112,6 @@ ul.top-nav {
 }
 
 .top-nav li {
-  /* border: 2px solid green; */
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
@@ -137,34 +131,23 @@ a.top-nav-item:link,
 a.top-nav-item:visited {
   border: 1px solid black;
   border-radius: 6px;
-  /* padding: 14px 25px; */
   padding: 5px;
   min-width: 50px;
   font-size: 22px;
   font-weight: bold;
-
   text-align: center;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
-
   background-color: white;
 }
-
-/* a.top-nav-item:hover,
-a.top-nav-item:active {
-  outline: 2px solid black;
-  border: 1px solid white;
-} */
-/* background-color: rgb(242, 242, 242); */
 
 @media (hover: hover) {
   a.top-nav-item:hover {
     outline: 2px solid black;
     border: 1px solid white;
-    /* background-color: rgb(242, 242, 242); */
   }
 }
 
@@ -172,16 +155,13 @@ a.top-nav-item:active {
   a.top-nav-item:active {
     outline: 2px solid black;
     border: 1px solid white;
-    /* background-color: rgb(242, 242, 242); */
   }
 }
 
 .top-nav-text {
-  /* border: 1px solid purple; */
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 27px;
   height: 27px;
 }
@@ -198,7 +178,3 @@ a.info {
   color: var(--purple-menu-color);
 }
 /* ##### Top Navigation [END] ##### */
-
-/* ######################################## */
-/* ######################################## */
-/* ######################################## */

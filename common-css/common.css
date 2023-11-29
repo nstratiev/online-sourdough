@@ -1,3 +1,4 @@
+/* ##### COMMON CSS ##### */
 .row-empty,
 .row-math {
   height: 16px;
@@ -56,7 +57,6 @@
   font-size: 85%;
   text-align: center;
   padding: 2px;
-  /* background-color: none; */
   flex: 1 1 auto;
 }
 
@@ -65,7 +65,7 @@
   font-size: 85%;
 }
 
-/* #-FONT STYLES */
+/* #-TEXT STYLES */
 .bold {
   font-weight: bold;
 }
@@ -88,14 +88,15 @@
   color: rgb(192, 0, 0);
 }
 
+.red {
+  color: rgb(192, 0, 0);
+}
+
+/* Math signs */
 .equal-sign {
   font-size: 120%;
 }
 
 .multiply-sign {
   font-size: 110%;
-}
-
-span.red {
-  color: rgb(192, 0, 0);
 }

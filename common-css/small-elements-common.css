@@ -1,0 +1,71 @@
+/* ##### Small Elements ##### */
+.warning {
+  color: red;
+  padding: 4px;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.check-mark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+}
+
+/* Alert - Onclick */
+.temp-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 15px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+/* Comments */
+.comment {
+  position: relative;
+  cursor: pointer;
+}
+
+.comment::after {
+  content: '';
+  border-width: 3px;
+  border-style: solid;
+  border-color: red red transparent transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.comment-box {
+  max-width: 300px;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px 20px;
+  border: 2px solid rgb(192, 0, 0);
+  border-radius: 6px;
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+  color: black;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.comment:hover .comment-box {
+  visibility: visible;
+  z-index: 99;
+}

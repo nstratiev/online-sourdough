@@ -1,10 +1,19 @@
 Convention (html attribute names):
 - class = "" / id="" >>> Kebap case
 - name = "" >>> Camel case
+------------------------------------------
 
+<!-- ######################### -->
+<!-- ##### Page column I ##### -->
 
-Form calculator (example):
-calcMain.js >>> calcMainSubmit()
-print.js >>> printMainResults
-reset.js >>> resetMainForm / resetMainInputs / resetMainResults
-storage.js >>> getLocalStorageMain / setLocalStorageMain
+<!-- ##### Calculator (Main) ##### -->
+<!-- ### Subcalculator - Flours ### -->
+
+<!-- ##### Buttons Group (Main) ##### -->
+<!-- Submit button -->
+<!-- Reset button -->
+<!-- Save button -->
+
+/* ##### ABCD ##### */
+/* ##### ABCD [START] ##### */
+/* ##### ABCD [END] ##### */

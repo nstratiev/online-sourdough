@@ -1,0 +1,44 @@
+@media (max-width: 680px) {
+  .calc-water {
+    padding-top: 5px;
+  }
+}
+
+@media (max-width: 350px) {
+  .top-dotted.result-secondary {
+    border-top: 1px solid black;
+    border-left: 2px dotted black;
+  }
+
+  .right-dotted.result-secondary {
+    border-left: 2px dotted black;
+  }
+
+  .feed-mother,
+  .feed-flour,
+  .feed-water,
+  .feed-total {
+    height: 20px;
+  }
+}
+
+@media (max-width: 308px) {
+  .white-flour-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .white-flour-cell-1,
+  .additional-flour-total {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 300px) {
+  .card-flours-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-flours-cell._1a._top {
+    border: none;
+  }
+}

@@ -1,16 +1,11 @@
+/* ##### Calculator - Water ##### */
 .calc-water {
   max-width: 320px;
 }
 
 .water-addition-card {
-  /* border: 2px solid red; */
   text-align: center;
   max-width: 320px;
-}
-
-.water-addition-container {
-  /* border-right: 3px solid rgb(79, 129, 189);
-  border-bottom: 3px solid rgb(79, 129, 189); */
 }
 
 .water-addition-title {
@@ -26,6 +21,7 @@
   grid-column: 1 / -1;
 }
 
+/* Water - BORDERS */
 .water-addition-grid {
   border-right: 2px solid rgb(79, 129, 189);
   border-bottom: 2px solid rgb(79, 129, 189);
@@ -54,15 +50,17 @@
   border-top: none;
 }
 
-#water-addition-input {
+/* #water-addition-input {
   background-color: rgb(255, 255, 153);
   border: none;
   padding: 1px;
   text-align: center;
   width: 100%;
   height: 100%;
-}
+} */
 
-.water-addition-grid div {
-  /* border: 1px solid green; */
-}
+/* .water-addition-container {
+} */
+
+/* .water-addition-grid div {
+} */

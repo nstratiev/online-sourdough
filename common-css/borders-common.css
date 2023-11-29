@@ -1,19 +1,11 @@
-/* #-BORDERS */
+/* ##### BORDERS ##### */
 .no-top-border {
   border-top: none;
 }
 
-/* #-SOLID BORDERS */
-
-/* #-DASHED BORDERS */
+/* DASHED BORDERS */
 .top-dashed {
   border-top: 2px dashed black;
-}
-
-.top-right-dashed {
-}
-
-.right-dashed {
 }
 
 .left-dashed {
@@ -25,15 +17,9 @@
   border-left: 2px dashed black;
 }
 
-/* #-DOTTED BORDERS */
+/* DOTTED BORDERS */
 .top-dotted {
   border-top: 2px dotted black;
-}
-
-.top-right-dotted {
-}
-
-.right-dotted {
 }
 
 .left-dotted {

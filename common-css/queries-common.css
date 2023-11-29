@@ -1,6 +1,6 @@
-/* Queries points >>> 1000px / 680px / 370px / 350px */
+/* ##### QUERIES ##### */
+/* Queries points >>> 1200px / 1000px / 680px / 370px / 350px / 308px / 300px */
 
-/* #-QUERIES */
 @media (max-width: 1200px) {
   #btn-to-top,
   #btn-reset-global,
@@ -58,28 +58,18 @@
 
   hr {
     margin-top: 15px;
-    /* margin-bottom: 10px; */
-  }
-
-  .calc-water {
-    padding-top: 5px;
   }
 
   .legend-card {
     margin-top: 15px;
     margin-bottom: 15px;
   }
+}
 
-  /* .btns-container {
-    grid-template-columns: repeat(1, 1fr);
-    row-gap: 10px;
-  } */
-
-  /* #btn-to-top,
-  #btn-reset-global,
-  #btn-save-global {
-    right: 5px;
-  } */
+@media (max-width: 370px) {
+  .legend-card {
+    width: auto;
+  }
 }
 
 @media (max-width: 350px) {
@@ -99,49 +89,5 @@
   .top-dashed {
     border-top: 1px solid black;
     border-left: 2px dashed black;
-  }
-
-  /* DOTTED BORDERS */
-  .top-dotted.result-secondary {
-    border-top: 1px solid black;
-    border-left: 2px dotted black;
-  }
-
-  .right-dotted.result-secondary {
-    border-left: 2px dotted black;
-  }
-
-  .feed-mother,
-  .feed-flour,
-  .feed-water,
-  .feed-total {
-    height: 20px;
-  }
-}
-
-@media (max-width: 370px) {
-  .legend-card {
-    width: auto;
-  }
-}
-
-@media (max-width: 308px) {
-  .white-flour-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .white-flour-cell-1,
-  .additional-flour-total {
-    justify-self: center;
-  }
-}
-
-@media (max-width: 300px) {
-  .card-flours-row {
-    grid-template-columns: 1fr;
-  }
-
-  .card-flours-cell._1a._top {
-    border: none;
   }
 }

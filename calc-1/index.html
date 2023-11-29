@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Калкулатор (ХЛЯБ)</title>
-    <link rel="stylesheet" href="css-calc-1/general.css" />
-    <link rel="stylesheet" href="css-calc-1/common.css" />
-    <link rel="stylesheet" href="css-calc-1/calc-main.css" />
-    <link rel="stylesheet" href="css-calc-1/calc-flours.css" />
-    <link rel="stylesheet" href="css-calc-1/calc-corrections.css" />
-    <link rel="stylesheet" href="css-calc-1/calc-water.css" />
-    <link rel="stylesheet" href="css-calc-1/calc-leaven.css" />
-    <link rel="stylesheet" href="css-calc-1/legend.css" />
-    <link rel="stylesheet" href="css-calc-1/inputs.css" />
-    <link rel="stylesheet" href="css-calc-1/buttons.css" />
-    <link rel="stylesheet" href="css-calc-1/small-elements.css" />
-    <link rel="stylesheet" href="css-calc-1/borders.css" />
-    <link rel="stylesheet" href="css-calc-1/queries.css" />
+    <link rel="stylesheet" href="../common-css/general.css" />
+    <link rel="stylesheet" href="../common-css/common.css" />
+    <link rel="stylesheet" href="../common-css/legend.css" />
+    <link rel="stylesheet" href="../common-css/inputs-common.css" />
+    <link rel="stylesheet" href="../common-css/buttons-common.css" />
+    <link rel="stylesheet" href="../common-css/small-elements-common.css" />
+    <link rel="stylesheet" href="../common-css/borders-common.css" />
+    <link rel="stylesheet" href="../common-css/queries-common.css" />
     <link rel="stylesheet" href="../common-css/modal.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-main.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-flours.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-corrections.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-water.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-leaven.css" />
+    <link rel="stylesheet" href="css-calc-1/calc1-queries.css" />
   </head>
   <body>
+    <!-- Page HEADER -->
     <header>
       <h1>Калкулатор (ХЛЯБ)</h1>
       <!-- <div class="warning">UNDER CONSTRUCTION</div> -->
@@ -44,7 +46,8 @@
       </nav>
     </header>
 
-    <main>
+    <!-- Page ASIDE -->
+    <aside>
       <!-- To-top Button -->
       <div class="btn-to-top" id="btn-to-top">
         <!-- <div class="up-arrow"></div> -->
@@ -62,6 +65,7 @@
           </svg>
         </div>
       </div>
+
       <!-- Global Reset Button -->
       <div
         class="btn-reset-global"
@@ -90,6 +94,7 @@
           </svg>
         </div>
       </div>
+
       <!-- Global Save Button -->
       <div
         class="btn-save-global"
@@ -129,13 +134,16 @@
           </svg>
         </div>
       </div>
+    </aside>
 
-      <!-- ########################## -->
-      <!-- Page column I -->
+    <!-- Page MAIN content -->
+    <main>
+      <!-- ######################### -->
+      <!-- ##### Page column I ##### -->
       <section class="page-column">
+        <!-- ##### Calculator (Main) ##### -->
         <form class="calc-main" autocomplete="off">
-          <!-- ############# -->
-          <!-- First card -->
+          <!-- ##### First card ##### -->
           <article class="card _main _1">
             <div class="card-header _main">(1.3) Хлебна формула</div>
 
@@ -240,8 +248,7 @@
             </div>
           </article>
 
-          <!-- ############# -->
-          <!-- Second card -->
+          <!-- ##### Second card ##### -->
           <article class="card _main 2">
             <div class="card-header _main">(2.3) Количество тесто</div>
 
@@ -297,8 +304,7 @@
             </div>
           </article>
 
-          <!-- ############# -->
-          <!-- Third card -->
+          <!-- ##### Third card ##### -->
           <article class="card _main 3">
             <div class="card-header _main">(3.3) Изчислена формула</div>
 
@@ -325,8 +331,8 @@
                   <span id="leaven-weight-result">####</span>
                 </div>
 
+                <!-- ##### Sd Flour ##### -->
                 <div class="grid-item _sd _flour left-dashed">
-                  <!-- ##### -->
                   <div class="sd result-secondary comment">
                     брашно (квас), (g):
                     <span id="flour-leaven" class="result-secondary">###</span>
@@ -336,11 +342,10 @@
                       (%);
                     </aside>
                   </div>
-                  <!-- ##### -->
                 </div>
 
+                <!-- ##### Sd Water ##### -->
                 <div class="grid-item _sd _water left-dashed no-top-border">
-                  <!-- ##### -->
                   <div class="sd result-secondary comment">
                     вода (квас), (g):
                     <span id="water-leaven" class="result-secondary">###</span>
@@ -351,7 +356,6 @@
                     </aside>
                   </div>
                 </div>
-                <!-- ##### -->
               </div>
 
               <div class="row-empty"></div>
@@ -377,8 +381,7 @@
             </div>
           </article>
 
-          <!-- ############# -->
-          <!-- Fourth card - Overall -->
+          <!-- ##### Fourth card (Overall) ##### -->
           <article class="card-overall">
             <div class="grid--2-cols _dotted">
               <div class="grid-item top-left-dotted total comment">
@@ -405,9 +408,9 @@
             </div>
           </article>
 
-          <!-- BUTTONS -->
-          <!-- ############# -->
+          <!-- ##### Buttons Group (Main) ##### -->
           <div class="btns-group _main">
+            <!-- Submit button -->
             <button
               type="button"
               class="btn-submit"
@@ -448,6 +451,8 @@
                 <circle cx="168" cy="188" r="10" />
               </svg>
             </button>
+
+            <!-- Reset button -->
             <button
               type="button"
               class="btn-reset"
@@ -490,6 +495,8 @@
                 />
               </svg>
             </button>
+
+            <!-- Save button -->
             <button
               type="button"
               class="btn-save"
@@ -530,30 +537,15 @@
           </div>
 
           <hr />
-
-          <!-- ############# -->
-          <!-- <div id="btns-container" class="btns-container">
-            <button type="submit" class="btn btn--submit" id="btn-submit-col1">
-              Изчисли
-            </button>
-            <button type="reset" class="btn btn--reset" id="btn-reset-col1">
-              Нулиране
-            </button>
-            <button type="button" class="btn btn--save" id="btn-save-col1">
-              Запамети
-            </button>
-          </div>
-          <hr /> -->
         </form>
       </section>
 
       <!-- ########################## -->
-      <!-- Page column II -->
+      <!-- ##### Page column II ##### -->
       <section class="page-column">
-        <!-- ############ -->
-        <!-- FLOURS - calculator -->
+        <!-- ##### Calculator (Flours & Indedients) ##### -->
         <form class="calc-flours-ingredients" autocomplete="off">
-          <!-- Flours - calculator HEADER -->
+          <!-- ### Subcalculator - Flours ### -->
           <div class="card-flours-row-header bold underline">Други брашна</div>
 
           <article class="card-flours">
@@ -853,7 +845,7 @@
             <!-- ROW-8 END -->
           </article>
 
-          <!-- Flours - calculator FOOTER -->
+          <!-- Flours FOOTER -->
           <!-- White flour grid -->
           <div class="white-flour-grid">
             <div class="white-flour-cell-1">Основно брашно (бяло), (g):</div>
@@ -865,14 +857,13 @@
             <div id="totalFlour-flours-form-result"></div>
           </div>
 
-          <!-- Ingredients - calculator -->
-          <!-- Ingredients - calculator HEADER -->
+          <!-- ### Subcalculator - Ingredients ### -->
           <div class="card-flours-row-header bold underline">
             Други съставки
           </div>
 
           <article class="card-ingredients">
-            <!-- ROW-top START (Ingredients) -->
+            <!-- ROW-header START (Ingredients) -->
             <div class="card-flours-row">
               <div class="card-flours-subrow _1">
                 <div class="card-flours-cell _1a _top"></div>
@@ -885,7 +876,7 @@
                 <div class="card-flours-cell _2b _top bold">(g)</div>
               </div>
             </div>
-            <!-- ROW-top END (Ingredients) -->
+            <!-- ROW-header END (Ingredients) -->
 
             <!-- ROW-1 START (Ingredients) -->
             <div class="card-flours-row">
@@ -958,9 +949,9 @@
             <!-- ROW-2 END (Ingredients) -->
           </article>
 
-          <!-- BUTTONS -->
-          <!-- ############# -->
+          <!-- ##### Buttons Group (Flours & Ingredients) ##### -->
           <div class="btns-group _flours">
+            <!-- Submit button -->
             <button
               type="button"
               class="btn-submit"
@@ -1001,6 +992,8 @@
                 <circle cx="168" cy="188" r="10" />
               </svg>
             </button>
+
+            <!-- Reset button -->
             <button
               type="button"
               class="btn-reset"
@@ -1043,6 +1036,8 @@
                 />
               </svg>
             </button>
+
+            <!-- Save button -->
             <button
               type="button"
               class="btn-save"
@@ -1085,8 +1080,7 @@
           <hr />
         </form>
 
-        <!-- ############ -->
-        <!-- CORRECTIONS - calculator -->
+        <!-- ##### Calculator (Corrections) ##### -->
         <form class="calc-corrections" autocomplete="off">
           <div class="correction-title">Корекции</div>
 
@@ -1146,9 +1140,9 @@
             </div>
           </article>
 
-          <!-- BUTTONS -->
-          <!-- ############# -->
+          <!-- ##### Buttons Group (Main) ##### -->
           <div class="btns-group _corrections">
+            <!-- Submit button -->
             <button
               type="button"
               class="btn-submit"
@@ -1189,6 +1183,8 @@
                 <circle cx="168" cy="188" r="10" />
               </svg>
             </button>
+
+            <!-- Reset button -->
             <button
               type="button"
               class="btn-reset"
@@ -1231,6 +1227,8 @@
                 />
               </svg>
             </button>
+
+            <!-- Save button -->
             <button
               type="button"
               class="btn-save"
@@ -1273,8 +1271,7 @@
           <hr />
         </form>
 
-        <!-- ############ -->
-        <!-- WATER ADDITION - calculator -->
+        <!-- ##### Calculator (Water) ##### -->
         <form class="calc-water" autocomplete="off">
           <div class="water-addition-title comment">
             При тесто с висока хидратация
@@ -1286,22 +1283,19 @@
             </aside>
           </div>
 
-          <!-- <div class="water-addition-total-amount">
-              Вода (общо), (g): <span>####</span>
-            </div> -->
-          <!-- ############# -->
-          <!-- ############# -->
+          <!-- Water TOTAL row -->
           <div class="water-addition-grid">
             <div class="water-addition-total-amount outer-left-top-border">
               Вода (общо), (g): <span class="total-water-check"></span>
             </div>
 
+            <!-- Water HEADER row -->
             <div class="outer-left-border no-top-border"></div>
             <div class="inner-left-border no-top-border">(g)</div>
             <div class="outer-left-border no-top-border">
               h<span class="superscript">тесто</span>, (%)
             </div>
-            <!-- ############# -->
+            <!-- Water FIRST rox -->
             <div class="outer-left-border">Вода':</div>
             <div class="inner-left-border comment">
               <span class="initial-water-result"></span>
@@ -1326,7 +1320,8 @@
                 добавяне на вода;
               </aside>
             </div>
-            <!-- ############# -->
+
+            <!-- Water SECOND rox -->
             <div class="outer-left-border">Вода'':</div>
             <div class="inner-left-border comment">
               <span class="secondary-water-result"></span>
@@ -1344,9 +1339,9 @@
             </div>
           </div>
 
-          <!-- BUTTONS -->
-          <!-- ############# -->
+          <!-- ##### Buttons Group (Water) ##### -->
           <div class="btns-group _water">
+            <!-- Submit button -->
             <button
               type="button"
               class="btn-submit"
@@ -1387,6 +1382,8 @@
                 <circle cx="168" cy="188" r="10" />
               </svg>
             </button>
+
+            <!-- Reset button -->
             <button
               type="button"
               class="btn-reset"
@@ -1429,6 +1426,8 @@
                 />
               </svg>
             </button>
+
+            <!-- Save button -->
             <button
               type="button"
               class="btn-save"
@@ -1472,13 +1471,15 @@
         </form>
       </section>
 
-      <!-- ########################## -->
-      <!-- Page column III -->
+      <!-- ########################### -->
+      <!-- ##### Page column III ##### -->
       <section class="page-column">
+        <!-- ##### Calculator (Leaven) ##### -->
         <form class="calc-leaven-feed" autocomplete="off">
           <div class="card-header _leaven-feed">Подхранване на кваса</div>
           <article class="card _leaven-feed">
             <div class="card-body _leaven-feed">
+              <!-- Leaven - FIRST section -->
               <div class="grid--2-cols">
                 <label class="grid-item bold comment" for="#">
                   Работен квас, (g):
@@ -1512,6 +1513,7 @@
 
               <div class="row-empty"></div>
 
+              <!-- Leaven - SECOND section -->
               <div class="grid--2-cols">
                 <div class="grid-item leaven-feed-method bold comment">
                   Метод за подхранване на<br />кваса-„майка”
@@ -1556,6 +1558,7 @@
 
               <div class="row-empty"></div>
 
+              <!-- Leaven - THIRD section (Version I) -->
               <div class="grid--2-cols subcard-leaven _ver-1">
                 <div class="grid-item _version _1 bold italic comment">
                   Вариант І
@@ -1607,6 +1610,7 @@
 
               <div class="row-empty"></div>
 
+              <!-- Leaven - Fourth section (Version II) -->
               <div class="grid--2-cols subcard-leaven _ver-2">
                 <div class="grid-item _version _2 bold italic comment">
                   Вариант ІI
@@ -1669,9 +1673,9 @@
             </div>
           </article>
 
-          <!-- BUTTONS -->
-          <!-- ############# -->
+          <!-- ##### Buttons Group (Main) ##### -->
           <div class="btns-group _leaven-feed">
+            <!-- Submit button -->
             <button
               type="button"
               class="btn-submit"
@@ -1712,6 +1716,8 @@
                 <circle cx="168" cy="188" r="10" />
               </svg>
             </button>
+
+            <!-- Reset button -->
             <button
               type="button"
               class="btn-reset"
@@ -1754,6 +1760,8 @@
                 />
               </svg>
             </button>
+
+            <!-- Save button -->
             <button
               type="button"
               class="btn-save"
@@ -1796,7 +1804,8 @@
           <hr />
         </form>
 
-        <!-- LEGEND -->
+        <!-- ################## -->
+        <!-- ##### LEGEND ##### -->
         <aside id="legend-card" class="legend-card">
           <div class="legend-title">Легенда:</div>
           <div class="legend-variable-value">променлива стойност</div>
@@ -1812,6 +1821,7 @@
       </section>
     </main>
 
+    <!-- ##### Page FOOTER -->
     <footer>
       <a href="../">Online Sourdough Calculator</a>
     </footer>

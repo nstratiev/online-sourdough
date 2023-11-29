@@ -1,3 +1,4 @@
+/* ##### Calculator - Leaven ##### */
 .calc-leaven-feed {
   max-width: 320px;
   width: 100%;
@@ -43,6 +44,11 @@
   color: rgb(69, 108, 155);
 }
 
+/* TOTAL sections */
+.feed-total._text {
+  text-decoration: underline;
+}
+
 .feed-total._text,
 .feed-total._1,
 .feed-total._2 {
@@ -50,14 +56,11 @@
   font-style: italic;
 }
 
-.feed-total._text {
-  text-decoration: underline;
-}
-
 .feed-total._1 {
   color: rgb(192, 0, 0);
 }
 
+/* Leaven FOOTER section */
 .explained._A,
 .explained._B {
   font-weight: bold;
