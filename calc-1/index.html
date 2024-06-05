@@ -1,1831 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Калкулатор (ХЛЯБ)</title>
-    <link rel="stylesheet" href="../common-css/general.css" />
-    <link rel="stylesheet" href="../common-css/common.css" />
-    <link rel="stylesheet" href="../common-css/legend.css" />
-    <link rel="stylesheet" href="../common-css/inputs-common.css" />
-    <link rel="stylesheet" href="../common-css/buttons-common.css" />
-    <link rel="stylesheet" href="../common-css/small-elements-common.css" />
-    <link rel="stylesheet" href="../common-css/borders-common.css" />
-    <link rel="stylesheet" href="../common-css/queries-common.css" />
-    <link rel="stylesheet" href="../common-css/modal.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-main.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-flours.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-corrections.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-water.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-leaven.css" />
-    <link rel="stylesheet" href="css-calc-1/calc1-queries.css" />
-  </head>
-  <body>
-    <!-- Page HEADER -->
-    <header>
-      <h1>Калкулатор (ХЛЯБ)</h1>
-      <!-- <div class="warning">UNDER CONSTRUCTION</div> -->
-      <nav>
-        <ul class="top-nav">
-          <li>
-            <a href="../" class="top-nav-item menu" title="Меню"
-              ><span class="top-nav-text">М</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="top-nav-item info" title="Пояснения"
-              ><span class="top-nav-text">i</span></a
-            >
-          </li>
-          <li>
-            <a href="#legend-card" class="top-nav-item legend" title="Легенда"
-              ><span class="top-nav-text">?</span></a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
 
-    <!-- Page ASIDE -->
-    <aside>
-      <!-- To-top Button -->
-      <div class="btn-to-top" id="btn-to-top">
-        <!-- <div class="up-arrow"></div> -->
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-            <rect width="256" height="256" fill="none" />
-            <polyline
-              points="48 160 128 80 208 160"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-          </svg>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Калкулатор (ХЛЯБ)</title>
+  <link rel="stylesheet" href="../common-css/general.css" />
+  <link rel="stylesheet" href="../common-css/common.css" />
+  <link rel="stylesheet" href="../common-css/legend.css" />
+  <link rel="stylesheet" href="../common-css/inputs-common.css" />
+  <link rel="stylesheet" href="../common-css/buttons-common.css" />
+  <link rel="stylesheet" href="../common-css/small-elements-common.css" />
+  <link rel="stylesheet" href="../common-css/borders-common.css" />
+  <link rel="stylesheet" href="../common-css/queries-common.css" />
+  <link rel="stylesheet" href="../common-css/modal.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-main.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-flours.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-corrections.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-water.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-leaven.css" />
+  <link rel="stylesheet" href="css-calc-1/calc1-queries.css" />
+</head>
+
+<body>
+  <!-- Page HEADER -->
+  <header>
+    <h1>Калкулатор (ХЛЯБ)</h1>
+    <!-- <div class="warning">UNDER CONSTRUCTION</div> -->
+    <nav>
+      <ul class="top-nav">
+        <li>
+          <a href="../" class="top-nav-item menu" title="Меню"><span class="top-nav-text">М</span></a>
+        </li>
+        <li>
+          <a href="#" class="top-nav-item info" title="Пояснения"><span class="top-nav-text">i</span></a>
+        </li>
+        <li>
+          <a href="#legend-card" class="top-nav-item legend" title="Легенда"><span class="top-nav-text">?</span></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page ASIDE -->
+  <aside>
+    <!-- To-top Button -->
+    <div class="btn-to-top" id="btn-to-top">
+      <!-- <div class="up-arrow"></div> -->
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none" />
+          <polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16" />
+        </svg>
       </div>
+    </div>
 
-      <!-- Global Reset Button -->
-      <div
-        class="btn-reset-global"
-        id="btn-reset-global"
-        title="Нулиране на всички полета"
-      >
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-            <rect width="256" height="256" fill="none" />
-            <polyline
-              points="24 56 24 104 72 104"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-            <path
-              d="M67.59,192A88,88,0,1,0,65.77,65.77L24,104"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-          </svg>
-        </div>
+    <!-- Global Reset Button -->
+    <div class="btn-reset-global" id="btn-reset-global" title="Нулиране на всички полета">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none" />
+          <polyline points="24 56 24 104 72 104" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16" />
+          <path d="M67.59,192A88,88,0,1,0,65.77,65.77L24,104" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16" />
+        </svg>
       </div>
+    </div>
 
-      <!-- Global Save Button -->
-      <div
-        class="btn-save-global"
-        id="btn-save-global"
-        title="Запаметяване на стойностите от всички полета на текущата страница"
-      >
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-            <rect width="256" height="256" fill="none" />
-            <ellipse
-              cx="128"
-              cy="80"
-              rx="88"
-              ry="48"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-            <path
-              d="M40,80v48c0,26.51,39.4,48,88,48s88-21.49,88-48V80"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-            <path
-              d="M40,128v48c0,26.51,39.4,48,88,48s88-21.49,88-48V128"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
-            />
-          </svg>
-        </div>
+    <!-- Global Save Button -->
+    <div class="btn-save-global" id="btn-save-global"
+      title="Запаметяване на стойностите от всички полета на текущата страница">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <rect width="256" height="256" fill="none" />
+          <ellipse cx="128" cy="80" rx="88" ry="48" fill="none" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16" />
+          <path d="M40,80v48c0,26.51,39.4,48,88,48s88-21.49,88-48V80" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <path d="M40,128v48c0,26.51,39.4,48,88,48s88-21.49,88-48V128" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        </svg>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <!-- Page MAIN content -->
-    <main>
-      <!-- ######################### -->
-      <!-- ##### Page column I ##### -->
-      <section class="page-column">
-        <!-- ##### Calculator (Main) ##### -->
-        <form class="calc-main" autocomplete="off">
-          <!-- ##### First card ##### -->
-          <article class="card _main _1">
-            <div class="card-header _main">(1.3) Хлебна формула</div>
+  <!-- Page MAIN content -->
+  <main>
+    <!-- ######################### -->
+    <!-- ##### Page column I ##### -->
+    <section class="page-column">
+      <!-- ##### Calculator (Main) ##### -->
+      <form class="calc-main" autocomplete="off">
+        <!-- ##### First card ##### -->
+        <article class="card _main _1">
+          <div class="card-header _main">(1.3) Хлебна формула</div>
 
-            <div class="card-body _main">
-              <div class="grid--2-cols _dashed">
-                <div class="grid-item row-entire top-left-dashed bold italic">
-                  Квас
-                </div>
-
-                <label class="grid-item left-dashed comment" for="#">
-                  Прфб., (%):
-                  <aside class="comment-box">
-                    Предварително ферментирало брашно, (%);<br />
-                    <span style="color: blue"
-                      >(Google -> pre-fermented flour)</span
-                    ><br />
-                    Брашното, което се съдържа в кваса<br />
-                    (изразено като процент от общото/цялото количество брашно в
-                    тестото);
-                  </aside>
-                </label>
-                <div class="grid-item inp right-dashed">
-                  <input
-                    type="number"
-                    name="prefermFlourPercent"
-                    class="percent _main"
-                    id="preferm-flour-percent"
-                    min="0"
-                    max="100"
-                    step="0.1"
-                    placeholder="пр. ... 8.0"
-                    required
-                    autofocus
-                  />
-                </div>
-
-                <label class="grid-item left-dashed comment" for="#">
-                  h<span class="superscript">кв</span>, (%):
-                  <aside class="comment-box">Хидратация на кваса, (%);</aside>
-                </label>
-                <div class="grid-item inp right-dashed">
-                  <input
-                    type="number"
-                    name="leavenHydratationPercent"
-                    class="percent _main"
-                    id="leaven-hydratation-percent"
-                    min="50"
-                    max="125"
-                    step="1"
-                    placeholder="пр. ... 85"
-                    required
-                  />
-                </div>
+          <div class="card-body _main">
+            <div class="grid--2-cols _dashed">
+              <div class="grid-item row-entire top-left-dashed bold italic">
+                Квас
               </div>
 
-              <div class="row-empty"></div>
-
-              <div class="grid--2-cols">
-                <label class="grid-item bold italic comment" for="#">
-                  Вода, (%):
-                  <aside class="comment-box">Хидратация на тестото;</aside>
-                </label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="waterPercent"
-                    class="percent _main"
-                    id="water-percent"
-                    min="0"
-                    max="125"
-                    step="1"
-                    placeholder="пр. ... 68"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="row-empty"></div>
-
-              <div class="grid--2-cols">
-                <label class="grid-item bold italic comment" for="#">
-                  Сол, (%):
-                  <aside class="comment-box">
-                    Обикновено е препоръчително<br />
-                    солта да не надвишава 2%;
-                  </aside>
-                </label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="saltPercent"
-                    class="percent _main"
-                    id="salt-percent"
-                    min="0"
-                    max="7"
-                    step="0.1"
-                    placeholder="пр. ... 2.0"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- ##### Second card ##### -->
-          <article class="card _main 2">
-            <div class="card-header _main">(2.3) Количество тесто</div>
-
-            <div class="card-body _main">
-              <div class="grid--2-cols">
-                <label class="grid-item" for="#">Хлябове, (брой):</label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="loafsCount"
-                    class="percent _main"
-                    id="loafs-count"
-                    min="1"
-                    step="1"
-                    placeholder="пр. ... 3"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="row-math multiply-sign">&times;</div>
-
-              <div class="grid--2-cols">
-                <label class="grid-item comment" for="#">
-                  Тегло на отделен хляб, (g):
-                  <aside class="comment-box">
-                    Тегло на тестото (на отделния хляб)<br />
-                    преди печене;
-                  </aside>
-                </label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="loafWeight"
-                    class="percent _main"
-                    id="loaf-weight"
-                    min="0"
-                    step="1"
-                    placeholder="пр. ... 850"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="row-math equal-sign">&equals;</div>
-
-              <div class="grid--2-cols">
-                <div class="grid-item">Количество тесто, (g):</div>
-                <div class="grid-item result-primary">
-                  <span id="dough-weight-result">####</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- ##### Third card ##### -->
-          <article class="card _main 3">
-            <div class="card-header _main">(3.3) Изчислена формула</div>
-
-            <div class="card-body _main">
-              <div class="grid--2-cols">
-                <div class="grid-item bold italic comment">
-                  Брашно, (g):
-                  <aside class="comment-box">
-                    Бр. за замесване <span class="red bold">&equals;</span> Общо
-                    бр. <span class="red bold">&minus;</span> бр (квас);
-                  </aside>
-                </div>
-                <div class="grid-item result-primary">
-                  <span id="flour-weight-result">####</span>
-                </div>
-              </div>
-              <div class="row-empty"></div>
-
-              <div class="grid--2-cols _dashed">
-                <div class="grid-item top-left-dashed bold italic">
-                  Квас, (g):
-                </div>
-                <div class="grid-item top-dashed result-primary">
-                  <span id="leaven-weight-result">####</span>
-                </div>
-
-                <!-- ##### Sd Flour ##### -->
-                <div class="grid-item _sd _flour left-dashed">
-                  <div class="sd result-secondary comment">
-                    брашно (квас), (g):
-                    <span id="flour-leaven" class="result-secondary">###</span>
-                    <aside class="comment-box">
-                      бр (кв), (g)
-                      <span style="color: green">се определя чрез</span> Прфб.
-                      (%);
-                    </aside>
-                  </div>
-                </div>
-
-                <!-- ##### Sd Water ##### -->
-                <div class="grid-item _sd _water left-dashed no-top-border">
-                  <div class="sd result-secondary comment">
-                    вода (квас), (g):
-                    <span id="water-leaven" class="result-secondary">###</span>
-                    <aside class="comment-box">
-                      в (кв), (g)
-                      <span style="color: green">се определя чрез</span> hкв
-                      (%);
-                    </aside>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row-empty"></div>
-
-              <div class="grid--2-cols">
-                <div class="grid-item bold italic comment">
-                  Вода, (g):
-                  <aside class="comment-box">Вода за замесване;</aside>
-                </div>
-                <div class="grid-item result-primary">
-                  <span id="water-weight-result">####</span>
-                </div>
-              </div>
-
-              <div class="row-empty"></div>
-
-              <div class="grid--2-cols">
-                <div class="grid-item bold italic">Сол, (g):</div>
-                <div class="grid-item result-primary">
-                  <span id="salt-weight-result">####</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- ##### Fourth card (Overall) ##### -->
-          <article class="card-overall">
-            <div class="grid--2-cols _dotted">
-              <div class="grid-item top-left-dotted total comment">
-                Брашно - общо, (g):
+              <label class="grid-item left-dashed comment" for="#">
+                Прфб., (%):
                 <aside class="comment-box">
-                  Общо брашно => Всичкото брашно,<br />
-                  което се съдържа в тестото;
+                  Предварително ферментирало брашно, (%);<br />
+                  <span style="color: blue">(Google -> pre-fermented flour)</span><br />
+                  Брашното, което се съдържа в кваса<br />
+                  (изразено като процент от общото/цялото количество брашно в
+                  тестото);
+                </aside>
+              </label>
+              <div class="grid-item inp right-dashed">
+                <input type="number" name="prefermFlourPercent" class="percent _main decimalOneDigit"
+                  id="preferm-flour-percent" min="0" max="100" step="0.1" placeholder="пр. ... 8.0" required
+                  autofocus />
+              </div>
+
+              <label class="grid-item left-dashed comment" for="#">
+                h<span class="superscript">кв</span>, (%):
+                <aside class="comment-box">Хидратация на кваса, (%);</aside>
+              </label>
+              <div class="grid-item inp right-dashed">
+                <input type="number" name="leavenHydratationPercent" class="percent _main"
+                  id="leaven-hydratation-percent" min="50" max="125" step="1" placeholder="пр. ... 85" required />
+              </div>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="grid--2-cols">
+              <label class="grid-item bold italic comment" for="#">
+                Вода, (%):
+                <aside class="comment-box">Хидратация на тестото;</aside>
+              </label>
+              <div class="grid-item inp">
+                <input type="number" name="waterPercent" class="percent _main" id="water-percent" min="0" max="125"
+                  step="1" placeholder="пр. ... 68" required />
+              </div>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="grid--2-cols">
+              <label class="grid-item bold italic comment" for="#">
+                Сол, (%):
+                <aside class="comment-box">
+                  Обикновено е препоръчително<br />
+                  солта да не надвишава 2%;
+                </aside>
+              </label>
+              <div class="grid-item inp">
+                <input type="number" name="saltPercent" class="percent _main decimalOneDigit" id="salt-percent" min="0"
+                  max="7" step="0.1" placeholder="пр. ... 2.0" required />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ##### Second card ##### -->
+        <article class="card _main 2">
+          <div class="card-header _main">(2.3) Количество тесто</div>
+
+          <div class="card-body _main">
+            <div class="grid--2-cols">
+              <label class="grid-item" for="#">Хлябове, (брой):</label>
+              <div class="grid-item inp">
+                <input type="number" name="loafsCount" class="percent _main" id="loafs-count" min="1" step="1"
+                  placeholder="пр. ... 3" required />
+              </div>
+            </div>
+
+            <div class="row-math multiply-sign">&times;</div>
+
+            <div class="grid--2-cols">
+              <label class="grid-item comment" for="#">
+                Тегло на отделен хляб, (g):
+                <aside class="comment-box">
+                  Тегло на тестото (на отделния хляб)<br />
+                  преди печене;
+                </aside>
+              </label>
+              <div class="grid-item inp">
+                <input type="number" name="loafWeight" class="percent _main" id="loaf-weight" min="0" step="1"
+                  placeholder="пр. ... 850" required />
+              </div>
+            </div>
+
+            <div class="row-math equal-sign">&equals;</div>
+
+            <div class="grid--2-cols">
+              <div class="grid-item">Количество тесто, (g):</div>
+              <div class="grid-item result-primary">
+                <span id="dough-weight-result">####</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ##### Third card ##### -->
+        <article class="card _main 3">
+          <div class="card-header _main">(3.3) Изчислена формула</div>
+
+          <div class="card-body _main">
+            <div class="grid--2-cols">
+              <div class="grid-item bold italic comment">
+                Брашно, (g):
+                <aside class="comment-box">
+                  Бр. за замесване <span class="red bold">&equals;</span> Общо
+                  бр. <span class="red bold">&minus;</span> бр (квас);
                 </aside>
               </div>
-              <div class="grid-item top-dotted result-secondary total">
-                <span id="flour-total" class="result-secondary">###</span>
-              </div>
-
-              <div class="grid-item left-dotted total comment">
-                Вода - обща, (g):
-                <aside class="comment-box">
-                  Обща вода => Всичката вода,<br />
-                  която се съдържа в тестото;
-                </aside>
-              </div>
-              <div class="grid-item right-dotted result-secondary total">
-                <span id="water-total" class="result-secondary">###</span>
+              <div class="grid-item result-primary">
+                <span id="flour-weight-result">####</span>
               </div>
             </div>
-          </article>
+            <div class="row-empty"></div>
 
-          <!-- ##### Buttons Group (Main) ##### -->
-          <div class="btns-group _main">
-            <!-- Submit button -->
-            <button
-              type="button"
-              class="btn-submit"
-              id="btn-submit-main"
-              title="Изчисляване на търсените стойности"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <rect
-                  x="80"
-                  y="64"
-                  width="96"
-                  height="48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <rect
-                  x="32"
-                  y="48"
-                  width="192"
-                  height="160"
-                  rx="8"
-                  transform="translate(256) rotate(90)"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <circle cx="88" cy="148" r="10" />
-                <circle cx="128" cy="148" r="10" />
-                <circle cx="168" cy="148" r="10" />
-                <circle cx="88" cy="188" r="10" />
-                <circle cx="128" cy="188" r="10" />
-                <circle cx="168" cy="188" r="10" />
-              </svg>
-            </button>
+            <div class="grid--2-cols _dashed">
+              <div class="grid-item top-left-dashed bold italic">
+                Квас, (g):
+              </div>
+              <div class="grid-item top-dashed result-primary">
+                <span id="leaven-weight-result">####</span>
+              </div>
 
-            <!-- Reset button -->
-            <button
-              type="button"
-              class="btn-reset"
-              id="btn-reset-main"
-              title="Нулиране на полетата от текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M64,192s24,24,64,24c56,0,88-56,88-56"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="88 96 40 96 40 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="168 160 216 160 216 208"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
+              <!-- ##### Sd Flour ##### -->
+              <div class="grid-item _sd _flour left-dashed">
+                <div class="sd result-secondary comment">
+                  брашно (квас), (g):
+                  <span id="flour-leaven" class="result-secondary">###</span>
+                  <aside class="comment-box">
+                    бр (кв), (g)
+                    <span style="color: green">се определя чрез</span> Прфб.
+                    (%);
+                  </aside>
+                </div>
+              </div>
 
-            <!-- Save button -->
-            <button
-              type="button"
-              class="btn-save"
-              id="btn-save-main"
-              title="Запаметяване на стойностите от полетата на текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <line
-                  x1="152"
-                  y1="72"
-                  x2="96"
-                  y2="72"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
+              <!-- ##### Sd Water ##### -->
+              <div class="grid-item _sd _water left-dashed no-top-border">
+                <div class="sd result-secondary comment">
+                  вода (квас), (g):
+                  <span id="water-leaven" class="result-secondary">###</span>
+                  <aside class="comment-box">
+                    в (кв), (g)
+                    <span style="color: green">се определя чрез</span> hкв
+                    (%);
+                  </aside>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="grid--2-cols">
+              <div class="grid-item bold italic comment">
+                Вода, (g):
+                <aside class="comment-box">Вода за замесване;</aside>
+              </div>
+              <div class="grid-item result-primary">
+                <span id="water-weight-result">####</span>
+              </div>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="grid--2-cols">
+              <div class="grid-item bold italic">Сол, (g):</div>
+              <div class="grid-item result-primary">
+                <span id="salt-weight-result">####</span>
+              </div>
+            </div>
           </div>
+        </article>
 
-          <hr />
-        </form>
-      </section>
-
-      <!-- ########################## -->
-      <!-- ##### Page column II ##### -->
-      <section class="page-column">
-        <!-- ##### Calculator (Flours & Indedients) ##### -->
-        <form class="calc-flours-ingredients" autocomplete="off">
-          <!-- ### Subcalculator - Flours ### -->
-          <div class="card-flours-row-header bold underline">Други брашна</div>
-
-          <article class="card-flours">
-            <!-- ROW-top START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a _top"></div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a _top bold comment">
-                  (%)
-                  <aside class="comment-box">% от брашното за замесване;</aside>
-                </div>
-                <div class="card-flours-cell _2b _top bold">(g)</div>
-              </div>
-            </div>
-            <!-- ROW-top END -->
-
-            <!-- ROW-1 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">1</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="1"
-                    placeholder="...П-зърн. Пшенично..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="1"
-                    placeholder="пр.25"
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="1">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-1 END -->
-
-            <!-- ROW-2 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">2</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="2"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="2"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="2">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-2 END -->
-
-            <!-- ROW-3 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">3</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="3"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="3"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="3">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-3 END -->
-
-            <!-- ROW-4 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">4</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="4"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="4"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="4">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-4 END -->
-
-            <!-- ROW-5 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">5</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="5"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="5"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="5">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-5 END -->
-
-            <!-- ROW-6 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">6</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="6"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="6"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="6">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-6 END -->
-
-            <!-- ROW-7 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">7</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="7"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="7"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="7">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-7 END -->
-
-            <!-- ROW-8 START -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">8</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="flourType"
-                    class="input-text additional-flour-text"
-                    data-id="8"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalFlourPercent"
-                    class="additional-flour-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="8"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-flour-result bold" data-id="8">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-8 END -->
-          </article>
-
-          <!-- Flours FOOTER -->
-          <!-- White flour grid -->
-          <div class="white-flour-grid">
-            <div class="white-flour-cell-1">Основно брашно (бяло), (g):</div>
-            <div
-              class="white-flour-cell-2"
-              id="whiteFlour-flours-form-result"
-            ></div>
-            <div class="additional-flour-total">Общо:</div>
-            <div id="totalFlour-flours-form-result"></div>
-          </div>
-
-          <!-- ### Subcalculator - Ingredients ### -->
-          <div class="card-flours-row-header bold underline">
-            Други съставки
-          </div>
-
-          <article class="card-ingredients">
-            <!-- ROW-header START (Ingredients) -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a _top"></div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a _top bold comment">
-                  (%)
-                  <aside class="comment-box">% от количеството тесто;</aside>
-                </div>
-                <div class="card-flours-cell _2b _top bold">(g)</div>
-              </div>
-            </div>
-            <!-- ROW-header END (Ingredients) -->
-
-            <!-- ROW-1 START (Ingredients) -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">1</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="ingrType"
-                    class="input-text additional-ingr-text"
-                    data-id="1b"
-                    placeholder="...Семена..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalIngrPercent"
-                    class="additional-ingr-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="1b"
-                    placeholder="пр.5"
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-ingredient-result bold" data-id="1b">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-1 END (Ingredients) -->
-
-            <!-- ROW-2 START (Ingredients) -->
-            <div class="card-flours-row">
-              <div class="card-flours-subrow _1">
-                <div class="card-flours-cell _1a">2</div>
-                <div class="card-flours-cell _1b">
-                  <input
-                    type="text"
-                    name="ingrType"
-                    class="input-text additional-ingr-text"
-                    data-id="2b"
-                    placeholder="..."
-                  />
-                </div>
-              </div>
-              <div class="card-flours-subrow _2">
-                <div class="card-flours-cell _2a">
-                  <input
-                    type="number"
-                    name="additionalIngrPercent"
-                    class="additional-ingr-percent"
-                    min="0"
-                    max="100"
-                    step="1"
-                    data-id="2b"
-                    placeholder="..."
-                  />
-                </div>
-                <div class="card-flours-cell _2b">
-                  <span class="additional-ingredient-result bold" data-id="2b">
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- ROW-2 END (Ingredients) -->
-          </article>
-
-          <!-- ##### Buttons Group (Flours & Ingredients) ##### -->
-          <div class="btns-group _flours">
-            <!-- Submit button -->
-            <button
-              type="button"
-              class="btn-submit"
-              id="btn-submit-flours"
-              title="Изчисляване на търсените стойности"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <rect
-                  x="80"
-                  y="64"
-                  width="96"
-                  height="48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <rect
-                  x="32"
-                  y="48"
-                  width="192"
-                  height="160"
-                  rx="8"
-                  transform="translate(256) rotate(90)"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <circle cx="88" cy="148" r="10" />
-                <circle cx="128" cy="148" r="10" />
-                <circle cx="168" cy="148" r="10" />
-                <circle cx="88" cy="188" r="10" />
-                <circle cx="128" cy="188" r="10" />
-                <circle cx="168" cy="188" r="10" />
-              </svg>
-            </button>
-
-            <!-- Reset button -->
-            <button
-              type="button"
-              class="btn-reset"
-              id="btn-reset-flours"
-              title="Нулиране на полетата от текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M64,192s24,24,64,24c56,0,88-56,88-56"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="88 96 40 96 40 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="168 160 216 160 216 208"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
-
-            <!-- Save button -->
-            <button
-              type="button"
-              class="btn-save"
-              id="btn-save-flours"
-              title="Запаметяване на стойностите от полетата на текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <line
-                  x1="152"
-                  y1="72"
-                  x2="96"
-                  y2="72"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <hr />
-        </form>
-
-        <!-- ##### Calculator (Corrections) ##### -->
-        <form class="calc-corrections" autocomplete="off">
-          <div class="correction-title">Корекции</div>
-
-          <!-- Correction subcard I -->
-          <article class="corrections-subcard-1">
-            <div class="cell-correction-1 _top">
-              Увеличаване на h с
-              <span>
-                <input
-                  type="number"
-                  name="hydratationIncrement"
-                  class="correction-hydr-percent"
-                  id="hydratation-increment"
-                  min="0"
-                  max="100"
-                  step="1"
-                  placeholder="пр.3"
-                />
-              </span>
-              %<br />се равнява на:
-            </div>
-            <div class="cell-correction-1 _bottom blue bold">
-              <span class="corrections-incr-result-water"></span>
-            </div>
-          </article>
-
-          <!-- Correction subcard II -->
-          <article class="corrections-subcard-2">
-            <div class="cell-correction-2 _top">
-              Намаляване на h с
-              <span>
-                <input
-                  type="number"
-                  name="hydratationDecrement"
-                  class="correction-hydr-percent"
-                  id="hydratation-decrement"
-                  min="0"
-                  max="100"
-                  step="1"
-                  placeholder="пр.2"
-                />
-              </span>
-              %<br />се равнява на:
-            </div>
-            <div class="cell-correction-2 red bold">
-              <span class="corrections-decr-result-flour"> </span>
-            </div>
-            <div class="cell-correction-2 green bold">
-              <span class="corrections-decr-result-salt"> </span>
-            </div>
-            <div class="cell-correction-2 purple comment">
-              <span class="corrections-decr-result-preferm"></span>
+        <!-- ##### Fourth card (Overall) ##### -->
+        <article class="card-overall">
+          <div class="grid--2-cols _dotted">
+            <div class="grid-item top-left-dotted total comment">
+              Брашно - общо, (g):
               <aside class="comment-box">
-                Актуалният % на Прфб.,<br />
-                след добавяне на допълнително брашно;
+                Общо брашно => Всичкото брашно,<br />
+                което се съдържа в тестото;
               </aside>
             </div>
-          </article>
+            <div class="grid-item top-dotted result-secondary total">
+              <span id="flour-total" class="result-secondary">###</span>
+            </div>
 
-          <!-- ##### Buttons Group (Main) ##### -->
-          <div class="btns-group _corrections">
-            <!-- Submit button -->
-            <button
-              type="button"
-              class="btn-submit"
-              id="btn-submit-corrections"
-              title="Изчисляване на търсените стойности"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <rect
-                  x="80"
-                  y="64"
-                  width="96"
-                  height="48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <rect
-                  x="32"
-                  y="48"
-                  width="192"
-                  height="160"
-                  rx="8"
-                  transform="translate(256) rotate(90)"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <circle cx="88" cy="148" r="10" />
-                <circle cx="128" cy="148" r="10" />
-                <circle cx="168" cy="148" r="10" />
-                <circle cx="88" cy="188" r="10" />
-                <circle cx="128" cy="188" r="10" />
-                <circle cx="168" cy="188" r="10" />
-              </svg>
-            </button>
+            <div class="grid-item left-dotted total comment">
+              Вода - обща, (g):
+              <aside class="comment-box">
+                Обща вода => Всичката вода,<br />
+                която се съдържа в тестото;
+              </aside>
+            </div>
+            <div class="grid-item right-dotted result-secondary total">
+              <span id="water-total" class="result-secondary">###</span>
+            </div>
+          </div>
+        </article>
 
-            <!-- Reset button -->
-            <button
-              type="button"
-              class="btn-reset"
-              id="btn-reset-corrections"
-              title="Нулиране на полетата от текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M64,192s24,24,64,24c56,0,88-56,88-56"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="88 96 40 96 40 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="168 160 216 160 216 208"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
+        <!-- ##### Buttons Group (Main) ##### -->
+        <div class="btns-group _main">
+          <!-- Submit button -->
+          <button type="button" class="btn-submit" id="btn-submit-main" title="Изчисляване на търсените стойности">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <circle cx="88" cy="148" r="10" />
+              <circle cx="128" cy="148" r="10" />
+              <circle cx="168" cy="148" r="10" />
+              <circle cx="88" cy="188" r="10" />
+              <circle cx="128" cy="188" r="10" />
+              <circle cx="168" cy="188" r="10" />
+            </svg>
+          </button>
 
-            <!-- Save button -->
-            <button
-              type="button"
-              class="btn-save"
-              id="btn-save-corrections"
-              title="Запаметяване на стойностите от полетата на текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <line
-                  x1="152"
-                  y1="72"
-                  x2="96"
-                  y2="72"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
+          <!-- Reset button -->
+          <button type="button" class="btn-reset" id="btn-reset-main" title="Нулиране на полетата от текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path d="M192,64s-24-24-64-24C72,40,40,96,40,96" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <path d="M64,192s24,24,64,24c56,0,88-56,88-56" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="88 96 40 96 40 48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="168 160 216 160 216 208" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+
+          <!-- Save button -->
+          <button type="button" class="btn-save" id="btn-save-main"
+            title="Запаметяване на стойностите от полетата на текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <path d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <line x1="152" y1="72" x2="96" y2="72" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+        </div>
+
+        <hr />
+      </form>
+    </section>
+
+    <!-- ########################## -->
+    <!-- ##### Page column II ##### -->
+    <section class="page-column">
+      <!-- ##### Calculator (Flours & Indedients) ##### -->
+      <form class="calc-flours-ingredients" autocomplete="off">
+        <!-- ### Subcalculator - Flours ### -->
+        <div class="card-flours-row-header bold underline">Други брашна</div>
+
+        <article class="card-flours">
+          <!-- ROW-top START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a _top"></div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a _top bold comment">
+                (%)
+                <aside class="comment-box">% от брашното за замесване;</aside>
+              </div>
+              <div class="card-flours-cell _2b _top bold">(g)</div>
+            </div>
+          </div>
+          <!-- ROW-top END -->
+
+          <!-- ROW-1 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">1</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="1"
+                  placeholder="...П-зърн. Пшенично..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="1" placeholder="пр.25" />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="1">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-1 END -->
+
+          <!-- ROW-2 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">2</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="2"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="2" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="2">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-2 END -->
+
+          <!-- ROW-3 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">3</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="3"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="3" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="3">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-3 END -->
+
+          <!-- ROW-4 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">4</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="4"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="4" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="4">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-4 END -->
+
+          <!-- ROW-5 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">5</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="5"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="5" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="5">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-5 END -->
+
+          <!-- ROW-6 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">6</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="6"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="6" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="6">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-6 END -->
+
+          <!-- ROW-7 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">7</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="7"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="7" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="7">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-7 END -->
+
+          <!-- ROW-8 START -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">8</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="flourType" class="input-text additional-flour-text" data-id="8"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalFlourPercent" class="additional-flour-percent" min="0" max="100"
+                  step="1" data-id="8" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-flour-result bold" data-id="8">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-8 END -->
+        </article>
+
+        <!-- Flours FOOTER -->
+        <!-- White flour grid -->
+        <div class="white-flour-grid">
+          <div class="white-flour-cell-1">Основно брашно (бяло), (g):</div>
+          <div class="white-flour-cell-2" id="whiteFlour-flours-form-result"></div>
+          <div class="additional-flour-total">Общо:</div>
+          <div id="totalFlour-flours-form-result"></div>
+        </div>
+
+        <!-- ### Subcalculator - Ingredients ### -->
+        <div class="card-flours-row-header bold underline">
+          Други съставки
+        </div>
+
+        <article class="card-ingredients">
+          <!-- ROW-header START (Ingredients) -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a _top"></div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a _top bold comment">
+                (%)
+                <aside class="comment-box">% от количеството тесто;</aside>
+              </div>
+              <div class="card-flours-cell _2b _top bold">(g)</div>
+            </div>
+          </div>
+          <!-- ROW-header END (Ingredients) -->
+
+          <!-- ROW-1 START (Ingredients) -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">1</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="ingrType" class="input-text additional-ingr-text" data-id="1b"
+                  placeholder="...Семена..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalIngrPercent" class="additional-ingr-percent" min="0" max="100"
+                  step="1" data-id="1b" placeholder="пр.5" />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-ingredient-result bold" data-id="1b">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-1 END (Ingredients) -->
+
+          <!-- ROW-2 START (Ingredients) -->
+          <div class="card-flours-row">
+            <div class="card-flours-subrow _1">
+              <div class="card-flours-cell _1a">2</div>
+              <div class="card-flours-cell _1b">
+                <input type="text" name="ingrType" class="input-text additional-ingr-text" data-id="2b"
+                  placeholder="..." />
+              </div>
+            </div>
+            <div class="card-flours-subrow _2">
+              <div class="card-flours-cell _2a">
+                <input type="number" name="additionalIngrPercent" class="additional-ingr-percent" min="0" max="100"
+                  step="1" data-id="2b" placeholder="..." />
+              </div>
+              <div class="card-flours-cell _2b">
+                <span class="additional-ingredient-result bold" data-id="2b">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- ROW-2 END (Ingredients) -->
+        </article>
+
+        <!-- ##### Buttons Group (Flours & Ingredients) ##### -->
+        <div class="btns-group _flours">
+          <!-- Submit button -->
+          <button type="button" class="btn-submit" id="btn-submit-flours" title="Изчисляване на търсените стойности">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <circle cx="88" cy="148" r="10" />
+              <circle cx="128" cy="148" r="10" />
+              <circle cx="168" cy="148" r="10" />
+              <circle cx="88" cy="188" r="10" />
+              <circle cx="128" cy="188" r="10" />
+              <circle cx="168" cy="188" r="10" />
+            </svg>
+          </button>
+
+          <!-- Reset button -->
+          <button type="button" class="btn-reset" id="btn-reset-flours" title="Нулиране на полетата от текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path d="M192,64s-24-24-64-24C72,40,40,96,40,96" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <path d="M64,192s24,24,64,24c56,0,88-56,88-56" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="88 96 40 96 40 48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="168 160 216 160 216 208" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+
+          <!-- Save button -->
+          <button type="button" class="btn-save" id="btn-save-flours"
+            title="Запаметяване на стойностите от полетата на текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <path d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <line x1="152" y1="72" x2="96" y2="72" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+        </div>
+
+        <hr />
+      </form>
+
+      <!-- ##### Calculator (Corrections) ##### -->
+      <form class="calc-corrections" autocomplete="off">
+        <div class="correction-title">Корекции</div>
+
+        <!-- Correction subcard I -->
+        <article class="corrections-subcard-1">
+          <div class="cell-correction-1 _top">
+            Увеличаване на h с
+            <span>
+              <input type="number" name="hydratationIncrement" class="correction-hydr-percent"
+                id="hydratation-increment" min="0" max="100" step="1" placeholder="пр.3" />
+            </span>
+            %<br />се равнява на:
+          </div>
+          <div class="cell-correction-1 _bottom blue bold">
+            <span class="corrections-incr-result-water"></span>
+          </div>
+        </article>
+
+        <!-- Correction subcard II -->
+        <article class="corrections-subcard-2">
+          <div class="cell-correction-2 _top">
+            Намаляване на h с
+            <span>
+              <input type="number" name="hydratationDecrement" class="correction-hydr-percent"
+                id="hydratation-decrement" min="0" max="100" step="1" placeholder="пр.2" />
+            </span>
+            %<br />се равнява на:
+          </div>
+          <div class="cell-correction-2 red bold">
+            <span class="corrections-decr-result-flour"> </span>
+          </div>
+          <div class="cell-correction-2 green bold">
+            <span class="corrections-decr-result-salt"> </span>
+          </div>
+          <div class="cell-correction-2 purple comment">
+            <span class="corrections-decr-result-preferm"></span>
+            <aside class="comment-box">
+              Актуалният % на Прфб.,<br />
+              след добавяне на допълнително брашно;
+            </aside>
+          </div>
+        </article>
+
+        <!-- ##### Buttons Group (Main) ##### -->
+        <div class="btns-group _corrections">
+          <!-- Submit button -->
+          <button type="button" class="btn-submit" id="btn-submit-corrections"
+            title="Изчисляване на търсените стойности">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <circle cx="88" cy="148" r="10" />
+              <circle cx="128" cy="148" r="10" />
+              <circle cx="168" cy="148" r="10" />
+              <circle cx="88" cy="188" r="10" />
+              <circle cx="128" cy="188" r="10" />
+              <circle cx="168" cy="188" r="10" />
+            </svg>
+          </button>
+
+          <!-- Reset button -->
+          <button type="button" class="btn-reset" id="btn-reset-corrections"
+            title="Нулиране на полетата от текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path d="M192,64s-24-24-64-24C72,40,40,96,40,96" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <path d="M64,192s24,24,64,24c56,0,88-56,88-56" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="88 96 40 96 40 48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="168 160 216 160 216 208" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+
+          <!-- Save button -->
+          <button type="button" class="btn-save" id="btn-save-corrections"
+            title="Запаметяване на стойностите от полетата на текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <path d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <line x1="152" y1="72" x2="96" y2="72" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+        </div>
+
+        <hr />
+      </form>
+
+      <!-- ##### Calculator (Water) ##### -->
+      <form class="calc-water" autocomplete="off">
+        <div class="water-addition-title comment">
+          При тесто с висока хидратация
+          <aside class="comment-box">
+            При замесване на тесто <br />
+            с много висока хидратация, водата би <br />
+            могло да се добави на два пъти, <br />
+            с цел по-лесно хомогенизиране; <br />
+          </aside>
+        </div>
+
+        <!-- Water TOTAL row -->
+        <div class="water-addition-grid">
+          <div class="water-addition-total-amount outer-left-top-border">
+            Вода (общо), (g): <span class="total-water-check"></span>
           </div>
 
-          <hr />
-        </form>
-
-        <!-- ##### Calculator (Water) ##### -->
-        <form class="calc-water" autocomplete="off">
-          <div class="water-addition-title comment">
-            При тесто с висока хидратация
+          <!-- Water HEADER row -->
+          <div class="outer-left-border no-top-border"></div>
+          <div class="inner-left-border no-top-border">(g)</div>
+          <div class="outer-left-border no-top-border">
+            h<span class="superscript">тесто</span>, (%)
+          </div>
+          <!-- Water FIRST rox -->
+          <div class="outer-left-border">Вода':</div>
+          <div class="inner-left-border comment">
+            <span class="initial-water-result"></span>
             <aside class="comment-box">
-              При замесване на тесто <br />
-              с много висока хидратация, водата би <br />
-              могло да се добави на два пъти, <br />
-              с цел по-лесно хомогенизиране; <br />
+              Вода за първоначално <br />
+              добавяне, (g);
+            </aside>
+          </div>
+          <div class="outer-left-border comment">
+            <input type="number" name="initialDoughHydratation" class="water-addition-percent"
+              id="initial-dough-hydratation" min="0" max="125" step="1" placeholder="пр.68" />
+            <aside class="comment-box">
+              h на тестото след първоначалното <br />
+              добавяне на вода;
             </aside>
           </div>
 
-          <!-- Water TOTAL row -->
-          <div class="water-addition-grid">
-            <div class="water-addition-total-amount outer-left-top-border">
-              Вода (общо), (g): <span class="total-water-check"></span>
+          <!-- Water SECOND rox -->
+          <div class="outer-left-border">Вода'':</div>
+          <div class="inner-left-border comment">
+            <span class="secondary-water-result"></span>
+            <aside class="comment-box">
+              Вода за финално <br />
+              добавяне, (g);
+            </aside>
+          </div>
+          <div class="outer-left-border comment">
+            <span class="secondary-water-percent-result"></span>
+            <aside class="comment-box">
+              h на тестото след финалното <br />
+              добавяне на вода;
+            </aside>
+          </div>
+        </div>
+
+        <!-- ##### Buttons Group (Water) ##### -->
+        <div class="btns-group _water">
+          <!-- Submit button -->
+          <button type="button" class="btn-submit" id="btn-submit-water" title="Изчисляване на търсените стойности">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <circle cx="88" cy="148" r="10" />
+              <circle cx="128" cy="148" r="10" />
+              <circle cx="168" cy="148" r="10" />
+              <circle cx="88" cy="188" r="10" />
+              <circle cx="128" cy="188" r="10" />
+              <circle cx="168" cy="188" r="10" />
+            </svg>
+          </button>
+
+          <!-- Reset button -->
+          <button type="button" class="btn-reset" id="btn-reset-water" title="Нулиране на полетата от текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path d="M192,64s-24-24-64-24C72,40,40,96,40,96" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <path d="M64,192s24,24,64,24c56,0,88-56,88-56" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="88 96 40 96 40 48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="168 160 216 160 216 208" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+
+          <!-- Save button -->
+          <button type="button" class="btn-save" id="btn-save-water"
+            title="Запаметяване на стойностите от полетата на текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <path d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <line x1="152" y1="72" x2="96" y2="72" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+        </div>
+
+        <hr />
+      </form>
+    </section>
+
+    <!-- ########################### -->
+    <!-- ##### Page column III ##### -->
+    <section class="page-column">
+      <!-- ##### Calculator (Leaven) ##### -->
+      <form class="calc-leaven-feed" autocomplete="off">
+        <div class="card-header _leaven-feed">Подхранване на кваса</div>
+        <article class="card _leaven-feed">
+          <div class="card-body _leaven-feed">
+            <!-- Leaven - FIRST section -->
+            <div class="grid--2-cols">
+              <label class="grid-item bold comment" for="#">
+                Работен квас, (g):
+                <aside class="comment-box">
+                  Желано количество на работния квас, (g);
+                </aside>
+              </label>
+              <div class="grid-item inp">
+                <input type="number" name="workLeaven" class="work-leaven" id="work-leaven" min="0" step="1"
+                  placeholder="пр. ... 250" />
+              </div>
             </div>
 
-            <!-- Water HEADER row -->
-            <div class="outer-left-border no-top-border"></div>
-            <div class="inner-left-border no-top-border">(g)</div>
-            <div class="outer-left-border no-top-border">
-              h<span class="superscript">тесто</span>, (%)
-            </div>
-            <!-- Water FIRST rox -->
-            <div class="outer-left-border">Вода':</div>
-            <div class="inner-left-border comment">
-              <span class="initial-water-result"></span>
-              <aside class="comment-box">
-                Вода за първоначално <br />
-                добавяне, (g);
-              </aside>
-            </div>
-            <div class="outer-left-border comment">
-              <input
-                type="number"
-                name="initialDoughHydratation"
-                class="water-addition-percent"
-                id="initial-dough-hydratation"
-                min="0"
-                max="125"
-                step="1"
-                placeholder="пр.68"
-              />
-              <aside class="comment-box">
-                h на тестото след първоначалното <br />
-                добавяне на вода;
-              </aside>
+            <div class="row-empty"></div>
+
+            <div class="grid--2-cols _dashed">
+              <div class="grid-item top-left-dashed">
+                h<span class="superscript">кв</span>, (%):
+              </div>
+              <div class="grid-item top-dashed">
+                <span class="leaven-hydratation-predefined"></span>
+              </div>
             </div>
 
-            <!-- Water SECOND rox -->
-            <div class="outer-left-border">Вода'':</div>
-            <div class="inner-left-border comment">
-              <span class="secondary-water-result"></span>
-              <aside class="comment-box">
-                Вода за финално <br />
-                добавяне, (g);
-              </aside>
+            <div class="row-empty"></div>
+
+            <!-- Leaven - SECOND section -->
+            <div class="grid--2-cols">
+              <div class="grid-item leaven-feed-method bold comment">
+                Метод за подхранване на<br />кваса-„майка”
+                <aside class="comment-box">
+                  Чрез него се определя съотношението<br />
+                  между количеството Кв.м.<br />
+                  и количеството Бр.<br />
+                  за подхранване на Кв.м.
+                </aside>
+              </div>
+              <label class="grid-item bold comment" for="#">
+                Бр<span class="superscript">кв</span><span class="red-text equal-sign">&nbsp;&equals;&nbsp;</span>Кв.м.
+                <span class="red-text multiply-sign">&nbsp;&times;&nbsp;</span>
+                <aside class="comment-box">
+                  Кв.м. се подхранва с бр., чието количество <br />
+                  е равно на количеството кв.м., умножено <br />
+                  по съответното число (коефициент): <br />
+                  <span style="color: red">Бр<span class="superscript">кв</span></span>
+                  = <span style="color: red">Кв.м.</span> х
+                  <span style="color: red">К</span> ;
+                </aside>
+              </label>
+              <div class="grid-item inp">
+                <input type="number" name="feedRatio" class="work-leaven decimalOneDigit" id="feed-ratio" min="0"
+                  max="100    " step="0.1" placeholder="пр. ... 3.7" />
+              </div>
             </div>
-            <div class="outer-left-border comment">
-              <span class="secondary-water-percent-result"></span>
-              <aside class="comment-box">
-                h на тестото след финалното <br />
-                добавяне на вода;
-              </aside>
+
+            <div class="row-empty"></div>
+
+            <!-- Leaven - THIRD section (Version I) -->
+            <div class="grid--2-cols subcard-leaven _ver-1">
+              <div class="grid-item _version _1 bold italic comment">
+                Вариант І
+                <aside class="comment-box">
+                  Какво е необходимо, за да се получи точното <br />
+                  количество работен квас по рецепта ?;
+                </aside>
+              </div>
+
+              <div class="grid-item comment">
+                кв. м., (g)
+                <aside class="comment-box">
+                  Кв.м., който е нужно да бъде подхранен,<br />
+                  за да се получи точното количество<br />
+                  работен квас по рецепта;
+                </aside>
+              </div>
+              <div class="grid-item feed-mother _1">
+                <span class="feed-mother _1"></span>
+              </div>
+
+              <div class="grid-item comment">
+                бр<span class="superscript">п</span>, (g)
+                <aside class="comment-box">
+                  Брашно за подхранване на кв.м.;
+                </aside>
+              </div>
+              <div class="grid-item feed-flour _1">
+                <span class="feed-flour _1"></span>
+              </div>
+
+              <div class="grid-item comment">
+                в<span class="superscript">п</span>, (g)
+                <aside class="comment-box">
+                  Вода за подхранване на кв.м.;
+                </aside>
+              </div>
+              <div class="grid-item feed-water _1">
+                <span class="feed-water _1"></span>
+              </div>
+
+              <div class="grid-item">
+                <span class="feed-total _text">Общо</span>:
+              </div>
+              <div class="grid-item feed-total _1">
+                <span class="feed-total _1"></span>
+              </div>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <!-- Leaven - Fourth section (Version II) -->
+            <div class="grid--2-cols subcard-leaven _ver-2">
+              <div class="grid-item _version _2 bold italic comment">
+                Вариант ІI
+                <aside class="comment-box">
+                  Какво е необходимо,<br />
+                  за да се получи количеството <br />
+                  работен квас по рецепта + количество квас, <br />
+                  оставащо като „квас майка” за бъдещо използване ?;
+                </aside>
+              </div>
+
+              <div class="grid-item comment">
+                кв. м.*, (g)
+                <aside class="comment-box">
+                  Кв.м., който е нужно да бъде подхранен,<br />
+                  за да се получи количеството<br />
+                  работен квас по рецепта + количество квас,<br />
+                  оставащо като „квас майка” за бъдещо използване;
+                </aside>
+              </div>
+              <div class="grid-item feed-mother _2">
+                <span class="feed-mother _2"></span>
+              </div>
+
+              <div class="grid-item">
+                бр<span class="superscript">п</span>, (g)
+              </div>
+              <div class="grid-item feed-flour _2">
+                <span class="feed-flour _2"></span>
+              </div>
+
+              <div class="grid-item">
+                в<span class="superscript">п</span>, (g)
+              </div>
+              <div class="grid-item feed-water _2">
+                <span class="feed-water _2"></span>
+              </div>
+
+              <div class="grid-item">
+                <span class="feed-total _text">Общо</span>:
+              </div>
+              <div class="grid-item feed-total _2">
+                <span class="feed-total _2"></span>
+              </div>
+            </div>
+
+            <div class="grid--2-cols subcard-leaven-ver-2 _explained">
+              <div class="grid-item"></div>
+              <div class="grid-item">
+                <div class="explained">
+                  <div class="explained _equals"></div>
+                  <!-- <div class="explained _equals">&equals;</div> -->
+                  <div><span class="explained _A"></span></div>
+                  <div class="explained _plus"></div>
+                  <!-- <div class="explained _plus">&plus;</div> -->
+                  <div><span class="explained _B"></span></div>
+                </div>
+              </div>
             </div>
           </div>
+        </article>
 
-          <!-- ##### Buttons Group (Water) ##### -->
-          <div class="btns-group _water">
-            <!-- Submit button -->
-            <button
-              type="button"
-              class="btn-submit"
-              id="btn-submit-water"
-              title="Изчисляване на търсените стойности"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <rect
-                  x="80"
-                  y="64"
-                  width="96"
-                  height="48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <rect
-                  x="32"
-                  y="48"
-                  width="192"
-                  height="160"
-                  rx="8"
-                  transform="translate(256) rotate(90)"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <circle cx="88" cy="148" r="10" />
-                <circle cx="128" cy="148" r="10" />
-                <circle cx="168" cy="148" r="10" />
-                <circle cx="88" cy="188" r="10" />
-                <circle cx="128" cy="188" r="10" />
-                <circle cx="168" cy="188" r="10" />
-              </svg>
-            </button>
+        <!-- ##### Buttons Group (Main) ##### -->
+        <div class="btns-group _leaven-feed">
+          <!-- Submit button -->
+          <button type="button" class="btn-submit" id="btn-submit-leaven" title="Изчисляване на търсените стойности">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <rect x="80" y="64" width="96" height="48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <rect x="32" y="48" width="192" height="160" rx="8" transform="translate(256) rotate(90)" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <circle cx="88" cy="148" r="10" />
+              <circle cx="128" cy="148" r="10" />
+              <circle cx="168" cy="148" r="10" />
+              <circle cx="88" cy="188" r="10" />
+              <circle cx="128" cy="188" r="10" />
+              <circle cx="168" cy="188" r="10" />
+            </svg>
+          </button>
 
-            <!-- Reset button -->
-            <button
-              type="button"
-              class="btn-reset"
-              id="btn-reset-water"
-              title="Нулиране на полетата от текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M64,192s24,24,64,24c56,0,88-56,88-56"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="88 96 40 96 40 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="168 160 216 160 216 208"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
+          <!-- Reset button -->
+          <button type="button" class="btn-reset" id="btn-reset-leaven" title="Нулиране на полетата от текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path d="M192,64s-24-24-64-24C72,40,40,96,40,96" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <path d="M64,192s24,24,64,24c56,0,88-56,88-56" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="88 96 40 96 40 48" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+              <polyline points="168 160 216 160 216 208" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
 
-            <!-- Save button -->
-            <button
-              type="button"
-              class="btn-save"
-              id="btn-save-water"
-              title="Запаметяване на стойностите от полетата на текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <line
-                  x1="152"
-                  y1="72"
-                  x2="96"
-                  y2="72"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
-          </div>
+          <!-- Save button -->
+          <button type="button" class="btn-save" id="btn-save-leaven"
+            title="Запаметяване на стойностите от полетата на текущата форма">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
+                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <path d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="12" />
+              <line x1="152" y1="72" x2="96" y2="72" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="12" />
+            </svg>
+          </button>
+        </div>
 
-          <hr />
-        </form>
-      </section>
+        <hr />
+      </form>
 
-      <!-- ########################### -->
-      <!-- ##### Page column III ##### -->
-      <section class="page-column">
-        <!-- ##### Calculator (Leaven) ##### -->
-        <form class="calc-leaven-feed" autocomplete="off">
-          <div class="card-header _leaven-feed">Подхранване на кваса</div>
-          <article class="card _leaven-feed">
-            <div class="card-body _leaven-feed">
-              <!-- Leaven - FIRST section -->
-              <div class="grid--2-cols">
-                <label class="grid-item bold comment" for="#">
-                  Работен квас, (g):
-                  <aside class="comment-box">
-                    Желано количество на работния квас, (g);
-                  </aside>
-                </label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="workLeaven"
-                    class="work-leaven"
-                    id="work-leaven"
-                    min="0"
-                    step="1"
-                    placeholder="пр. ... 250"
-                  />
-                </div>
-              </div>
+      <!-- ################## -->
+      <!-- ##### LEGEND ##### -->
+      <aside id="legend-card" class="legend-card">
+        <div class="legend-title">Легенда:</div>
+        <div class="legend-variable-value">променлива стойност</div>
+        <div class="legend-target-value">търсена стойност</div>
+        <div class="legend-text-value">текстът може да се редактира</div>
+        <div>*Десетичният знак се изписва с „точка”</div>
+        <div>бр - брашно</div>
+        <div>в - вода</div>
+        <div>h / хидр. - хидратация</div>
+        <div>кв. м. - „квас майка” (неподхранен квас)</div>
+        <div>кв - работен квас (активен/зрял квас)</div>
+      </aside>
+    </section>
+  </main>
 
-              <div class="row-empty"></div>
+  <!-- ##### Page FOOTER -->
+  <footer>
+    <a href="../">Online Sourdough Calculator</a>
+  </footer>
 
-              <div class="grid--2-cols _dashed">
-                <div class="grid-item top-left-dashed">
-                  h<span class="superscript">кв</span>, (%):
-                </div>
-                <div class="grid-item top-dashed">
-                  <span class="leaven-hydratation-predefined"></span>
-                </div>
-              </div>
+  <script type="module" src="js-calc-1/script.js"></script>
+</body>
 
-              <div class="row-empty"></div>
-
-              <!-- Leaven - SECOND section -->
-              <div class="grid--2-cols">
-                <div class="grid-item leaven-feed-method bold comment">
-                  Метод за подхранване на<br />кваса-„майка”
-                  <aside class="comment-box">
-                    Чрез него се определя съотношението<br />
-                    между количеството Кв.м.<br />
-                    и количеството Бр.<br />
-                    за подхранване на Кв.м.
-                  </aside>
-                </div>
-                <label class="grid-item bold comment" for="#">
-                  Бр<span class="superscript">кв</span
-                  ><span class="red-text equal-sign">&nbsp;&equals;&nbsp;</span
-                  >Кв.м.
-                  <span class="red-text multiply-sign"
-                    >&nbsp;&times;&nbsp;</span
-                  >
-                  <aside class="comment-box">
-                    Кв.м. се подхранва с бр., чието количество <br />
-                    е равно на количеството кв.м., умножено <br />
-                    по съответното число (коефициент): <br />
-                    <span style="color: red"
-                      >Бр<span class="superscript">кв</span></span
-                    >
-                    = <span style="color: red">Кв.м.</span> х
-                    <span style="color: red">К</span> ;
-                  </aside>
-                </label>
-                <div class="grid-item inp">
-                  <input
-                    type="number"
-                    name="feedRatio"
-                    class="work-leaven"
-                    id="feed-ratio"
-                    min="0"
-                    max="100    "
-                    step="0.1"
-                    placeholder="пр. ... 3.7"
-                  />
-                </div>
-              </div>
-
-              <div class="row-empty"></div>
-
-              <!-- Leaven - THIRD section (Version I) -->
-              <div class="grid--2-cols subcard-leaven _ver-1">
-                <div class="grid-item _version _1 bold italic comment">
-                  Вариант І
-                  <aside class="comment-box">
-                    Какво е необходимо, за да се получи точното <br />
-                    количество работен квас по рецепта ?;
-                  </aside>
-                </div>
-
-                <div class="grid-item comment">
-                  кв. м., (g)
-                  <aside class="comment-box">
-                    Кв.м., който е нужно да бъде подхранен,<br />
-                    за да се получи точното количество<br />
-                    работен квас по рецепта;
-                  </aside>
-                </div>
-                <div class="grid-item feed-mother _1">
-                  <span class="feed-mother _1"></span>
-                </div>
-
-                <div class="grid-item comment">
-                  бр<span class="superscript">п</span>, (g)
-                  <aside class="comment-box">
-                    Брашно за подхранване на кв.м.;
-                  </aside>
-                </div>
-                <div class="grid-item feed-flour _1">
-                  <span class="feed-flour _1"></span>
-                </div>
-
-                <div class="grid-item comment">
-                  в<span class="superscript">п</span>, (g)
-                  <aside class="comment-box">
-                    Вода за подхранване на кв.м.;
-                  </aside>
-                </div>
-                <div class="grid-item feed-water _1">
-                  <span class="feed-water _1"></span>
-                </div>
-
-                <div class="grid-item">
-                  <span class="feed-total _text">Общо</span>:
-                </div>
-                <div class="grid-item feed-total _1">
-                  <span class="feed-total _1"></span>
-                </div>
-              </div>
-
-              <div class="row-empty"></div>
-
-              <!-- Leaven - Fourth section (Version II) -->
-              <div class="grid--2-cols subcard-leaven _ver-2">
-                <div class="grid-item _version _2 bold italic comment">
-                  Вариант ІI
-                  <aside class="comment-box">
-                    Какво е необходимо,<br />
-                    за да се получи количеството <br />
-                    работен квас по рецепта + количество квас, <br />
-                    оставащо като „квас майка” за бъдещо използване ?;
-                  </aside>
-                </div>
-
-                <div class="grid-item comment">
-                  кв. м.*, (g)
-                  <aside class="comment-box">
-                    Кв.м., който е нужно да бъде подхранен,<br />
-                    за да се получи количеството<br />
-                    работен квас по рецепта + количество квас,<br />
-                    оставащо като „квас майка” за бъдещо използване;
-                  </aside>
-                </div>
-                <div class="grid-item feed-mother _2">
-                  <span class="feed-mother _2"></span>
-                </div>
-
-                <div class="grid-item">
-                  бр<span class="superscript">п</span>, (g)
-                </div>
-                <div class="grid-item feed-flour _2">
-                  <span class="feed-flour _2"></span>
-                </div>
-
-                <div class="grid-item">
-                  в<span class="superscript">п</span>, (g)
-                </div>
-                <div class="grid-item feed-water _2">
-                  <span class="feed-water _2"></span>
-                </div>
-
-                <div class="grid-item">
-                  <span class="feed-total _text">Общо</span>:
-                </div>
-                <div class="grid-item feed-total _2">
-                  <span class="feed-total _2"></span>
-                </div>
-              </div>
-
-              <div class="grid--2-cols subcard-leaven-ver-2 _explained">
-                <div class="grid-item"></div>
-                <div class="grid-item">
-                  <div class="explained">
-                    <div class="explained _equals"></div>
-                    <!-- <div class="explained _equals">&equals;</div> -->
-                    <div><span class="explained _A"></span></div>
-                    <div class="explained _plus"></div>
-                    <!-- <div class="explained _plus">&plus;</div> -->
-                    <div><span class="explained _B"></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- ##### Buttons Group (Main) ##### -->
-          <div class="btns-group _leaven-feed">
-            <!-- Submit button -->
-            <button
-              type="button"
-              class="btn-submit"
-              id="btn-submit-leaven"
-              title="Изчисляване на търсените стойности"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <rect
-                  x="80"
-                  y="64"
-                  width="96"
-                  height="48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <rect
-                  x="32"
-                  y="48"
-                  width="192"
-                  height="160"
-                  rx="8"
-                  transform="translate(256) rotate(90)"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <circle cx="88" cy="148" r="10" />
-                <circle cx="128" cy="148" r="10" />
-                <circle cx="168" cy="148" r="10" />
-                <circle cx="88" cy="188" r="10" />
-                <circle cx="128" cy="188" r="10" />
-                <circle cx="168" cy="188" r="10" />
-              </svg>
-            </button>
-
-            <!-- Reset button -->
-            <button
-              type="button"
-              class="btn-reset"
-              id="btn-reset-leaven"
-              title="Нулиране на полетата от текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M192,64s-24-24-64-24C72,40,40,96,40,96"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M64,192s24,24,64,24c56,0,88-56,88-56"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="88 96 40 96 40 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <polyline
-                  points="168 160 216 160 216 208"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
-
-            <!-- Save button -->
-            <button
-              type="button"
-              class="btn-save"
-              id="btn-save-leaven"
-              title="Запаметяване на стойностите от полетата на текущата форма"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <rect width="256" height="256" fill="none" />
-                <path
-                  d="M216,91.31V208a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H164.69a8,8,0,0,1,5.65,2.34l43.32,43.32A8,8,0,0,1,216,91.31Z"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <path
-                  d="M80,216V152a8,8,0,0,1,8-8h80a8,8,0,0,1,8,8v64"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-                <line
-                  x1="152"
-                  y1="72"
-                  x2="96"
-                  y2="72"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <hr />
-        </form>
-
-        <!-- ################## -->
-        <!-- ##### LEGEND ##### -->
-        <aside id="legend-card" class="legend-card">
-          <div class="legend-title">Легенда:</div>
-          <div class="legend-variable-value">променлива стойност</div>
-          <div class="legend-target-value">търсена стойност</div>
-          <div class="legend-text-value">текстът може да се редактира</div>
-          <div>*Десетичният знак се изписва с „точка”</div>
-          <div>бр - брашно</div>
-          <div>в - вода</div>
-          <div>h / хидр. - хидратация</div>
-          <div>кв. м. - „квас майка” (неподхранен квас)</div>
-          <div>кв - работен квас (активен/зрял квас)</div>
-        </aside>
-      </section>
-    </main>
-
-    <!-- ##### Page FOOTER -->
-    <footer>
-      <a href="../">Online Sourdough Calculator</a>
-    </footer>
-
-    <script type="module" src="js-calc-1/script.js"></script>
-  </body>
 </html>
