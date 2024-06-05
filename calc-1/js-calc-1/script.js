@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
   getStorageAndCalculateCorrections();
   getStorageAndCalculateWater();
   getStorageAndCalculateLeaven();
+
+  // TEST
+  const decimalOneDigitInputs = document.querySelectorAll('input.decimalOneDigit');
+  decimalOneDigitInputs.forEach(el => {
+    el.addEventListener('focusout', () => validationForDecimalPoint(el));
+  });
+
+  function validationForDecimalPoint(numField) {
+    const numValue = numField.value;
+
+    if (numValue !== '' && numValue.includes('.') === false) {
+      numField.value = numValue + '.0';
+    }
+  }
 });
 
 // -- OnEnter form listeners
