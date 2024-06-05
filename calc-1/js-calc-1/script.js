@@ -21,9 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
   //   }
   // }
 
-  console.log('kjhkjh');
-  console.log('gkjgkj');
 });
+
+console.log('kjhkjh');
+
 
 // -- OnEnter form listeners
 addOnEnterFormListener(formMain, calculateAllForms);
