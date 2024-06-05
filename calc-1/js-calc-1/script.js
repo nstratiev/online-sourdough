@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
   //     numField.value = numValue + '.0';
   //   }
   // }
+
+  console.log('kjhkjh');
 });
 
 // -- OnEnter form listeners
