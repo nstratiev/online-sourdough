@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const decimalOneDigitInputs = document.querySelectorAll('input.decimalOneDigit');
   decimalOneDigitInputs.forEach(el => {
     el.addEventListener('focusout', () => validationForDecimalPoint(el));
+    console.log(el);
   });
 
   function validationForDecimalPoint(numField) {
