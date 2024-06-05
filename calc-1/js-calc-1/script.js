@@ -7,19 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
   getStorageAndCalculateLeaven();
 
   // TEST
-  const decimalOneDigitInputs = document.querySelectorAll('input.decimalOneDigit');
-  decimalOneDigitInputs.forEach(el => {
-    el.addEventListener('focusout', () => validationForDecimalPoint(el));
-    console.log(el);
-  });
+  // const decimalOneDigitInputs = document.querySelectorAll('input.decimalOneDigit');
+  // decimalOneDigitInputs.forEach(el => {
+  //   el.addEventListener('focusout', () => validationForDecimalPoint(el));
+  //   console.log(el);
+  // });
 
-  function validationForDecimalPoint(numField) {
-    const numValue = numField.value;
+  // function validationForDecimalPoint(numField) {
+  //   const numValue = numField.value;
 
-    if (numValue !== '' && numValue.includes('.') === false) {
-      numField.value = numValue + '.0';
-    }
-  }
+  //   if (numValue !== '' && numValue.includes('.') === false) {
+  //     numField.value = numValue + '.0';
+  //   }
+  // }
 });
 
 // -- OnEnter form listeners
