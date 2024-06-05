@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //   }
   // }
 
-  console.log('kjhkjh');
+  // console.log('kjhkjh');
 });
 
 // -- OnEnter form listeners
