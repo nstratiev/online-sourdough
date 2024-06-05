@@ -23,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-console.log('kjhkjh');
-
-
 // -- OnEnter form listeners
 addOnEnterFormListener(formMain, calculateAllForms);
 // addOnEnterFormListener(formMain, calcMainSubmit);
